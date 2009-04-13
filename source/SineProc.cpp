@@ -12,8 +12,16 @@
 #include "defaults.h"
 #endif
 
+float Sine::calcFreqFromMidi(const int note){
+  static const float stepSize = 1.059463094359f;
+  static const float baseNoteFreq = 440.0 * pow(0.5f, 6) * stepSize * stepSize * stepSize;
+  float noteFreq = baseNoteFreq * pow(stepSize, note);
+  printf("%f \n", noteFreq);
+  return noteFreq;
+}
+
 void Sine::noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta) {
-  mCurrentNote = note;
+  mCurrentNoteFreq = calcFreqFromMidi(note);
   mNotePlaying = true;
 }
 
@@ -56,7 +64,11 @@ VstInt32 Sine::processEvents (VstEvents* ev) {
 void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
   for(int channel = 0; channel< kNumOutputs; ++channel) {
     for(int frame = 0; frame < sampleFrames; frame ++) {
-      outputs[channel][frame] = 0.0f;  
+      if(mNotePlaying) {
+        outputs[channel][frame] = sin(frame/(44100/mCurrentNoteFreq)*M_PI*2);
+      } else {
+        outputs[channel][frame] = 0;
+      }
     }
   }
 }

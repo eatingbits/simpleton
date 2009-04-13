@@ -17,6 +17,8 @@
 #include "defaults.h"
 #endif
 
+#include <math.h>
+
 class Sine : public AudioEffectX {
 public:
   Sine(audioMasterCallback audioMaster);
@@ -56,7 +58,8 @@ public:
   virtual void setBlockSize(VstInt32 blockSize);
   
 private:
-  int mCurrentNote;
+  float Sine::calcFreqFromMidi(const int note);
+  float mCurrentNoteFreq;
   bool mNotePlaying;
   void initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);

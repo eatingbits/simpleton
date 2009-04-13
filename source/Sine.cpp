@@ -14,7 +14,7 @@ AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 
 Sine::Sine(audioMasterCallback audioMaster)
 : AudioEffectX(audioMaster, kNumPrograms, kNumParameters) {
-  mCurrentNote = 0;
+  mCurrentNoteFreq = 0;
   mNotePlaying = false;
   if(audioMaster != NULL) {
     setNumInputs(kNumInputs);
