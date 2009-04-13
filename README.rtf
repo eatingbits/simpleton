@@ -1,0 +1,36 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf330
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fmodern\fcharset77 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10300\viewh10340\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Thank you for using the VST plugin templates created by Teragon Audio!  These templates are designed to facilitate in the creation of VST effects and instruments, as well as to create an organized project layout for a cross-platform plugins  Inside this project, you'll find the following directories:\
+\
+mac - Files specific to compiling under Mac OSX\
+source - Source code for your plugin\
+vst - For VST source code\
+windows - Files specific to compiling under Microsoft Windows (currently just a placeholder directory)\
+resources - For bitmaps and other project resources (VSTGUI plugins only)\
+\
+Due to licensing restraints, these templates do not actually provide the VST or VSTGUI source code.  You must place the source code for the VST SDK and the VSTGUI SDK in the respective directories to build the plugin!\
+These templates were designed to work with the latest versions of the VST and VSTGUI SDK's (2.4, and 3.0 at time of writing).  Some errors still exist within these SDK's, and they may cause errors during compilation.  One such example is that plugguieditor.cpp redefines "struct ERect", so it has been removed from the build targets.  You may also find that you must edit Steinberg's VST code to get everything to compile without warnings, unfortunately.\
+\
+Since the VST SDK source tree has been reorganized as of version 2.4, I have changed these templates to reflect this organization.  Simply place the top level directories from your copy of the VST SDK in the "vst" directory (or, if you prefer, just the "pluginterfaces", "public.sdk", and "vstgui.sf" directories).\
+\
+In addition to changing default preprocessor definitions within your plugin's source, you may also have to manually set some other plugin properties from within Xcode.  This is done by right clicking on the target name, then going to "Get Info" (or, if you prefer, the "Project" menu option followed by "Edit Project Settings").  Under the Properties tag, make sure that the Executable and Identifier fields reflect your plugin.  Also, these plugins make use of the ORGANIZATIONNAME macro, which defaults to __CompanyName__.  You can change this value to reflect your actual organization (and thus, the default value inserted into these templates) by running the following command in a Terminal window:\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs26 \cf0 defaults write com.apple.Xcode PBXCustomTemplateMacroDefinitions '\{ "ORGANIZATIONNAME" = "Your Company"; \}'
+\f0\fs24 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+By default, the run scripts for this project will install your plugin in ~/Library/Audio/Plug-Ins/VST.  it will also append a unique build number (based on the current time) to the plugin name.  This is to facilitate in debugging with hosts that cache plugin executable data, so the host is forced to reload the plugin each build.\
+\
+Also, as of v2 of these templates, I have introduced a new file organization for the project's code.  I found it somewhat cumbersome to manage a slew of cross-referenced header files with different preprocessor defines and macros, so I've added a new file called "defaults.h" to each project to help developers store and organize all of a project's definitions in one place.  Also, the v2 templates now create universal binaries by default.\
+\
+Finally, if you find any problems with these templates, or have any suggestions for improvements, please email me at nik@teragon.org.  Thanks, and happy coding!\
+\
+-Nik Reiman\
+Teragon Audio\
+http://www.teragon.org}
