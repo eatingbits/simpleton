@@ -58,10 +58,4 @@ void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFram
   float *in_right = inputs[1];
   float *out_left = outputs[0];
   float *out_right = outputs[1];
-  
-  if(m_note_on) {
-    while(--sampleFrames >= 0) {
-      // Processing code goes here
-    }
-  }
 }
