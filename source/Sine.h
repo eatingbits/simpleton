@@ -56,6 +56,8 @@ public:
   virtual void setBlockSize(VstInt32 blockSize);
   
 private:
+  int mCurrentNote;
+  bool mNotePlaying;
   void initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff();

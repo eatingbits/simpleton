@@ -17,9 +17,9 @@ enum {
 static const int kProgramNameSize = 32;
 
 // TODO: Change these values to reflect your plugin's configuration
-static const unsigned long kUniqueId = 'XXXX';
-static const int kNumPrograms = 1;
-static const int kNumInputs = 2;
+static const unsigned long kUniqueId = '0667';
+static const int kNumPrograms = 0;
+static const int kNumInputs = 0;
 static const int kNumOutputs = 2;
 
 #endif

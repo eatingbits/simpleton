@@ -17,7 +17,6 @@
 		24294B6309914B7F0006810F /* vstplugmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5D09914B7F0006810F /* vstplugmain.cpp */; };
 		24294B8409914D9B0006810F /* defaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B8309914D9B0006810F /* defaults.h */; };
 		2454624909915C1400464AD3 /* SineProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454624809915C1400464AD3 /* SineProc.cpp */; };
-		24A483920926E8F400DC794C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A483900926E8F400DC794C /* Info.plist */; };
 		24A483930926E8F400DC794C /* PkgInfo in Resources */ = {isa = PBXBuildFile; fileRef = 24A483910926E8F400DC794C /* PkgInfo */; };
 		24D8290609A91ECA0093AEF8 /* xcode_vst_prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
@@ -191,7 +190,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24A483920926E8F400DC794C /* Info.plist in Resources */,
 				24A483930926E8F400DC794C /* PkgInfo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

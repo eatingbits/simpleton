@@ -13,12 +13,12 @@
 #endif
 
 void Sine::noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta) {
-  
-  // TODO: Add additional handling here
+  mCurrentNote = note;
+  mNotePlaying = true;
 }
 
 void Sine::noteOff() {
-  // TODO: Add additional handling here
+  mNotePlaying = false;
 }
 
 VstInt32 Sine::processEvents (VstEvents* ev) {
@@ -54,8 +54,9 @@ VstInt32 Sine::processEvents (VstEvents* ev) {
 }
 
 void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  float *in_left = inputs[0];
-  float *in_right = inputs[1];
-  float *out_left = outputs[0];
-  float *out_right = outputs[1];
+  for(int channel = 0; channel< kNumOutputs; ++channel) {
+    for(int frame = 0; frame < sampleFrames; frame ++) {
+      outputs[channel][frame] = 0.0f;  
+    }
+  }
 }
