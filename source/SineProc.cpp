@@ -27,6 +27,7 @@ void Sine::noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta) {
 
 void Sine::noteOff() {
   mNotePlaying = false;
+  mNoteFrame = 0;
 }
 
 VstInt32 Sine::processEvents (VstEvents* ev) {
@@ -62,13 +63,17 @@ VstInt32 Sine::processEvents (VstEvents* ev) {
 }
 
 void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  for(int channel = 0; channel< kNumOutputs; ++channel) {
-    for(int frame = 0; frame < sampleFrames; frame ++) {
+  //static float phaseOffset = 0;
+  
+  for(int frame = 0; frame < sampleFrames; frame ++) {
+    mNoteFrame++;
+    for(int channel = 0; channel< kNumOutputs; ++channel) {
       if(mNotePlaying) {
-        outputs[channel][frame] = sin(frame/(44100/mCurrentNoteFreq)*M_PI*2);
+        outputs[channel][frame] = sin( (mNoteFrame / (44100 / mCurrentNoteFreq) * 2*M_PI));// + phaseOffset );
       } else {
         outputs[channel][frame] = 0;
       }
     }
   }
+  //£phaseOffset = asin( outputs[0][sampleFrames-1] );// % static_cast<int>(44100 / mCurrentNoteFreq);
 }

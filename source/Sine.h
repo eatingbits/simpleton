@@ -61,6 +61,7 @@ private:
   float Sine::calcFreqFromMidi(const int note);
   float mCurrentNoteFreq;
   bool mNotePlaying;
+  unsigned long mNoteFrame;
   void initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff();
