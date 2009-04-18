@@ -132,9 +132,8 @@
 				24294B5A09914B7F0006810F /* audioeffect.h */,
 				24294B5C09914B7F0006810F /* audioeffectx.h */,
 			);
-			name = vstsdk2.4;
-			path = /Users/rickard/Develop/vst/vstsdk2.4;
-			sourceTree = "<absolute>";
+			path = vstsdk2.4;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
