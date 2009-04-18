@@ -99,13 +99,13 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FF77FD000F9A23980088999E /* Oscillator.cpp */,
+				FF77FD020F9A23980088999E /* OscState.cpp */,
+				FF77FD040F9A23980088999E /* Simpleton.cpp */,
 				FF288D3E0F9A2D4B00981249 /* SimpletonProc.cpp */,
 				FF77FCFF0F9A23980088999E /* defaults.h */,
-				FF77FD000F9A23980088999E /* Oscillator.cpp */,
 				FF77FD010F9A23980088999E /* Oscillator.h */,
-				FF77FD020F9A23980088999E /* OscState.cpp */,
 				FF77FD030F9A23980088999E /* OscState.h */,
-				FF77FD040F9A23980088999E /* Simpleton.cpp */,
 				FF77FD050F9A23980088999E /* Simpleton.h */,
 			);
 			name = Source;
@@ -122,15 +122,15 @@
 		24CFB71B07E7A1BC0081BD57 /* vstsdk2.4 */ = {
 			isa = PBXGroup;
 			children = (
-				FF726F510F90B5500098B1B2 /* aeffect.h */,
-				FF726F520F90B5500098B1B2 /* aeffectx.h */,
-				FF726F530F90B5500098B1B2 /* vstfxstore.h */,
 				24294B5909914B7F0006810F /* audioeffect.cpp */,
 				24294B5B09914B7F0006810F /* audioeffectx.cpp */,
 				24294B5D09914B7F0006810F /* vstplugmain.cpp */,
+				FF726F510F90B5500098B1B2 /* aeffect.h */,
+				FF726F520F90B5500098B1B2 /* aeffectx.h */,
 				24294B5809914B7F0006810F /* aeffeditor.h */,
 				24294B5A09914B7F0006810F /* audioeffect.h */,
 				24294B5C09914B7F0006810F /* audioeffectx.h */,
+				FF726F530F90B5500098B1B2 /* vstfxstore.h */,
 			);
 			path = vstsdk2.4;
 			sourceTree = "<group>";
