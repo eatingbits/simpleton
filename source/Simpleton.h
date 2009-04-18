@@ -1,11 +1,11 @@
 /*
- *  Sine - Sine.h
+ *  Simpleton - Simpleton.h
  *  Created by Rickard Lindroth on 4/11/09
- *  Copyright (c) 2009 __MyCompanyName__, All rights reserved
+ *  Copyright (c) 2009 eatingbits, All rights reserved
  */
 
-#ifndef __Sine_H
-#define __Sine_H
+#ifndef __Simpleton_H
+#define __Simpleton_H
 
 #include <stdio.h>
 
@@ -19,10 +19,10 @@
 
 #include <math.h>
 
-class Sine : public AudioEffectX {
+class Simpleton : public AudioEffectX {
 public:
-  Sine(audioMasterCallback audioMaster);
-  ~Sine();
+  Simpleton(audioMasterCallback audioMaster);
+  ~Simpleton();
   
   virtual VstInt32 canDo(char *text);
   virtual bool copyProgram(long destination);
@@ -58,7 +58,7 @@ public:
   virtual void setBlockSize(VstInt32 blockSize);
   
 private:
-  float Sine::calcFreqFromMidi(const int note);
+  float Simpleton::calcFreqFromMidi(const int note);
   float mCurrentNoteFreq;
   bool mNotePlaying;
   unsigned long mNoteFrame;

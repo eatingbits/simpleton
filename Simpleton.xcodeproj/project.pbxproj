@@ -7,43 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2407DEB9089929BA00EB68BF /* Sine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2407DEB6089929BA00EB68BF /* Sine.cpp */; };
-		2407DEBA089929BA00EB68BF /* Sine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2407DEB7089929BA00EB68BF /* Sine.h */; };
 		24294B5E09914B7F0006810F /* aeffeditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5809914B7F0006810F /* aeffeditor.h */; };
 		24294B5F09914B7F0006810F /* audioeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5909914B7F0006810F /* audioeffect.cpp */; };
 		24294B6009914B7F0006810F /* audioeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5A09914B7F0006810F /* audioeffect.h */; };
 		24294B6109914B7F0006810F /* audioeffectx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5B09914B7F0006810F /* audioeffectx.cpp */; };
 		24294B6209914B7F0006810F /* audioeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5C09914B7F0006810F /* audioeffectx.h */; };
 		24294B6309914B7F0006810F /* vstplugmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5D09914B7F0006810F /* vstplugmain.cpp */; };
-		24294B8409914D9B0006810F /* defaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B8309914D9B0006810F /* defaults.h */; };
-		2454624909915C1400464AD3 /* SineProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454624809915C1400464AD3 /* SineProc.cpp */; };
 		24A483930926E8F400DC794C /* PkgInfo in Resources */ = {isa = PBXBuildFile; fileRef = 24A483910926E8F400DC794C /* PkgInfo */; };
 		24D8290609A91ECA0093AEF8 /* xcode_vst_prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
+		FF288D3F0F9A2D4B00981249 /* SimpletonProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF288D3E0F9A2D4B00981249 /* SimpletonProc.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
+		FF77FD070F9A23980088999E /* defaults.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FCFF0F9A23980088999E /* defaults.h */; };
+		FF77FD080F9A23980088999E /* Oscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD000F9A23980088999E /* Oscillator.cpp */; };
+		FF77FD090F9A23980088999E /* Oscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD010F9A23980088999E /* Oscillator.h */; };
+		FF77FD0A0F9A23980088999E /* OscState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD020F9A23980088999E /* OscState.cpp */; };
+		FF77FD0B0F9A23980088999E /* OscState.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD030F9A23980088999E /* OscState.h */; };
+		FF77FD0C0F9A23980088999E /* Simpleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD040F9A23980088999E /* Simpleton.cpp */; };
+		FF77FD0D0F9A23980088999E /* Simpleton.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD050F9A23980088999E /* Simpleton.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		2407DE920899296600EB68BF /* Sine.vst */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sine.vst; sourceTree = BUILT_PRODUCTS_DIR; };
-		2407DEB6089929BA00EB68BF /* Sine.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Sine.cpp; path = source/Sine.cpp; sourceTree = "<group>"; };
-		2407DEB7089929BA00EB68BF /* Sine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Sine.h; path = source/Sine.h; sourceTree = "<group>"; };
+		2407DE920899296600EB68BF /* Simpleton.vst */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Simpleton.vst; sourceTree = BUILT_PRODUCTS_DIR; };
 		24294B5809914B7F0006810F /* aeffeditor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = aeffeditor.h; path = public.sdk/source/vst2.x/aeffeditor.h; sourceTree = "<group>"; };
 		24294B5909914B7F0006810F /* audioeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = audioeffect.cpp; path = public.sdk/source/vst2.x/audioeffect.cpp; sourceTree = "<group>"; };
 		24294B5A09914B7F0006810F /* audioeffect.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = audioeffect.h; path = public.sdk/source/vst2.x/audioeffect.h; sourceTree = "<group>"; };
 		24294B5B09914B7F0006810F /* audioeffectx.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = audioeffectx.cpp; path = public.sdk/source/vst2.x/audioeffectx.cpp; sourceTree = "<group>"; };
 		24294B5C09914B7F0006810F /* audioeffectx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = audioeffectx.h; path = public.sdk/source/vst2.x/audioeffectx.h; sourceTree = "<group>"; };
 		24294B5D09914B7F0006810F /* vstplugmain.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = vstplugmain.cpp; path = public.sdk/source/vst2.x/vstplugmain.cpp; sourceTree = "<group>"; };
-		24294B8309914D9B0006810F /* defaults.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = defaults.h; path = source/defaults.h; sourceTree = SOURCE_ROOT; };
-		2454624809915C1400464AD3 /* SineProc.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SineProc.cpp; path = source/SineProc.cpp; sourceTree = "<group>"; };
 		24A483900926E8F400DC794C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = mac/Info.plist; sourceTree = SOURCE_ROOT; };
 		24A483910926E8F400DC794C /* PkgInfo */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = PkgInfo; path = mac/PkgInfo; sourceTree = SOURCE_ROOT; };
 		24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = xcode_vst_prefix.h; path = mac/xcode_vst_prefix.h; sourceTree = SOURCE_ROOT; };
+		FF288D3E0F9A2D4B00981249 /* SimpletonProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonProc.cpp; path = source/SimpletonProc.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
+		FF77FCFF0F9A23980088999E /* defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaults.h; path = source/defaults.h; sourceTree = "<group>"; };
+		FF77FD000F9A23980088999E /* Oscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Oscillator.cpp; path = source/Oscillator.cpp; sourceTree = "<group>"; };
+		FF77FD010F9A23980088999E /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = source/Oscillator.h; sourceTree = "<group>"; };
+		FF77FD020F9A23980088999E /* OscState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscState.cpp; path = source/OscState.cpp; sourceTree = "<group>"; };
+		FF77FD030F9A23980088999E /* OscState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscState.h; path = source/OscState.h; sourceTree = "<group>"; };
+		FF77FD040F9A23980088999E /* Simpleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Simpleton.cpp; path = source/Simpleton.cpp; sourceTree = "<group>"; };
+		FF77FD050F9A23980088999E /* Simpleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Simpleton.h; path = source/Simpleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +99,14 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2407DEB6089929BA00EB68BF /* Sine.cpp */,
-				2454624809915C1400464AD3 /* SineProc.cpp */,
-				24294B8309914D9B0006810F /* defaults.h */,
-				2407DEB7089929BA00EB68BF /* Sine.h */,
+				FF288D3E0F9A2D4B00981249 /* SimpletonProc.cpp */,
+				FF77FCFF0F9A23980088999E /* defaults.h */,
+				FF77FD000F9A23980088999E /* Oscillator.cpp */,
+				FF77FD010F9A23980088999E /* Oscillator.h */,
+				FF77FD020F9A23980088999E /* OscState.cpp */,
+				FF77FD030F9A23980088999E /* OscState.h */,
+				FF77FD040F9A23980088999E /* Simpleton.cpp */,
+				FF77FD050F9A23980088999E /* Simpleton.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -102,7 +114,7 @@
 		19C28FB4FE9D528D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2407DE920899296600EB68BF /* Sine.vst */,
+				2407DE920899296600EB68BF /* Simpleton.vst */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,24 +143,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2407DEBA089929BA00EB68BF /* Sine.h in Headers */,
 				24294B5E09914B7F0006810F /* aeffeditor.h in Headers */,
 				24294B6009914B7F0006810F /* audioeffect.h in Headers */,
 				24294B6209914B7F0006810F /* audioeffectx.h in Headers */,
-				24294B8409914D9B0006810F /* defaults.h in Headers */,
 				24D8290609A91ECA0093AEF8 /* xcode_vst_prefix.h in Headers */,
 				FF726F540F90B5500098B1B2 /* aeffect.h in Headers */,
 				FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */,
 				FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */,
+				FF77FD070F9A23980088999E /* defaults.h in Headers */,
+				FF77FD090F9A23980088999E /* Oscillator.h in Headers */,
+				FF77FD0B0F9A23980088999E /* OscState.h in Headers */,
+				FF77FD0D0F9A23980088999E /* Simpleton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8D01CCC60486CAD60068D4B7 /* Sine */ = {
+		8D01CCC60486CAD60068D4B7 /* Simpleton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24BEAAED08919AE700E695F9 /* Build configuration list for PBXNativeTarget "Sine" */;
+			buildConfigurationList = 24BEAAED08919AE700E695F9 /* Build configuration list for PBXNativeTarget "Simpleton" */;
 			buildPhases = (
 				8D01CCC70486CAD60068D4B7 /* Headers */,
 				8D01CCC90486CAD60068D4B7 /* Resources */,
@@ -162,10 +176,10 @@
 			);
 			dependencies = (
 			);
-			name = Sine;
+			name = Simpleton;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = "FM-Chopper";
-			productReference = 2407DE920899296600EB68BF /* Sine.vst */;
+			productReference = 2407DE920899296600EB68BF /* Simpleton.vst */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -173,14 +187,14 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 24BEAAF108919AE700E695F9 /* Build configuration list for PBXProject "Sine" */;
+			buildConfigurationList = 24BEAAF108919AE700E695F9 /* Build configuration list for PBXProject "Simpleton" */;
 			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* FM-Chopper */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D01CCC60486CAD60068D4B7 /* Sine */,
+				8D01CCC60486CAD60068D4B7 /* Simpleton */,
 			);
 		};
 /* End PBXProject section */
@@ -240,11 +254,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2407DEB9089929BA00EB68BF /* Sine.cpp in Sources */,
 				24294B5F09914B7F0006810F /* audioeffect.cpp in Sources */,
 				24294B6109914B7F0006810F /* audioeffectx.cpp in Sources */,
 				24294B6309914B7F0006810F /* vstplugmain.cpp in Sources */,
-				2454624909915C1400464AD3 /* SineProc.cpp in Sources */,
+				FF77FD080F9A23980088999E /* Oscillator.cpp in Sources */,
+				FF77FD0A0F9A23980088999E /* OscState.cpp in Sources */,
+				FF77FD0C0F9A23980088999E /* Simpleton.cpp in Sources */,
+				FF288D3F0F9A2D4B00981249 /* SimpletonProc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +289,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = Sine;
+				PRODUCT_NAME = Simpleton;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -303,7 +319,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = Sine;
+				PRODUCT_NAME = Simpleton;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -337,7 +353,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24BEAAED08919AE700E695F9 /* Build configuration list for PBXNativeTarget "Sine" */ = {
+		24BEAAED08919AE700E695F9 /* Build configuration list for PBXNativeTarget "Simpleton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24BEAAEE08919AE700E695F9 /* Debug */,
@@ -346,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		24BEAAF108919AE700E695F9 /* Build configuration list for PBXProject "Sine" */ = {
+		24BEAAF108919AE700E695F9 /* Build configuration list for PBXProject "Simpleton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24BEAAF208919AE700E695F9 /* Debug */,

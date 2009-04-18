@@ -1,18 +1,18 @@
 /*
- *  Sine - Sine.cpp
+ *  Simpleton - Simpleton.cpp
  *  Created by Rickard Lindroth on 4/11/09
- *  Copyright (c) 2009 __MyCompanyName__, All rights reserved
+ *  Copyright (c) 2009 eatingbits, All rights reserved
  */
 
-#ifndef __Sine_H
-#include "Sine.h"
+#ifndef __Simpleton_H
+#include "Simpleton.h"
 #endif
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
-	return new Sine(audioMaster);
+	return new Simpleton(audioMaster);
 }
 
-Sine::Sine(audioMasterCallback audioMaster)
+Simpleton::Simpleton(audioMasterCallback audioMaster)
 : AudioEffectX(audioMaster, kNumPrograms, kNumParameters) {
   mCurrentNoteFreq = 0;
   mNoteFrame = 0;
@@ -29,10 +29,10 @@ Sine::Sine(audioMasterCallback audioMaster)
   suspend();
 }
 
-Sine::~Sine() {
+Simpleton::~Simpleton() {
 }
 
-VstInt32 Sine::canDo(char *text) {
+VstInt32 Simpleton::canDo(char *text) {
   // TODO: Fill in according to your plugin's capabilities
   if(!strcmp(text, "receiveVstEvents")) {
 		return 1;
@@ -48,16 +48,16 @@ VstInt32 Sine::canDo(char *text) {
 	return 0;
 }
 
-bool Sine::copyProgram(long destination) {
+bool Simpleton::copyProgram(long destination) {
   // TODO: Copy program to destination
   return false;
 }
 
-void Sine::initialize() {
+void Simpleton::initialize() {
   // TODO: Other plugin initialiazation goes here
 }
 
-VstInt32 Sine::getCurrentMidiProgram(VstInt32 channel, MidiProgramName *mpn) {
+VstInt32 Simpleton::getCurrentMidiProgram(VstInt32 channel, MidiProgramName *mpn) {
 	if(channel < 0 || channel >= 16 || mpn == NULL) {
 		return -1;
   }
@@ -67,12 +67,12 @@ VstInt32 Sine::getCurrentMidiProgram(VstInt32 channel, MidiProgramName *mpn) {
 	return prg;
 }
 
-bool Sine::getEffectName(char* name) {
-  strncpy(name, "Sine", kVstMaxEffectNameLen);
+bool Simpleton::getEffectName(char* name) {
+  strncpy(name, "Simpleton", kVstMaxEffectNameLen);
   return true;
 }
 
-bool Sine::getMidiKeyName(VstInt32 channel, MidiKeyName *key) {
+bool Simpleton::getMidiKeyName(VstInt32 channel, MidiKeyName *key) {
 	// TODO: Fill in this information
   // key->thisProgramIndex;		// >= 0. fill struct for this program index.
 	// key->thisKeyNumber;			// 0 - 127. fill struct for this key number.
@@ -82,29 +82,29 @@ bool Sine::getMidiKeyName(VstInt32 channel, MidiKeyName *key) {
 	return true;
 }
 
-VstInt32 Sine::getMidiProgramCategory(VstInt32 channel, MidiProgramCategory *category) {
+VstInt32 Simpleton::getMidiProgramCategory(VstInt32 channel, MidiProgramCategory *category) {
   // TODO: Get the MIDI program category
 	return 0;
 }
 
-VstInt32 Sine::getMidiProgramName(VstInt32 channel, MidiProgramName *mpn) {
+VstInt32 Simpleton::getMidiProgramName(VstInt32 channel, MidiProgramName *mpn) {
   // TODO: Return the MIDI program name
   return 0;
 }
 
-VstInt32 Sine::getNumMidiInputChannels() {
+VstInt32 Simpleton::getNumMidiInputChannels() {
   // TODO: Change this value for polyphonic synths
   return 1;
 }
 
-VstInt32 Sine::getNumMidiOutputChannels() {
+VstInt32 Simpleton::getNumMidiOutputChannels() {
   // TODO: Change this value if you are sending MIDI output back to the host
   return 0;
 }
 
-bool Sine::getOutputProperties(VstInt32 index, VstPinProperties *properties) {
+bool Simpleton::getOutputProperties(VstInt32 index, VstPinProperties *properties) {
   if(index < kNumOutputs) {
-    sprintf(properties->label, "%1ld Out", index + 1);
+    sprintf(properties->label, "%1ld Out", static_cast<long int>(index + 1));
 		properties->flags = kVstPinIsActive;
 		if(index < 2) {
 			properties->flags |= kVstPinIsStereo;
@@ -114,7 +114,7 @@ bool Sine::getOutputProperties(VstInt32 index, VstPinProperties *properties) {
   return false;
 }
 
-float Sine::getParameter(VstInt32 index) {
+float Simpleton::getParameter(VstInt32 index) {
   switch(index) {
     // TODO: Add other parameter cases here
     default:
@@ -122,7 +122,7 @@ float Sine::getParameter(VstInt32 index) {
   }
 }
 
-void Sine::getParameterDisplay(VstInt32 index, char *text) {
+void Simpleton::getParameterDisplay(VstInt32 index, char *text) {
   switch(index) {
     // TODO: Add other parameter cases here
     default:
@@ -131,7 +131,7 @@ void Sine::getParameterDisplay(VstInt32 index, char *text) {
   }
 }
 
-void Sine::getParameterLabel(VstInt32 index, char *text) {
+void Simpleton::getParameterLabel(VstInt32 index, char *text) {
   switch(index) {
     // TODO: Add other parameter cases here
     default:
@@ -140,7 +140,7 @@ void Sine::getParameterLabel(VstInt32 index, char *text) {
   }
 }
 
-void Sine::getParameterName(VstInt32 index, char *text) {
+void Simpleton::getParameterName(VstInt32 index, char *text) {
   switch(index) {
     // TODO: Add other parameter cases here
     default:
@@ -149,43 +149,43 @@ void Sine::getParameterName(VstInt32 index, char *text) {
   }
 }
 
-VstPlugCategory Sine::getPlugCategory() { 
+VstPlugCategory Simpleton::getPlugCategory() { 
   return kPlugCategSynth;
 }
 
-bool Sine::getProductString(char* text) {
+bool Simpleton::getProductString(char* text) {
   // TODO: Replace with actual description of your synth
-  strncpy(text, "Sine", kVstMaxProductStrLen);
+  strncpy(text, "Simpleton", kVstMaxProductStrLen);
   return true;
 }
 
-void Sine::getProgramName(char *name) {
+void Simpleton::getProgramName(char *name) {
 }
 
-bool Sine::getProgramNameIndexed(VstInt32 category, VstInt32 index, char *text) {
+bool Simpleton::getProgramNameIndexed(VstInt32 category, VstInt32 index, char *text) {
   // TODO: Return program name for index
   return false;
 }
 
-bool Sine::getVendorString(char* text) {
-  strncpy(text, "__MyCompanyName__", kVstMaxVendorStrLen);
+bool Simpleton::getVendorString(char* text) {
+  strncpy(text, "eatingbits", kVstMaxVendorStrLen);
   return true;
 }
 
-VstInt32 Sine::getVendorVersion() {
+VstInt32 Simpleton::getVendorVersion() {
   return 1000;
 }
 
-bool Sine::hasMidiProgramsChanged(VstInt32 channel) {
+bool Simpleton::hasMidiProgramsChanged(VstInt32 channel) {
   return false;
 }
 
-void Sine::setBlockSize(VstInt32 blockSize) {
+void Simpleton::setBlockSize(VstInt32 blockSize) {
   // TODO: Handle this call if necessary
 	AudioEffectX::setBlockSize(blockSize);
 }
 
-void Sine::setParameter(VstInt32 index, float value) {
+void Simpleton::setParameter(VstInt32 index, float value) {
   switch(index) {
     // TODO: Add other parameter cases here
     default:
@@ -193,13 +193,13 @@ void Sine::setParameter(VstInt32 index, float value) {
   }
 }
 
-void Sine::setProgram(VstInt32 index) {
+void Simpleton::setProgram(VstInt32 index) {
   // TOOD: Set local variables based on program parameters
 }
 
-void Sine::setProgramName(char *name) {
+void Simpleton::setProgramName(char *name) {
 }
 
-void Sine::setSampleRate(float sampleRate) {
+void Simpleton::setSampleRate(float sampleRate) {
 	AudioEffectX::setSampleRate(sampleRate);
 }
