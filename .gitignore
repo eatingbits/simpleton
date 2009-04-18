@@ -1,4 +1,5 @@
-build
-rickard.*
-nik.*
 *~
+build
+.DS_Store
+*.pbxuser
+*.perspectivev3
