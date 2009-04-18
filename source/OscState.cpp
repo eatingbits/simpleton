@@ -1,0 +1,44 @@
+/*
+ *  osc_state.cpp
+ *  Sine
+ *
+ *  Created by Rickard Lindroth on 4/18/09.
+ *  Copyright 2009 eatingbits. All rights reserved.
+ *
+ */
+
+#ifndef __OscState_H
+#include "osc_state.h"
+#endif
+
+OscState::OscState() {
+  
+}
+
+OscState::~OscState() {
+  
+}
+
+const float OscState::getAmplitude() {
+  return mAplitude;
+}
+
+void OscState::setAmplitude(const float amplitude) {
+  mAmplitude = amplitude;
+}
+
+const float OscState::getFrequency() {
+  return mFrequency;
+}
+
+void OscState::setFrequency(const float frequency) {
+  mFrequency = frequency;
+}
+
+const float OscState::getPosition() {
+  return mPosition;
+}
+
+void OscState::setPosition(const float position) {
+  mPosition = position;
+}
