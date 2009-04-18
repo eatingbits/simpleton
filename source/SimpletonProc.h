@@ -1,18 +1,18 @@
 /*
- *  Sine - SineProc.cpp
+ *  Simpleton - SimpletonProc.cpp
  *  Created by Rickard Lindroth on 4/11/09
- *  Copyright (c) 2009 __MyCompanyName__, All rights reserved
+ *  Copyright (c) 2009 eatingbits, All rights reserved
  */
 
-#ifndef __Sine_H
-#include "Sine.h"
+#ifndef __Simpleton_H
+#include "Simpleton.h"
 #endif
 
 #ifndef __defaults_H
 #include "defaults.h"
 #endif
 
-float Sine::calcFreqFromMidi(const int note){
+float Simpleton::calcFreqFromMidi(const int note){
   static const float stepSize = 1.059463094359f;
   static const float baseNoteFreq = 440.0 * pow(0.5f, 6) * stepSize * stepSize * stepSize;
   float noteFreq = baseNoteFreq * pow(stepSize, note);
@@ -20,17 +20,17 @@ float Sine::calcFreqFromMidi(const int note){
   return noteFreq;
 }
 
-void Sine::noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta) {
+void Simpleton::noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta) {
   mCurrentNoteFreq = calcFreqFromMidi(note);
   mNotePlaying = true;
 }
 
-void Sine::noteOff() {
+void Simpleton::noteOff() {
   mNotePlaying = false;
   mNoteFrame = 0;
 }
 
-VstInt32 Sine::processEvents (VstEvents* ev) {
+VstInt32 Simpleton::processEvents (VstEvents* ev) {
 	for(VstInt32 i = 0; i < ev->numEvents; i++) {
 		if((ev->events[i])->type != kVstMidiType) {
 			continue;
@@ -62,8 +62,7 @@ VstInt32 Sine::processEvents (VstEvents* ev) {
 	return 1;
 }
 
-void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  //static float phaseOffset = 0;
+void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
   
   for(int frame = 0; frame < sampleFrames; frame ++) {
     mNoteFrame++;
@@ -75,5 +74,4 @@ void Sine::processReplacing(float **inputs, float **outputs, VstInt32 sampleFram
       }
     }
   }
-  //£phaseOffset = asin( outputs[0][sampleFrames-1] );// % static_cast<int>(44100 / mCurrentNoteFreq);
 }

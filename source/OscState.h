@@ -1,6 +1,6 @@
 /*
  *  osc_state.h
- *  Sine
+ *  Simpleton
  *
  *  Created by Rickard Lindroth on 4/18/09.
  *  Copyright 2009 eatingbits. All rights reserved.
@@ -15,16 +15,16 @@ class OscState {
   
 public:
   const float getAmplitude():
-  void setAmplitude(const float);
+  void setAmplitude(const float amplitude);
   
   const float getFrequency();
-  void setFrequency(const float);
+  void setFrequency(const float frequency);
   
   const float getPosition();
-  void setPosition();
+  void setPosition(const float position);
   
 private:
-  float mAplitude;
+  float mAmplitude;
   float mFrequency;
   float mPosition;
 };

@@ -1,6 +1,6 @@
 /*
  *  osc_state.cpp
- *  Sine
+ *  Simpleton
  *
  *  Created by Rickard Lindroth on 4/18/09.
  *  Copyright 2009 eatingbits. All rights reserved.
@@ -8,7 +8,7 @@
  */
 
 #ifndef __OscState_H
-#include "osc_state.h"
+#include "OscState.h"
 #endif
 
 OscState::OscState() {
