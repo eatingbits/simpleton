@@ -14,7 +14,7 @@ class OscState {
   ~OscState();
   
 public:
-  const float getAmplitude():
+  const float getAmplitude();
   void setAmplitude(const float amplitude);
   
   const float getFrequency();

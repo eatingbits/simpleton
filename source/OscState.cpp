@@ -20,7 +20,7 @@ OscState::~OscState() {
 }
 
 const float OscState::getAmplitude() {
-  return mAplitude;
+  return mAmplitude;
 }
 
 void OscState::setAmplitude(const float amplitude) {
