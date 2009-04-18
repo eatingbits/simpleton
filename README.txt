@@ -1,8 +1,6 @@
-Simpleton
+Simpleton is a simple VST instrument plugin (VSTi).
 
-This is a simple vst instrument plugin (VSTi).
-
-The goal is a synth with:
--polyphony
--multi-timbre voice generation
--basic envelopes
+The goal is to create a synth with the following features:
+ - polyphony
+ - multi-timbral voice generation
+ - basic envelopes
