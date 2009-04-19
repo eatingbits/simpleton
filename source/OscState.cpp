@@ -19,7 +19,7 @@ OscState::~OscState() {
   
 }
 
-const float OscState::getAmplitude() {
+const float OscState::getAmplitude() const{
   return mAmplitude;
 }
 
@@ -27,7 +27,7 @@ void OscState::setAmplitude(const float amplitude) {
   mAmplitude = amplitude;
 }
 
-const float OscState::getFrequency() {
+const float OscState::getFrequency() const{
   return mFrequency;
 }
 
@@ -35,7 +35,7 @@ void OscState::setFrequency(const float frequency) {
   mFrequency = frequency;
 }
 
-const float OscState::getPosition() {
+const float OscState::getPosition() const{
   return mPosition;
 }
 

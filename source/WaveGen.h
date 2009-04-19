@@ -10,11 +10,15 @@
 #ifndef __WaveGen_H
 #define __WaveGen_H
 
+#ifndef __Wave__H
+#include "Wave.h"
+#endif
+
 class WaveGen {
+public:  
   WaveGen() {};
   virtual ~WaveGen() {};
-public:
-  virtual const float *period generatePeriod() = 0;
+  virtual const Wave& generatePeriod(const float frequency, const int periodLength) = 0;
 };
 
 #endif

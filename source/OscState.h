@@ -10,17 +10,17 @@
 #define __OscState_H
 
 class OscState {
+public:
   OscState();
   ~OscState();
   
-public:
-  const float getAmplitude();
+  const float getAmplitude() const;
   void setAmplitude(const float amplitude);
   
-  const float getFrequency();
+  const float getFrequency() const;
   void setFrequency(const float frequency);
   
-  const float getPosition();
+  const float getPosition() const;
   void setPosition(const float position);
   
 private:
