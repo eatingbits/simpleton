@@ -11,7 +11,7 @@
 #include "SineGen.h"
 #endif
 
-SineGen::SineGen() {
+SineGen::SineGen() : WaveGen() {
 
 }
 

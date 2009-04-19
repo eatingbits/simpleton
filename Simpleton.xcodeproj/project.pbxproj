@@ -16,6 +16,8 @@
 		24A483930926E8F400DC794C /* PkgInfo in Resources */ = {isa = PBXBuildFile; fileRef = 24A483910926E8F400DC794C /* PkgInfo */; };
 		24D8290609A91ECA0093AEF8 /* xcode_vst_prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
+		FF1ED9970F9BBA7100851E29 /* SineOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF1ED9950F9BBA7100851E29 /* SineOscillator.h */; };
+		FF1ED9980F9BBA7100851E29 /* SineOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
@@ -47,6 +49,8 @@
 		24A483900926E8F400DC794C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = mac/Info.plist; sourceTree = SOURCE_ROOT; };
 		24A483910926E8F400DC794C /* PkgInfo */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = PkgInfo; path = mac/PkgInfo; sourceTree = SOURCE_ROOT; };
 		24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = xcode_vst_prefix.h; path = mac/xcode_vst_prefix.h; sourceTree = SOURCE_ROOT; };
+		FF1ED9950F9BBA7100851E29 /* SineOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineOscillator.h; path = source/SineOscillator.h; sourceTree = "<group>"; };
+		FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineOscillator.cpp; path = source/SineOscillator.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				FF9E2E2C0F9B57870032801F /* Wave.cpp */,
 				FF9E2E2D0F9B57870032801F /* Wave.h */,
 				FF9E2E2E0F9B57870032801F /* WaveGen.h */,
+				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
+				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 				FF9E2E370F9B57870032801F /* SineGen.h in Headers */,
 				FF9E2E390F9B57870032801F /* Wave.h in Headers */,
 				FF9E2E3A0F9B57870032801F /* WaveGen.h in Headers */,
+				FF1ED9970F9BBA7100851E29 /* SineOscillator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +324,7 @@
 				FF9E2E350F9B57870032801F /* SimpletonProc.cpp in Sources */,
 				FF9E2E360F9B57870032801F /* SineGen.cpp in Sources */,
 				FF9E2E380F9B57870032801F /* Wave.cpp in Sources */,
+				FF1ED9980F9BBA7100851E29 /* SineOscillator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

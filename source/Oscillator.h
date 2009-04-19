@@ -16,7 +16,7 @@
 
 class Oscillator {
 public:
-  Oscillator() {};
+  Oscillator(float *output) {};
   virtual ~Oscillator() {};
   virtual void process(OscState &state) = 0;
 };

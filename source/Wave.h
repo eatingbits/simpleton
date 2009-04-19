@@ -3,7 +3,7 @@
  *  Simpleton
  *
  *  Created by Rickard Lindroth on 4/19/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
+ *  Copyright 2009 eatingbits. All rights reserved.
  *
  */
 
@@ -16,10 +16,12 @@ public:
   ~Wave();
   const float getFrequency() const;
   const int getPeriodLength() const;
+  const float* getWave() const;
   
 private:
   const float mFrequency;
   const int mPeriodLength;
+  const float *mWave;
 };
 
 #endif
