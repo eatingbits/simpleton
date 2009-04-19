@@ -21,12 +21,12 @@
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
 		FF77FD070F9A23980088999E /* defaults.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FCFF0F9A23980088999E /* defaults.h */; };
-		FF77FD080F9A23980088999E /* Oscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD000F9A23980088999E /* Oscillator.cpp */; };
 		FF77FD090F9A23980088999E /* Oscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD010F9A23980088999E /* Oscillator.h */; };
 		FF77FD0A0F9A23980088999E /* OscState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD020F9A23980088999E /* OscState.cpp */; };
 		FF77FD0B0F9A23980088999E /* OscState.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD030F9A23980088999E /* OscState.h */; };
 		FF77FD0C0F9A23980088999E /* Simpleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF77FD040F9A23980088999E /* Simpleton.cpp */; };
 		FF77FD0D0F9A23980088999E /* Simpleton.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77FD050F9A23980088999E /* Simpleton.h */; };
+		FF9E2D2E0F9B3E210032801F /* WaveGen.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2D2C0F9B3E210032801F /* WaveGen.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +46,12 @@
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
 		FF77FCFF0F9A23980088999E /* defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaults.h; path = source/defaults.h; sourceTree = "<group>"; };
-		FF77FD000F9A23980088999E /* Oscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Oscillator.cpp; path = source/Oscillator.cpp; sourceTree = "<group>"; };
 		FF77FD010F9A23980088999E /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = source/Oscillator.h; sourceTree = "<group>"; };
 		FF77FD020F9A23980088999E /* OscState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscState.cpp; path = source/OscState.cpp; sourceTree = "<group>"; };
 		FF77FD030F9A23980088999E /* OscState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscState.h; path = source/OscState.h; sourceTree = "<group>"; };
 		FF77FD040F9A23980088999E /* Simpleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Simpleton.cpp; path = source/Simpleton.cpp; sourceTree = "<group>"; };
 		FF77FD050F9A23980088999E /* Simpleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Simpleton.h; path = source/Simpleton.h; sourceTree = "<group>"; };
+		FF9E2D2C0F9B3E210032801F /* WaveGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveGen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,6 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				FF77FD000F9A23980088999E /* Oscillator.cpp */,
 				FF77FD020F9A23980088999E /* OscState.cpp */,
 				FF77FD040F9A23980088999E /* Simpleton.cpp */,
 				FF288D3E0F9A2D4B00981249 /* SimpletonProc.cpp */,
@@ -107,6 +106,7 @@
 				FF77FD010F9A23980088999E /* Oscillator.h */,
 				FF77FD030F9A23980088999E /* OscState.h */,
 				FF77FD050F9A23980088999E /* Simpleton.h */,
+				FF9E2D2C0F9B3E210032801F /* WaveGen.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -153,6 +153,7 @@
 				FF77FD090F9A23980088999E /* Oscillator.h in Headers */,
 				FF77FD0B0F9A23980088999E /* OscState.h in Headers */,
 				FF77FD0D0F9A23980088999E /* Simpleton.h in Headers */,
+				FF9E2D2E0F9B3E210032801F /* WaveGen.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +257,6 @@
 				24294B5F09914B7F0006810F /* audioeffect.cpp in Sources */,
 				24294B6109914B7F0006810F /* audioeffectx.cpp in Sources */,
 				24294B6309914B7F0006810F /* vstplugmain.cpp in Sources */,
-				FF77FD080F9A23980088999E /* Oscillator.cpp in Sources */,
 				FF77FD0A0F9A23980088999E /* OscState.cpp in Sources */,
 				FF77FD0C0F9A23980088999E /* Simpleton.cpp in Sources */,
 				FF288D3F0F9A2D4B00981249 /* SimpletonProc.cpp in Sources */,

@@ -67,7 +67,7 @@ VstInt32 Simpleton::getCurrentMidiProgram(VstInt32 channel, MidiProgramName *mpn
 	return prg;
 }
 
-bool Simpleton::getEffectName(char* name) {
+bool Simpleton::getEffectName(char *name) {
   strncpy(name, "Simpleton", kVstMaxEffectNameLen);
   return true;
 }
@@ -153,7 +153,7 @@ VstPlugCategory Simpleton::getPlugCategory() {
   return kPlugCategSynth;
 }
 
-bool Simpleton::getProductString(char* text) {
+bool Simpleton::getProductString(char *text) {
   // TODO: Replace with actual description of your synth
   strncpy(text, "Simpleton", kVstMaxProductStrLen);
   return true;
@@ -167,7 +167,7 @@ bool Simpleton::getProgramNameIndexed(VstInt32 category, VstInt32 index, char *t
   return false;
 }
 
-bool Simpleton::getVendorString(char* text) {
+bool Simpleton::getVendorString(char *text) {
   strncpy(text, "eatingbits", kVstMaxVendorStrLen);
   return true;
 }
