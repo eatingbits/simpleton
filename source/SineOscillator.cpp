@@ -12,7 +12,6 @@
 #endif
 
 SineOscillator::SineOscillator(float *output) : Oscillator(output) {
-  mPeriodGenerator = new SineGen();
 }
 
 SineOscillator::~SineOscillator() {

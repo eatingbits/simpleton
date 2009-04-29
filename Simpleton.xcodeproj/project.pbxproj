@@ -21,7 +21,6 @@
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
-		FF9E2E2F0F9B57870032801F /* defaults.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E230F9B57870032801F /* defaults.h */; };
 		FF9E2E300F9B57870032801F /* Oscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E240F9B57870032801F /* Oscillator.h */; };
 		FF9E2E310F9B57870032801F /* OscState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2E250F9B57870032801F /* OscState.cpp */; };
 		FF9E2E320F9B57870032801F /* OscState.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E260F9B57870032801F /* OscState.h */; };
@@ -54,7 +53,6 @@
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
-		FF9E2E230F9B57870032801F /* defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaults.h; path = source/defaults.h; sourceTree = "<group>"; };
 		FF9E2E240F9B57870032801F /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = source/Oscillator.h; sourceTree = "<group>"; };
 		FF9E2E250F9B57870032801F /* OscState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscState.cpp; path = source/OscState.cpp; sourceTree = "<group>"; };
 		FF9E2E260F9B57870032801F /* OscState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscState.h; path = source/OscState.h; sourceTree = "<group>"; };
@@ -126,20 +124,19 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				FF9E2E230F9B57870032801F /* defaults.h */,
-				FF9E2E240F9B57870032801F /* Oscillator.h */,
 				FF9E2E250F9B57870032801F /* OscState.cpp */,
-				FF9E2E260F9B57870032801F /* OscState.h */,
 				FF9E2E270F9B57870032801F /* Simpleton.cpp */,
-				FF9E2E280F9B57870032801F /* Simpleton.h */,
 				FF9E2E290F9B57870032801F /* SimpletonProc.cpp */,
 				FF9E2E2A0F9B57870032801F /* SineGen.cpp */,
-				FF9E2E2B0F9B57870032801F /* SineGen.h */,
+				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
 				FF9E2E2C0F9B57870032801F /* Wave.cpp */,
+				FF9E2E240F9B57870032801F /* Oscillator.h */,
+				FF9E2E260F9B57870032801F /* OscState.h */,
+				FF9E2E280F9B57870032801F /* Simpleton.h */,
+				FF9E2E2B0F9B57870032801F /* SineGen.h */,
+				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
 				FF9E2E2D0F9B57870032801F /* Wave.h */,
 				FF9E2E2E0F9B57870032801F /* WaveGen.h */,
-				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
-				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 				FF726F540F90B5500098B1B2 /* aeffect.h in Headers */,
 				FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */,
 				FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */,
-				FF9E2E2F0F9B57870032801F /* defaults.h in Headers */,
 				FF9E2E300F9B57870032801F /* Oscillator.h in Headers */,
 				FF9E2E320F9B57870032801F /* OscState.h in Headers */,
 				FF9E2E340F9B57870032801F /* Simpleton.h in Headers */,
@@ -359,7 +355,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "../vstsdk2.4/**";
 				INFOPLIST_FILE = mac/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/VST/";
 				LIBRARY_SEARCH_PATHS = "";
@@ -393,7 +388,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "/vstsdk2.4/**";
 				INFOPLIST_FILE = mac/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/VST/";
 				LIBRARY_SEARCH_PATHS = "";
@@ -416,7 +410,7 @@
 				ARCHS = "$(NATIVE_ARCH)";
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "/vstsdk2.4/**";
+				HEADER_SEARCH_PATHS = "vstsdk2.4/**";
 			};
 			name = Debug;
 		};
@@ -427,6 +421,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = "vstsdk2.4/**";
 			};
 			name = Release;
 		};

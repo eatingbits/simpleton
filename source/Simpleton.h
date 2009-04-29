@@ -7,17 +7,22 @@
 #ifndef __Simpleton_H
 #define __Simpleton_H
 
+#include <math.h>
 #include <stdio.h>
 
 #ifndef __audioeffectx__
 #include "audioeffectx.h"
 #endif
 
-#ifndef __defaults_h__
-#include "defaults.h"
-#endif
+enum {
+  // kFirstParameter = 0,
+  kNumParameters
+};
 
-#include <math.h>
+static const unsigned long kUniqueId = 'SIMP';
+static const int kNumPrograms = 0;
+static const int kNumInputs = 0;
+static const int kNumOutputs = 2;
 
 class Simpleton : public AudioEffectX {
 public:

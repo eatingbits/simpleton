@@ -14,6 +14,10 @@
 #include "Oscillator.h"
 #endif
 
+#ifndef __SineGen_H
+#include "SineGen.h"
+#endif
+
 class SineOscillator : public Oscillator {
 public:
   SineOscillator( float *output);

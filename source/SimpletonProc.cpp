@@ -8,10 +8,6 @@
 #include "Simpleton.h"
 #endif
 
-#ifndef __defaults_H
-#include "defaults.h"
-#endif
-
 float Simpleton::calcFreqFromMidi(const int note){
   static const float stepSize = 1.059463094359f;
   static const float baseNoteFreq = 440.0 * pow(0.5f, 6) * stepSize * stepSize * stepSize;
