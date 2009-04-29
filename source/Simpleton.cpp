@@ -53,10 +53,6 @@ bool Simpleton::copyProgram(long destination) {
   return false;
 }
 
-void Simpleton::initialize() {
-  // TODO: Other plugin initialiazation goes here
-}
-
 VstInt32 Simpleton::getCurrentMidiProgram(VstInt32 channel, MidiProgramName *mpn) {
 	if(channel < 0 || channel >= 16 || mpn == NULL) {
 		return -1;

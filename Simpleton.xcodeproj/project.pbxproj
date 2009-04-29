@@ -34,6 +34,7 @@
 		FF9E2E3A0F9B57870032801F /* WaveGen.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E2E0F9B57870032801F /* WaveGen.h */; };
 		FF9E2F8D0F9B5E9C0032801F /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF9E2E960F9B5DEE0032801F /* gtest.framework */; };
 		FF9E2FAC0F9B601D0032801F /* WaveGenTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */; };
+		FFA6AC9A0FA8CE760048EF0D /* SimpletonInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFA6AC990FA8CE760048EF0D /* SimpletonInit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		FF9E2E960F9B5DEE0032801F /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "third-party/mac/gtest.framework"; sourceTree = "<group>"; };
 		FF9E2F700F9B5E680032801F /* SimpletonTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpletonTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WaveGenTest.cpp; path = test/WaveGenTest.cpp; sourceTree = "<group>"; };
+		FFA6AC990FA8CE760048EF0D /* SimpletonInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonInit.cpp; path = source/SimpletonInit.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9E2F930F9B5EDB0032801F /* Test */,
-				FF9E2E960F9B5DEE0032801F /* gtest.framework */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -107,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
+				FF9E2E960F9B5DEE0032801F /* gtest.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 			children = (
 				FF9E2E250F9B57870032801F /* OscState.cpp */,
 				FF9E2E270F9B57870032801F /* Simpleton.cpp */,
+				FFA6AC990FA8CE760048EF0D /* SimpletonInit.cpp */,
 				FF9E2E290F9B57870032801F /* SimpletonProc.cpp */,
 				FF9E2E2A0F9B57870032801F /* SineGen.cpp */,
 				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
@@ -210,8 +213,8 @@
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
 				8D01CCCF0486CAD60068D4B7 /* Rez */,
-				24CFB70807E7A07C0081BD57 /* ShellScript */,
-				24CFB70907E7A0AA0081BD57 /* ShellScript */,
+				24CFB70807E7A07C0081BD57 /* Copy PkgInfo */,
+				24CFB70907E7A0AA0081BD57 /* Install Plugin */,
 			);
 			buildRules = (
 			);
@@ -279,31 +282,33 @@
 /* End PBXRezBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24CFB70807E7A07C0081BD57 /* ShellScript */ = {
+		24CFB70807E7A07C0081BD57 /* Copy PkgInfo */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Copy PkgInfo";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "cp mac/PkgInfo \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.vst/Contents/\"";
 		};
-		24CFB70907E7A0AA0081BD57 /* ShellScript */ = {
+		24CFB70907E7A0AA0081BD57 /* Install Plugin */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Install Plugin";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "rm -rf $HOME/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME-*.vst\nbuild_num=`date +\"%m%d-%H%M%S\"`\ncp -r \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.vst\" \"$HOME/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME-$build_num.vst\"";
+			shellScript = "rm -rf $HOME/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME.vst\ncp -r \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.vst\" \"$HOME/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME.vst\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -321,6 +326,7 @@
 				FF9E2E360F9B57870032801F /* SineGen.cpp in Sources */,
 				FF9E2E380F9B57870032801F /* Wave.cpp in Sources */,
 				FF1ED9980F9BBA7100851E29 /* SineOscillator.cpp in Sources */,
+				FFA6AC9A0FA8CE760048EF0D /* SimpletonInit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

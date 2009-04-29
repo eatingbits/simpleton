@@ -63,13 +63,15 @@ public:
   virtual void setBlockSize(VstInt32 blockSize);
   
 private:
-  float Simpleton::calcFreqFromMidi(const int note);
   float mCurrentNoteFreq;
   bool mNotePlaying;
   unsigned long mNoteFrame;
-  void initialize();
+  bool initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff();
+  
+  // Note frequencies for all MIDI notes.  Generated during initialization
+  float mMidiNoteFrequencies[128];
 };
 
 #endif
