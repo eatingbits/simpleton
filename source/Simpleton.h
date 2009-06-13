@@ -10,6 +10,8 @@
 #include <math.h>
 #include <stdio.h>
 
+#include "NoteList.h"
+
 #ifndef __audioeffectx__
 #include "audioeffectx.h"
 #endif
@@ -63,6 +65,7 @@ public:
   virtual void setBlockSize(VstInt32 blockSize);
   
 private:
+  bool playing();
   bool initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff(VstInt32 note, VstInt32 delta);
@@ -70,8 +73,9 @@ private:
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];
   float mCurrentNoteFreq;
-  bool mNotePlaying;
+  int mNotePlaying;
   unsigned long mNoteFrame;
+  NoteList noteList;
 };
 
 #endif

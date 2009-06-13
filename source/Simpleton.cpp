@@ -16,7 +16,7 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
 : AudioEffectX(audioMaster, kNumPrograms, kNumParameters) {
   mCurrentNoteFreq = 0;
   mNoteFrame = 0;
-  mNotePlaying = false;
+  mNotePlaying = 0;
   if(audioMaster != NULL) {
     setNumInputs(kNumInputs);
     setNumOutputs(kNumOutputs);
@@ -174,6 +174,10 @@ VstInt32 Simpleton::getVendorVersion() {
 
 bool Simpleton::hasMidiProgramsChanged(VstInt32 channel) {
   return false;
+}
+
+bool Simpleton::playing() {
+  return mNotePlaying > 0;
 }
 
 void Simpleton::setBlockSize(VstInt32 blockSize) {

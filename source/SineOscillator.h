@@ -20,11 +20,9 @@
 
 class SineOscillator : public Oscillator {
 public:
-  SineOscillator( float *output);
+  SineOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs);
   ~SineOscillator();  
-  void process(OscState &state);
-private:
-  SineGen mPeriodGenerator;
+  virtual float generateTune(int currentPeriod, float samplesPerPeriod);
 };
 
 #endif

@@ -8,14 +8,27 @@
 #include "Simpleton.h"
 #endif
 
+#include "SineOscillator.h"
+#include "SquareOscillator.h"
+#include "SilenceOscillator.h"
+
 void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstInt32 delta) {
   mCurrentNoteFreq = mMidiNoteFrequencies[note];
-  mNotePlaying = true;
+  mNotePlaying += 1;
+  noteList.add(note);
 }
 
 void Simpleton::noteOff(const VstInt32 note, const VstInt32 delta) {
-  mNotePlaying = false;
-  mNoteFrame = 0;
+  mNotePlaying -= 1;
+  if (noteList.current() == note) {
+    mNoteFrame = 0;
+  }
+  noteList.remove(note);
+  
+  if (mNotePlaying > 0) {
+    VstInt32 oldNote = noteList.current();
+    mCurrentNoteFreq = mMidiNoteFrequencies[oldNote];
+  }
 }
 
 VstInt32 Simpleton::processEvents (VstEvents* ev) {
@@ -43,7 +56,7 @@ VstInt32 Simpleton::processEvents (VstEvents* ev) {
         // doesn't have any special handling for such events, so we set the
         // velocity to zero for all note off events.
 				velocity = 0;
-      }
+      }   
       
       // Many keyboards send MIDI note on (0x90) with velocity 0 for note off
       // events, so if we only check the velocity then we can catch both cases.
@@ -74,14 +87,14 @@ VstInt32 Simpleton::processEvents (VstEvents* ev) {
 }
 
 void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  for(int frame = 0; frame < sampleFrames; ++frame) {
-    ++mNoteFrame;
-    for(int channel = 0; channel< kNumOutputs; ++channel) {
-      if(mNotePlaying) {
-        outputs[channel][frame] = sin( (mNoteFrame / (44100 / mCurrentNoteFreq) * 2* M_PI));
-      } else {
-        outputs[channel][frame] = 0;
-      }
-    }
+  if (playing()) {
+    SquareOscillator oscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+    oscillator.generateFrames(outputs, sampleFrames);
+    int max = (44100 / mCurrentNoteFreq);
+    mNoteFrame = (mNoteFrame + sampleFrames) % max;
+  } else {
+    SilenceOscillator oscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+    oscillator.generateFrames(outputs, sampleFrames);
   }
+  
 }

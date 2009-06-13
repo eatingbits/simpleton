@@ -16,9 +16,14 @@
 
 class Oscillator {
 public:
-  Oscillator(float *output) {};
+  Oscillator(float samplesPerPeriod, int currentPeriod, int numOutputs);
   virtual ~Oscillator() {};
-  virtual void process(OscState &state) = 0;
+  virtual float generateTune(int currentPeriod, float samplesPerPeriod) = 0;
+  void generateFrames(float **outputs, int framesToGenerate);
+private:
+  float mSamplesPerPeriod;
+  int mCurrentPeriod;
+  int mNumOutputs;
 };
 
 #endif

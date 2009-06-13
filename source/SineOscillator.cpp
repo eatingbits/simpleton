@@ -10,15 +10,16 @@
 #ifndef __SineOscillator__H
 #include "SineOscillator.h"
 #endif
+#include <math.h>
 
-SineOscillator::SineOscillator(float *output) : Oscillator(output) {
+SineOscillator::SineOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs) : 
+Oscillator(samplesPerPeriod, currentPeriod, numOutputs) {
 }
 
 SineOscillator::~SineOscillator() {
   
 }
 
-void SineOscillator::process(OscState &state) {
-  //Call SineGen until block is full, save in state.
-
+float SineOscillator :: generateTune(int currentPeriod, float samplesPerPeriod) {
+  return sin(currentPeriod / (samplesPerPeriod) * 2 * M_PI);
 }
