@@ -25,6 +25,7 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
     isSynth();
   }
   
+  mCurrentOscillator = kSineOscillator;
   initialize();
   suspend();
 }
@@ -112,6 +113,15 @@ bool Simpleton::getOutputProperties(VstInt32 index, VstPinProperties *properties
 
 float Simpleton::getParameter(VstInt32 index) {
   switch(index) {
+    case kOscillatorType:
+      switch (mCurrentOscillator) {
+        case kSineOscillator:
+          return 0.0;
+        case kSquareOscillator:
+          return 1.0;
+      }
+      return 0.0;
+      break;
     // TODO: Add other parameter cases here
     default:
       return 0.0;
@@ -120,6 +130,16 @@ float Simpleton::getParameter(VstInt32 index) {
 
 void Simpleton::getParameterDisplay(VstInt32 index, char *text) {
   switch(index) {
+    case kOscillatorType:
+      switch (mCurrentOscillator) {
+        case kSineOscillator:
+          strcpy(text, "Sine");
+          break;
+        case kSquareOscillator:
+          strcpy(text, "Square");
+          break;
+      };
+      break;
     // TODO: Add other parameter cases here
     default:
       strcpy(text, "ERROR");
@@ -130,6 +150,9 @@ void Simpleton::getParameterDisplay(VstInt32 index, char *text) {
 void Simpleton::getParameterLabel(VstInt32 index, char *text) {
   switch(index) {
     // TODO: Add other parameter cases here
+    case kOscillatorType:
+      strcpy(text, "");
+      break;
     default:
       strcpy(text, "ERROR");
       break;
@@ -138,6 +161,9 @@ void Simpleton::getParameterLabel(VstInt32 index, char *text) {
 
 void Simpleton::getParameterName(VstInt32 index, char *text) {
   switch(index) {
+    case kOscillatorType:
+      strcpy(text, "Oscillator");
+      break;
     // TODO: Add other parameter cases here
     default:
       strcpy(text, "ERROR");
@@ -187,6 +213,13 @@ void Simpleton::setBlockSize(VstInt32 blockSize) {
 
 void Simpleton::setParameter(VstInt32 index, float value) {
   switch(index) {
+    case kOscillatorType:
+      if (value > 0.5) {
+        mCurrentOscillator = kSquareOscillator;
+      } else {
+        mCurrentOscillator = kSineOscillator;
+      }
+      break;
     // TODO: Add other parameter cases here
     default:
       break;

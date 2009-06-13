@@ -86,15 +86,26 @@ VstInt32 Simpleton::processEvents (VstEvents* ev) {
 	return 1;
 }
 
-void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  if (playing()) {
-    SquareOscillator oscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
-    oscillator.generateFrames(outputs, sampleFrames);
-    int max = (44100 / mCurrentNoteFreq);
-    mNoteFrame = (mNoteFrame + sampleFrames) % max;
-  } else {
-    SilenceOscillator oscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
-    oscillator.generateFrames(outputs, sampleFrames);
+Oscillator *Simpleton :: currentOscillator() {
+  if (!playing()) {
+    return new SilenceOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
   }
   
+  switch (mCurrentOscillator) {
+    case kSineOscillator:
+      return new SineOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+    case kSquareOscillator:
+      return new SquareOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+    default:
+      return new SilenceOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+
+  }
+}
+
+void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
+  int max = (44100 / mCurrentNoteFreq);
+  mNoteFrame = (mNoteFrame + sampleFrames) % max;
+  Oscillator *oscillator = currentOscillator();
+  oscillator->generateFrames(outputs, sampleFrames);
+  delete oscillator;
 }

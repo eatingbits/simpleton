@@ -18,13 +18,21 @@
 
 enum {
   // kFirstParameter = 0,
+  kOscillatorType,
   kNumParameters
+};
+
+enum OscillatorType {
+  kSineOscillator,
+  kSquareOscillator
 };
 
 static const unsigned long kUniqueId = 'SIMP';
 static const int kNumPrograms = 0;
 static const int kNumInputs = 0;
 static const int kNumOutputs = 2;
+
+class Oscillator;
 
 class Simpleton : public AudioEffectX {
 public:
@@ -69,6 +77,7 @@ private:
   bool initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff(VstInt32 note, VstInt32 delta);
+  Oscillator *currentOscillator();
   
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];
@@ -76,6 +85,7 @@ private:
   int mNotePlaying;
   unsigned long mNoteFrame;
   NoteList noteList;
+  OscillatorType mCurrentOscillator;
 };
 
 #endif
