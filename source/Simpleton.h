@@ -89,6 +89,7 @@ private:
 	Oscillator *mSilenceOscillator;
 	Oscillator *mSineOscillator;
 	Oscillator *mSquareOscillator;
+	Oscillator *mSineLFO;
 };
 
 #endif

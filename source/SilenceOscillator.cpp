@@ -11,12 +11,10 @@
 #include "Buffer.h"
 
 SilenceOscillator :: SilenceOscillator() : 
-Oscillator() {
+Oscillator(*this) {
 }
 
-void SilenceOscillator :: generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) {
-	buffer.zero();
-}
+
 
 
 

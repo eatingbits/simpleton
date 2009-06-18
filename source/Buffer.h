@@ -15,6 +15,7 @@ public:
 	Buffer(int channels, int samples);
 	virtual ~Buffer() {}
 	virtual void setValue(int channel, int sample, float value);
+	float getValue(int channel, int sample);
 	void zero();
 	void copyTo(float **outputs);
 	void addTo(float **outputs);

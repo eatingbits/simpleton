@@ -14,13 +14,25 @@ class Buffer;
 
 class Oscillator {
 public:
-	Oscillator() {}
+	Oscillator(Oscillator& oscillator)  : previous(oscillator) {}
 	virtual ~Oscillator() {}
 	
-	virtual void setSamplesPerPeriodModifier(float value) = 0;
-	virtual void reset() = 0;
-	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) = 0;
+	virtual void reset() {};
+//	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) = 0;
+	
+	float sampleValue(float samplesPerPeriod) {
+		float previous = previousValue(samplesPerPeriod);
+		float nValue = previous + nextSampleValue(samplesPerPeriod);
+		return nValue;
+	}
+	
+	virtual float nextSampleValue(float samplesPerPeriod) = 0;
+protected:
+	virtual float previousValue(float samplesPerPeriod) {
+		return previous.sampleValue(samplesPerPeriod);
+	}
 private:
+	Oscillator& previous;
 };
 
 #endif

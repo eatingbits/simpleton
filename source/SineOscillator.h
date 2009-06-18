@@ -18,15 +18,13 @@ class Buffer;
 
 class SineOscillator : public Oscillator {
 public:
-  SineOscillator();
+  SineOscillator(Oscillator& previous);
   ~SineOscillator();
-	void setSamplesPerPeriodModifier(float value) { mSamplesPerPeriodModifier = value; }
 	virtual void reset() { mCurrentPeriod = 0; }
-	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod);
+
+	float nextSampleValue(float samplesPerPeriod);
 private:
 	int mCurrentPeriod;
-	float mSamplesPerPeriodModifier;
-	float sampleValue(float samplesPerPeriod);
 };
 
 #endif

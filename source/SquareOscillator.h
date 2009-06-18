@@ -18,13 +18,11 @@ class Buffer;
 
 class SquareOscillator : public Oscillator {
 public:
-	SquareOscillator();
-	void setSamplesPerPeriodModifier(float value) { mSamplesPerPeriodModifier = value; }
+	SquareOscillator(Oscillator& previous);
 	virtual void reset() { mCurrentPeriod = 0; }
-	void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod);
+	float nextSampleValue(float samplesPerPeriod);
 private:	
 	int mCurrentPeriod;
-	float mSamplesPerPeriodModifier;
 };
 
 #endif

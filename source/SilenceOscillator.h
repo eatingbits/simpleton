@@ -12,10 +12,7 @@
 class SilenceOscillator : public Oscillator {
 public:
 	SilenceOscillator();
-	virtual void reset() { mCurrentPeriod = 0; }
-	void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod);
-	void setSamplesPerPeriodModifier(float value) {}
+	float nextSampleValue(float samplesPerPeriod) { return 0.0; }
+	float previousValue(float samplesPerPeriod) { return 0.0; }
 private:
-	float generateTune(int currentPeriod, float samplesPerPeriod);
-	int mCurrentPeriod;
 };

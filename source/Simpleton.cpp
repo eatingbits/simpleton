@@ -8,6 +8,7 @@
 #include "Simpleton.h"
 #endif
 
+
 #include "SilenceOscillator.h"
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
@@ -31,8 +32,9 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
   
   mCurrentOscillator = kSineOscillator;
 	mSilenceOscillator = new SilenceOscillator();
-	mSquareOscillator = new SquareOscillator();
-	mSineOscillator = new SineOscillator();
+	mSquareOscillator = new SquareOscillator(*mSilenceOscillator);
+	mSineOscillator = new SineOscillator(*mSquareOscillator);
+	//mSineLFO = new SineOscillator();
   initialize();
   suspend();
 }

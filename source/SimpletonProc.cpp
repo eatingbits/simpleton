@@ -8,6 +8,8 @@
 #include "Simpleton.h"
 #endif
 
+#include <iostream>
+
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"
@@ -106,24 +108,13 @@ Oscillator *Simpleton :: currentOscillator() {
   }
 }
 
-void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
-  int max = (44100 / mCurrentNoteFreq);
-  mNoteFrame = (mNoteFrame + sampleFrames) % max;
-
-	int channels = kNumOutputs;
-	if (playing() && mCurrentOscillator == kSineOscillator) {
-		mSquareOscillator->setSamplesPerPeriodModifier(10.0);
-		Buffer sineBuffer(channels, sampleFrames);
-		Buffer squareBuffer(channels, sampleFrames);
-
-		mSineOscillator->generateFrames(sineBuffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
-		mSquareOscillator->generateFrames(squareBuffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
-		sineBuffer.copyTo(outputs);
-		squareBuffer.addTo(outputs);
-	} else {
-		Oscillator *oscillator = currentOscillator();
-		Buffer buffer(channels, sampleFrames);
-		mSilenceOscillator->generateFrames(buffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
-		buffer.copyTo(outputs);
+void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 samples) {
+	Oscillator *oscillator = currentOscillator();
+	float samplesPerPeriod = 44100 / mCurrentNoteFreq;
+	for (int sample = 0; sample < samples; ++sample) {
+		float value = oscillator->sampleValue(samplesPerPeriod);
+		for (int channel = 0; channel < kNumOutputs; ++channel) {
+			outputs[channel][sample] = value;
+		}
 	}
 }
