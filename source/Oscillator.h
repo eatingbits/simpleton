@@ -10,20 +10,17 @@
 #ifndef __Oscillator__H
 #define __Oscillator__H
 
-#ifndef __OscState_H
-#include "OscState.h"
-#endif
+class Buffer;
 
 class Oscillator {
 public:
-  Oscillator(float samplesPerPeriod, int currentPeriod, int numOutputs);
-  virtual ~Oscillator() {};
-  virtual float generateTune(int currentPeriod, float samplesPerPeriod) = 0;
-  void generateFrames(float **outputs, int framesToGenerate);
+	Oscillator() {}
+	virtual ~Oscillator() {}
+	
+	virtual void setSamplesPerPeriodModifier(float value) = 0;
+	virtual void reset() = 0;
+	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) = 0;
 private:
-  float mSamplesPerPeriod;
-  int mCurrentPeriod;
-  int mNumOutputs;
 };
 
 #endif

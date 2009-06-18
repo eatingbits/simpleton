@@ -14,11 +14,17 @@
 #include "Oscillator.h"
 #endif
 
+class Buffer;
 
 class SquareOscillator : public Oscillator {
 public:
-  SquareOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs);
-  virtual float generateTune(int currentPeriod, float samplesPerPeriod);
+	SquareOscillator();
+	void setSamplesPerPeriodModifier(float value) { mSamplesPerPeriodModifier = value; }
+	virtual void reset() { mCurrentPeriod = 0; }
+	void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod);
+private:	
+	int mCurrentPeriod;
+	float mSamplesPerPeriodModifier;
 };
 
 #endif

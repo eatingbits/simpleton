@@ -8,20 +8,22 @@
  */
 
 #include "SquareOscillator.h"
-#include <iostream>
+#include "Buffer.h"
 
-SquareOscillator::SquareOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs) : 
-Oscillator(samplesPerPeriod, currentPeriod, numOutputs) {
+SquareOscillator::SquareOscillator() : mSamplesPerPeriodModifier(0.0) {
 }
 
 
-float SquareOscillator :: generateTune(int currentPeriod, float samplesPerPeriod) {
-  int half = ((int) samplesPerPeriod) / 2;\
-  //std::cout << "p: " << currentPeriod << " h: " << half;
-  if(currentPeriod > half) {
-    //std::cout << " v: -1" << std::endl;
-    return -1.0;
-  }
-  //std::cout << " v: 1" << std::endl;
-  return 1.0;
+void SquareOscillator :: generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) {
+	int half = (samplesPerPeriod + mSamplesPerPeriodModifier) / 2;
+	for (int frame = 0; frame < framesToGenerate; ++frame) {
+		mCurrentPeriod = (mCurrentPeriod + 1) % (int) (samplesPerPeriod + mSamplesPerPeriodModifier);
+		for (int channel = 0; channel < channels; ++channel) {
+			if (mCurrentPeriod > half) {
+				buffer.setValue(channel, frame, -1.0);
+			} else {
+				buffer.setValue(channel, frame, 1.0);
+			}
+		}
+	}
 }

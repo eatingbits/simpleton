@@ -8,6 +8,10 @@
 #include "Simpleton.h"
 #endif
 
+#include "SilenceOscillator.h"
+#include "SineOscillator.h"
+#include "SquareOscillator.h"
+
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	return new Simpleton(audioMaster);
 }
@@ -26,6 +30,9 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
   }
   
   mCurrentOscillator = kSineOscillator;
+	mSilenceOscillator = new SilenceOscillator();
+	mSquareOscillator = new SquareOscillator();
+	mSineOscillator = new SineOscillator();
   initialize();
   suspend();
 }
@@ -216,6 +223,7 @@ void Simpleton::setParameter(VstInt32 index, float value) {
     case kOscillatorType:
       if (value > 0.5) {
         mCurrentOscillator = kSquareOscillator;
+		  
       } else {
         mCurrentOscillator = kSineOscillator;
       }

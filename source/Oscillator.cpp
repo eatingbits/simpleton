@@ -8,7 +8,7 @@
  */
 
 #include "Oscillator.h"
-
+/*
 Oscillator::Oscillator(float samplesPerPeriod, int currentPeriod, int numOutputs) : 
 mSamplesPerPeriod(samplesPerPeriod), mCurrentPeriod(currentPeriod), mNumOutputs(numOutputs) {
 }
@@ -21,5 +21,6 @@ void Oscillator :: generateFrames(float **outputs, int framesToGenerate) {
     }
   }
 }
+ */
 
 

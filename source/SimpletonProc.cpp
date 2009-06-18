@@ -11,21 +11,25 @@
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"
+#include "Buffer.h"
 
 void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstInt32 delta) {
   mCurrentNoteFreq = mMidiNoteFrequencies[note];
+	mSquareOscillator->reset();
+	mSineOscillator->reset();
   mNotePlaying += 1;
   noteList.add(note);
 }
 
 void Simpleton::noteOff(const VstInt32 note, const VstInt32 delta) {
-  mNotePlaying -= 1;
-  if (noteList.current() == note) {
-    mNoteFrame = 0;
-  }
-  noteList.remove(note);
-  
   if (mNotePlaying > 0) {
+	  mNotePlaying -= 1;
+	  if (noteList.current() == note) {
+		  mNoteFrame = 0;
+	  }
+	  noteList.remove(note);
+	  
+	  
     VstInt32 oldNote = noteList.current();
     mCurrentNoteFreq = mMidiNoteFrequencies[oldNote];
   }
@@ -88,16 +92,16 @@ VstInt32 Simpleton::processEvents (VstEvents* ev) {
 
 Oscillator *Simpleton :: currentOscillator() {
   if (!playing()) {
-    return new SilenceOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+    return mSilenceOscillator;
   }
   
   switch (mCurrentOscillator) {
     case kSineOscillator:
-      return new SineOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+      return mSineOscillator;
     case kSquareOscillator:
-      return new SquareOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+      return mSquareOscillator;
     default:
-      return new SilenceOscillator(44100 / mCurrentNoteFreq, mNoteFrame, kNumOutputs);
+      return mSilenceOscillator;
 
   }
 }
@@ -105,7 +109,21 @@ Oscillator *Simpleton :: currentOscillator() {
 void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 sampleFrames) {
   int max = (44100 / mCurrentNoteFreq);
   mNoteFrame = (mNoteFrame + sampleFrames) % max;
-  Oscillator *oscillator = currentOscillator();
-  oscillator->generateFrames(outputs, sampleFrames);
-  delete oscillator;
+
+	int channels = kNumOutputs;
+	if (playing() && mCurrentOscillator == kSineOscillator) {
+		mSquareOscillator->setSamplesPerPeriodModifier(10.0);
+		Buffer sineBuffer(channels, sampleFrames);
+		Buffer squareBuffer(channels, sampleFrames);
+
+		mSineOscillator->generateFrames(sineBuffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
+		mSquareOscillator->generateFrames(squareBuffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
+		sineBuffer.copyTo(outputs);
+		squareBuffer.addTo(outputs);
+	} else {
+		Oscillator *oscillator = currentOscillator();
+		Buffer buffer(channels, sampleFrames);
+		mSilenceOscillator->generateFrames(buffer, channels, sampleFrames, 44100 / mCurrentNoteFreq);
+		buffer.copyTo(outputs);
+	}
 }

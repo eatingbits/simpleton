@@ -86,6 +86,9 @@ private:
   unsigned long mNoteFrame;
   NoteList noteList;
   OscillatorType mCurrentOscillator;
+	Oscillator *mSilenceOscillator;
+	Oscillator *mSineOscillator;
+	Oscillator *mSquareOscillator;
 };
 
 #endif

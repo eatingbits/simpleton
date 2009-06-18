@@ -14,15 +14,19 @@
 #include "Oscillator.h"
 #endif
 
-#ifndef __SineGen_H
-#include "SineGen.h"
-#endif
+class Buffer;
 
 class SineOscillator : public Oscillator {
 public:
-  SineOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs);
-  ~SineOscillator();  
-  virtual float generateTune(int currentPeriod, float samplesPerPeriod);
+  SineOscillator();
+  ~SineOscillator();
+	void setSamplesPerPeriodModifier(float value) { mSamplesPerPeriodModifier = value; }
+	virtual void reset() { mCurrentPeriod = 0; }
+	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod);
+private:
+	int mCurrentPeriod;
+	float mSamplesPerPeriodModifier;
+	float sampleValue(float samplesPerPeriod);
 };
 
 #endif

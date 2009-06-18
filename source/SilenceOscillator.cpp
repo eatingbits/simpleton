@@ -8,13 +8,15 @@
  */
 
 #include "SilenceOscillator.h"
+#include "Buffer.h"
 
-SilenceOscillator :: SilenceOscillator(float samplesPerPeriod, int currentPeriod, int numOutputs) : 
-Oscillator(samplesPerPeriod, currentPeriod, numOutputs) {
+SilenceOscillator :: SilenceOscillator() : 
+Oscillator() {
 }
 
-float SilenceOscillator :: generateTune(int currentPeriod, float samplesPerPeriod) {
-  return 0.0;
+void SilenceOscillator :: generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) {
+	buffer.zero();
 }
+
 
 
