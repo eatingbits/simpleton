@@ -13,16 +13,17 @@
 #include <math.h>
 #include "Buffer.h"
 
-SineOscillator::SineOscillator(Oscillator& previous) : 
-Oscillator(previous), mCurrentPeriod(0) {
+SineOscillator::SineOscillator(Oscillator& previous, float samplesPerPeriod) : 
+Oscillator(previous), mCurrentPeriod(0), mSamplesPerPeriod(samplesPerPeriod), mPlaying(0) {
 }
 
 SineOscillator::~SineOscillator() {
 }
 
-float SineOscillator :: nextSampleValue(float samplesPerPeriod) {	
-	float mod = getFrequencyModifier(samplesPerPeriod);
-	mCurrentPeriod = (mCurrentPeriod + 1) % (int) (samplesPerPeriod + mod);
-	float value = sin(mCurrentPeriod / (samplesPerPeriod + mod) * 2 * M_PI);
-	return value;
+float SineOscillator :: nextSampleValue() {	
+	float amplitudeModifier = getAmplitudeModifier();
+	float frequencyModifier = getFrequencyModifier();
+	mCurrentPeriod = (mCurrentPeriod + 1) % (int) (mSamplesPerPeriod + frequencyModifier);
+	float value = sin(mCurrentPeriod / (mSamplesPerPeriod + frequencyModifier) * 2 * M_PI);
+	return amplitudeModifier * value;
 }

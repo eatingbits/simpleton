@@ -15,11 +15,10 @@
 
 class LFO : public OscillatorInput {
 public:
-	LFO(Oscillator& oscillator, float frequency, float amplitude) : mOscillator(oscillator), mFrequency(frequency), mAmplitude(amplitude) {}
-	float sampleValue(float samplesPerPeriod) { return mAmplitude * mOscillator.sampleValue(mFrequency); }
+	LFO(Oscillator& oscillator, float amplitude) : mOscillator(oscillator), mAmplitude(amplitude) {}
+	float sampleValue(float samplesPerPeriod) { return mAmplitude * mOscillator.sampleValue(); }
 private:
 	Oscillator& mOscillator;
-	float mFrequency;
 	float mAmplitude;
 };
 

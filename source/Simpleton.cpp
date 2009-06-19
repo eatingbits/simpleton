@@ -13,6 +13,7 @@
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "LFO.h"
+#include "ADSREnvelope.h"
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	return new Simpleton(audioMaster);
@@ -21,8 +22,6 @@ AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 Simpleton::Simpleton(audioMasterCallback audioMaster)
 : AudioEffectX(audioMaster, kNumPrograms, kNumParameters) {
   mCurrentNoteFreq = 0;
-  mNoteFrame = 0;
-  mNotePlaying = 0;
   if(audioMaster != NULL) {
     setNumInputs(kNumInputs);
     setNumOutputs(kNumOutputs);
@@ -31,17 +30,9 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
     isSynth();
   }
   
-  mCurrentOscillator = kSineOscillator;
-	mSilenceOscillator = new SilenceOscillator();
-	mSquareOscillator = new SquareOscillator(*mSilenceOscillator);
-	Oscillator *sine2 = new SineOscillator(*mSilenceOscillator);
-	sine2->setFrequencyModifier(new StaticOscillatorInput(2));
-	mSineOscillator = new SineOscillator(*mSilenceOscillator);
-	mSineLFO = new SineOscillator(*mSilenceOscillator);
-	LFO *lfo = new LFO(*mSineLFO, 44100 / 0.3, 10);
-	mSquareOscillator->setFrequencyModifier(lfo);
-	mSineOscillator->setFrequencyModifier(lfo);
-  initialize();
+	mOscillatorPrototype = new OscillatorPrototype();
+	mOscillatorPrototype->add(kSineOscillator, 44100, 1.0, 0, 0.0, 0, 100);
+	initialize();
   suspend();
 }
 
@@ -215,10 +206,6 @@ VstInt32 Simpleton::getVendorVersion() {
 
 bool Simpleton::hasMidiProgramsChanged(VstInt32 channel) {
   return false;
-}
-
-bool Simpleton::playing() {
-  return mNotePlaying > 0;
 }
 
 void Simpleton::setBlockSize(VstInt32 blockSize) {

@@ -18,6 +18,13 @@
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
 		FF1ED9970F9BBA7100851E29 /* SineOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF1ED9950F9BBA7100851E29 /* SineOscillator.h */; };
 		FF1ED9980F9BBA7100851E29 /* SineOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */; };
+		FF213BCD0FEBA27000F1E481 /* Envelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213BCB0FEBA27000F1E481 /* Envelope.h */; };
+		FF213BCE0FEBA27000F1E481 /* Envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213BCC0FEBA27000F1E481 /* Envelope.cpp */; };
+		FF213BD10FEBA2FC00F1E481 /* ADSREnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */; };
+		FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */; };
+		FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */; };
+		FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */; };
+		FF213E530FEC033400F1E481 /* SimpletonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213E520FEC033400F1E481 /* SimpletonTest.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
@@ -55,6 +62,14 @@
 		24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = xcode_vst_prefix.h; path = mac/xcode_vst_prefix.h; sourceTree = SOURCE_ROOT; };
 		FF1ED9950F9BBA7100851E29 /* SineOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineOscillator.h; path = source/SineOscillator.h; sourceTree = "<group>"; };
 		FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineOscillator.cpp; path = source/SineOscillator.cpp; sourceTree = "<group>"; };
+		FF213BCB0FEBA27000F1E481 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Envelope.h; path = source/Envelope.h; sourceTree = "<group>"; };
+		FF213BCC0FEBA27000F1E481 /* Envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Envelope.cpp; path = source/Envelope.cpp; sourceTree = "<group>"; };
+		FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSREnvelope.h; path = source/ADSREnvelope.h; sourceTree = "<group>"; };
+		FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADSREnvelope.cpp; path = source/ADSREnvelope.cpp; sourceTree = "<group>"; };
+		FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorPrototype.h; path = source/OscillatorPrototype.h; sourceTree = "<group>"; };
+		FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscillatorPrototype.cpp; path = source/OscillatorPrototype.cpp; sourceTree = "<group>"; };
+		FF213E510FEC033400F1E481 /* SimpletonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpletonTest.h; path = test/SimpletonTest.h; sourceTree = "<group>"; };
+		FF213E520FEC033400F1E481 /* SimpletonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonTest.cpp; path = test/SimpletonTest.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
@@ -152,6 +167,12 @@
 				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
 				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
 				FF9FC70D0FEAE79800389436 /* OscillatorInput.h */,
+				FF213BCB0FEBA27000F1E481 /* Envelope.h */,
+				FF213BCC0FEBA27000F1E481 /* Envelope.cpp */,
+				FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */,
+				FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */,
+				FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */,
+				FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -185,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */,
+				FF213E510FEC033400F1E481 /* SimpletonTest.h */,
+				FF213E520FEC033400F1E481 /* SimpletonTest.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -212,6 +235,9 @@
 				FF9FC3B70FE969A600389436 /* Buffer.h in Headers */,
 				FF9FC70F0FEAE79800389436 /* OscillatorInput.h in Headers */,
 				FF9FC7660FEB86AD00389436 /* LFO.h in Headers */,
+				FF213BCD0FEBA27000F1E481 /* Envelope.h in Headers */,
+				FF213BD10FEBA2FC00F1E481 /* ADSREnvelope.h in Headers */,
+				FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +369,9 @@
 				FFFC5CC00FE417A5002E441D /* SquareOscillator.cpp in Sources */,
 				FFFC5D3E0FE429DB002E441D /* NoteList.cpp in Sources */,
 				FF9FC3B80FE969A600389436 /* Buffer.cpp in Sources */,
+				FF213BCE0FEBA27000F1E481 /* Envelope.cpp in Sources */,
+				FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */,
+				FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF9E2FAC0F9B601D0032801F /* WaveGenTest.cpp in Sources */,
+				FF213E530FEC033400F1E481 /* SimpletonTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

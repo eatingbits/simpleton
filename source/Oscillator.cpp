@@ -8,23 +8,31 @@
  */
 
 #include "Oscillator.h"
+#include "Envelope.h"
 
-float Oscillator :: sampleValue(float samplesPerPeriod) {
-	float previous = inputValue(samplesPerPeriod);
-	float nValue = previous + nextSampleValue(samplesPerPeriod);
+float Oscillator :: sampleValue() {
+	float previous = inputValue();
+	float nValue = previous + nextSampleValue();
 	return nValue;
 }
 
-float Oscillator :: getFrequencyModifier(float samplesPerPeriod) {
+float Oscillator :: getFrequencyModifier() {
 	if (mFrequencyModifier == NULL) {
 		return 0.0;
 	}
-	return mFrequencyModifier->sampleValue(samplesPerPeriod);
+	return mFrequencyModifier->sampleValue();
+}
+
+float Oscillator :: getAmplitudeModifier() {
+	if (mEnvelope == NULL) {
+		return 1.0;
+	}
+	return mEnvelope->getAmplitudeModifier();
 }
 
 
-float Oscillator :: inputValue(float samplesPerPeriod) {
-	return mInput.sampleValue(samplesPerPeriod);
+float Oscillator :: inputValue() {
+	return mInput.sampleValue();
 }
 
 

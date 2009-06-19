@@ -11,6 +11,7 @@
 #include <stdio.h>
 
 #include "NoteList.h"
+#include "OscillatorPrototype.h"
 
 #ifndef __audioeffectx__
 #include "audioeffectx.h"
@@ -20,11 +21,6 @@ enum {
   // kFirstParameter = 0,
   kOscillatorType,
   kNumParameters
-};
-
-enum OscillatorType {
-  kSineOscillator,
-  kSquareOscillator
 };
 
 static const unsigned long kUniqueId = 'SIMP';
@@ -77,19 +73,14 @@ private:
   bool initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff(VstInt32 note, VstInt32 delta);
-  Oscillator *currentOscillator();
   
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];
   float mCurrentNoteFreq;
-  int mNotePlaying;
-  unsigned long mNoteFrame;
   NoteList noteList;
-  OscillatorType mCurrentOscillator;
-	Oscillator *mSilenceOscillator;
-	Oscillator *mSineOscillator;
-	Oscillator *mSquareOscillator;
-	Oscillator *mSineLFO;
+	
+  OscillatorType mCurrentOscillator;	
+	OscillatorPrototype *mOscillatorPrototype;
 };
 
 #endif

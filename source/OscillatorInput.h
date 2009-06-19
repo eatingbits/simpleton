@@ -13,13 +13,13 @@
 class OscillatorInput {
 public:
 	virtual ~OscillatorInput() {}
-	virtual float sampleValue(float samplesPerPeriod) = 0;
+	virtual float sampleValue() = 0;
 };
 
 class StaticOscillatorInput : public OscillatorInput {
 public:
 	StaticOscillatorInput(float value) : mValue(value) {}
-	virtual float sampleValue(float samplesPerPeriod) { return mValue; }
+	virtual float sampleValue() { return mValue; }
 private:
 	float mValue;
 };

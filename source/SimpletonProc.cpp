@@ -8,30 +8,22 @@
 #include "Simpleton.h"
 #endif
 
+#include <iostream>
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"
 #include "Buffer.h"
 
 void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstInt32 delta) {
-  mCurrentNoteFreq = mMidiNoteFrequencies[note];
-	mSquareOscillator->reset();
-	mSineOscillator->reset();
-  mNotePlaying += 1;
-  noteList.add(note);
+	mCurrentNoteFreq = mMidiNoteFrequencies[note];
+	Oscillator *oscillator = mOscillatorPrototype->create(44100 / mCurrentNoteFreq);
+	oscillator->onNote();
+  noteList.add(note, oscillator);
 }
 
 void Simpleton::noteOff(const VstInt32 note, const VstInt32 delta) {
-  if (mNotePlaying > 0) {
-	  mNotePlaying -= 1;
-	  if (noteList.current() == note) {
-		  mNoteFrame = 0;
-	  }
-	  noteList.remove(note);
-	  
-	  
-    VstInt32 oldNote = noteList.current();
-    mCurrentNoteFreq = mMidiNoteFrequencies[oldNote];
+  if (playing()) {
+		noteList.getOscillator(note)->offNote();
   }
 }
 
@@ -90,27 +82,13 @@ VstInt32 Simpleton::processEvents (VstEvents* ev) {
 	return 1;
 }
 
-Oscillator *Simpleton :: currentOscillator() {
-  if (!playing()) {
-    return mSilenceOscillator;
-  }
-  
-  switch (mCurrentOscillator) {
-    case kSineOscillator:
-      return mSineOscillator;
-    case kSquareOscillator:
-      return mSquareOscillator;
-    default:
-      return mSilenceOscillator;
-
-  }
+bool Simpleton :: playing() {
+	return (noteList.isPlaying());
 }
 
 void Simpleton::processReplacing(float **inputs, float **outputs, VstInt32 samples) {
-	Oscillator *oscillator = currentOscillator();
-	float samplesPerPeriod = 44100 / mCurrentNoteFreq;
 	for (int sample = 0; sample < samples; ++sample) {
-		float value = oscillator->sampleValue(samplesPerPeriod);
+		float value = noteList.sampleValue();
 		for (int channel = 0; channel < kNumOutputs; ++channel) {
 			outputs[channel][sample] = value;
 		}

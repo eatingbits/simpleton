@@ -13,8 +13,8 @@ class SilenceOscillator : public Oscillator {
 public:
 	SilenceOscillator();
 	/* Silence is always 0 */
-	float nextSampleValue(float samplesPerPeriod) { return 0.0; }
+	float nextSampleValue() { return 0.0; }
 	/* Silence doesn't need a previous value, so just terminate the chain */
-	float inputValue(float samplesPerPeriod) { return 0.0; }
+	float inputValue() { return 0.0; }
 private:
 };
