@@ -14,8 +14,11 @@ SquareOscillator::SquareOscillator(Oscillator& previous) : Oscillator(previous),
 }
 
 float SquareOscillator :: nextSampleValue(float samplesPerPeriod) {
-	int half = ((int) samplesPerPeriod / 2);
-	mCurrentPeriod = (mCurrentPeriod + 1) % (int) samplesPerPeriod;
+	float frequencyModifier = getFrequencyModifier(samplesPerPeriod);
+	int half = ((samplesPerPeriod + frequencyModifier) / 2);
+	
+	/* Add 1 to the period and wrap it at samplesPerPerd + frequencyModifier */
+	mCurrentPeriod = (mCurrentPeriod + 1) % (int) (samplesPerPeriod + frequencyModifier);
 	if (mCurrentPeriod > half) {
 		return -1.0;
 	}

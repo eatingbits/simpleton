@@ -10,29 +10,32 @@
 #ifndef __Oscillator__H
 #define __Oscillator__H
 
+#include <cstdlib>
+#include "OscillatorInput.h"
+
 class Buffer;
 
-class Oscillator {
+class Oscillator : public OscillatorInput {
 public:
-	Oscillator(Oscillator& oscillator)  : previous(oscillator) {}
+	Oscillator(Oscillator& oscillator)  : mInput(oscillator), mFrequencyModifier(NULL)  {}
 	virtual ~Oscillator() {}
-	
+	/* Resets the current position of the oscillator */
 	virtual void reset() {};
-//	virtual void generateFrames(Buffer& buffer, int channels, int framesToGenerate, float samplesPerPeriod) = 0;
-	
-	float sampleValue(float samplesPerPeriod) {
-		float previous = previousValue(samplesPerPeriod);
-		float nValue = previous + nextSampleValue(samplesPerPeriod);
-		return nValue;
-	}
-	
-	virtual float nextSampleValue(float samplesPerPeriod) = 0;
+	/* Sets a frequency modifier input */
+	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
+	/* Returns the next sample value */
+	float sampleValue(float samplesPerPeriod);
 protected:
-	virtual float previousValue(float samplesPerPeriod) {
-		return previous.sampleValue(samplesPerPeriod);
-	}
+	/* Implemented by sub classes */
+	virtual float nextSampleValue(float samplesPerPeriod) = 0;
+	/* Returns the current frequency modifier */
+	float getFrequencyModifier(float samplesPerPeriod);
+	/* Returns the base input value */
+	virtual float inputValue(float samplesPerPeriod);
+	
 private:
-	Oscillator& previous;
+	Oscillator& mInput;
+	OscillatorInput *mFrequencyModifier;	
 };
 
 #endif

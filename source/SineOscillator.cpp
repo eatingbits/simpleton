@@ -20,9 +20,9 @@ Oscillator(previous), mCurrentPeriod(0) {
 SineOscillator::~SineOscillator() {
 }
 
-float SineOscillator :: nextSampleValue(float samplesPerPeriod) {
-	
-	mCurrentPeriod = (mCurrentPeriod + 1) % (int) (samplesPerPeriod);
-	float value = sin(mCurrentPeriod / (samplesPerPeriod) * 2 * M_PI);
+float SineOscillator :: nextSampleValue(float samplesPerPeriod) {	
+	float mod = getFrequencyModifier(samplesPerPeriod);
+	mCurrentPeriod = (mCurrentPeriod + 1) % (int) (samplesPerPeriod + mod);
+	float value = sin(mCurrentPeriod / (samplesPerPeriod + mod) * 2 * M_PI);
 	return value;
 }

@@ -12,6 +12,7 @@
 #include "SilenceOscillator.h"
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
+#include "LFO.h"
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	return new Simpleton(audioMaster);
@@ -33,8 +34,13 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
   mCurrentOscillator = kSineOscillator;
 	mSilenceOscillator = new SilenceOscillator();
 	mSquareOscillator = new SquareOscillator(*mSilenceOscillator);
-	mSineOscillator = new SineOscillator(*mSquareOscillator);
-	//mSineLFO = new SineOscillator();
+	Oscillator *sine2 = new SineOscillator(*mSilenceOscillator);
+	sine2->setFrequencyModifier(new StaticOscillatorInput(2));
+	mSineOscillator = new SineOscillator(*mSilenceOscillator);
+	mSineLFO = new SineOscillator(*mSilenceOscillator);
+	LFO *lfo = new LFO(*mSineLFO, 44100 / 0.3, 10);
+	mSquareOscillator->setFrequencyModifier(lfo);
+	mSineOscillator->setFrequencyModifier(lfo);
   initialize();
   suspend();
 }

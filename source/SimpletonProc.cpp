@@ -8,8 +8,6 @@
 #include "Simpleton.h"
 #endif
 
-#include <iostream>
-
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"

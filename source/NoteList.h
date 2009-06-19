@@ -9,33 +9,13 @@
 
 class NoteList {
 public:
-  NoteList() : size(0) {}
-  void add(int value) { elements[size++] = value; }
-  void remove(int value) { 
-    bool found = false;
-    for (int i = 0; i < size; i++) {
-      if (elements[i] == value) {
-        found = true;
-      }
-      if (found && i < size - 1) {
-        elements[i] = elements[i+1];
-      }
-    }
-    if (found) {
-      --size;
-    }
-  }
-  
-  int current() {
-    return elements[size-1];
-  }
-  
-  bool isEmpty() {
-    return size > 0;
-  }
-    
+  NoteList() : mSize(0) {}
+  void add(int value);
+	void remove(int value);
+  int current() { return mElements[mSize-1]; }
+  bool isEmpty() { return mSize > 0; }
 private:
-  int elements[32];
-  int size;
+  int mElements[128];
+  int mSize;
 };
 

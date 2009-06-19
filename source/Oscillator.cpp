@@ -8,19 +8,24 @@
  */
 
 #include "Oscillator.h"
-/*
-Oscillator::Oscillator(float samplesPerPeriod, int currentPeriod, int numOutputs) : 
-mSamplesPerPeriod(samplesPerPeriod), mCurrentPeriod(currentPeriod), mNumOutputs(numOutputs) {
+
+float Oscillator :: sampleValue(float samplesPerPeriod) {
+	float previous = inputValue(samplesPerPeriod);
+	float nValue = previous + nextSampleValue(samplesPerPeriod);
+	return nValue;
 }
 
-void Oscillator :: generateFrames(float **outputs, int framesToGenerate) {
-  for (int frame = 0; frame < framesToGenerate; ++frame) {
-    mCurrentPeriod = (mCurrentPeriod + 1) % (int) mSamplesPerPeriod;
-    for (int channel = 0; channel < mNumOutputs; ++channel) {
-      outputs[channel][frame] = generateTune(mCurrentPeriod, mSamplesPerPeriod);
-    }
-  }
+float Oscillator :: getFrequencyModifier(float samplesPerPeriod) {
+	if (mFrequencyModifier == NULL) {
+		return 0.0;
+	}
+	return mFrequencyModifier->sampleValue(samplesPerPeriod);
 }
- */
+
+
+float Oscillator :: inputValue(float samplesPerPeriod) {
+	return mInput.sampleValue(samplesPerPeriod);
+}
+
 
 
