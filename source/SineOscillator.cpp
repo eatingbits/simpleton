@@ -13,7 +13,7 @@
 #include <math.h>
 #include "Buffer.h"
 
-SineOscillator::SineOscillator(Oscillator& previous, float samplesPerPeriod) : 
+SineOscillator::SineOscillator(Oscillator *previous, float samplesPerPeriod) : 
 Oscillator(previous), mCurrentPeriod(0), mSamplesPerPeriod(samplesPerPeriod), mPlaying(0) {
 }
 

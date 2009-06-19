@@ -15,7 +15,7 @@
 #include "ADSREnvelope.h"
 #include <cstdlib>
 
-Oscillator *Prototype :: create(Oscillator& parent, float samplesPerPeriod) {
+Oscillator *Prototype :: create(Oscillator *parent, float samplesPerPeriod) {
 	Oscillator *oscillator = NULL;
 	if (mType == kSineOscillator) {
 		oscillator = new SineOscillator(parent, samplesPerPeriod);
@@ -43,7 +43,7 @@ Oscillator *OscillatorPrototype :: create(float samplesPerPeriod) {
 	
 	for (int oscillator = 0; oscillator < mPrototypeSize; ++oscillator) {
 		Prototype *prototype = mPrototypes[oscillator];
-		current = prototype->create(*current, samplesPerPeriod);
+		current = prototype->create(current, samplesPerPeriod);
 	}
 	return current;
 }

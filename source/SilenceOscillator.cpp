@@ -11,7 +11,7 @@
 #include "Buffer.h"
 
 SilenceOscillator :: SilenceOscillator() : 
-Oscillator(*this) {
+Oscillator(NULL) {
 }
 
 

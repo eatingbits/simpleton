@@ -23,7 +23,7 @@ public:
 		mType(type), mSampleRate(sampleRate), mAttackAmplitude(attackAmplitude), mAttackTime(attackTime),
 	mDecayAmplitude(decayAmplitude), mDecayTime(decayTime), mReleaseTime(releaseTime) {}
 	
-	Oscillator *create(Oscillator& parent, float samplesPerPeriod);
+	Oscillator *create(Oscillator *parent, float samplesPerPeriod);
 private:
 	OscillatorType mType;
 	int mSampleRate;

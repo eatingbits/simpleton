@@ -10,6 +10,18 @@
 #include "Oscillator.h"
 #include "Envelope.h"
 
+Oscillator :: ~Oscillator() {
+	if (mEnvelope != NULL) {
+		delete mEnvelope;
+	}
+	if (mFrequencyModifier != NULL) {
+		delete mFrequencyModifier;
+	}
+	if (mInput != NULL) {
+		delete mInput;
+	}
+}
+
 float Oscillator :: sampleValue() {
 	float previous = inputValue();
 	float nValue = previous + nextSampleValue();
@@ -32,7 +44,7 @@ float Oscillator :: getAmplitudeModifier() {
 
 
 float Oscillator :: inputValue() {
-	return mInput.sampleValue();
+	return mInput->sampleValue();
 }
 
 

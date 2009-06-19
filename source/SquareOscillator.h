@@ -18,7 +18,7 @@ class Buffer;
 
 class SquareOscillator : public Oscillator {
 public:
-	SquareOscillator(Oscillator& previous, float samplesPerPeriod);
+	SquareOscillator(Oscillator *previous, float samplesPerPeriod);
 	virtual void noteOn() { mCurrentPeriod = 0; ++mPlaying; }
 	virtual void noteOff() { if (mPlaying > 0) { --mPlaying; } }
 	bool isPlaying() { return mPlaying > 0; }

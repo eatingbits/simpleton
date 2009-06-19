@@ -10,7 +10,7 @@
 #include "SquareOscillator.h"
 #include "Buffer.h"
 
-SquareOscillator::SquareOscillator(Oscillator& previous, float samplesPerPeriod) : Oscillator(previous), mCurrentPeriod(0), 
+SquareOscillator::SquareOscillator(Oscillator *previous, float samplesPerPeriod) : Oscillator(previous), mCurrentPeriod(0), 
 	mSamplesPerPeriod(samplesPerPeriod), mPlaying(0) {
 }
 

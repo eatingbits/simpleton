@@ -23,6 +23,7 @@ void NoteList :: remove(int value) {
 	for (int i = 0; i < mSize; ++i) {
 		if (mElements[i] == value) {
 			found = true;
+			delete mOscillators[i];
 		}
 		if (found && i < mSize - 1) {
 			mElements[i] = mElements[i+1];

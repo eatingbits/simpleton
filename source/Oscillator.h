@@ -18,8 +18,8 @@ class Buffer;
 
 class Oscillator : public OscillatorInput {
 public:
-	Oscillator(Oscillator& oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL)  {}
-	virtual ~Oscillator() {}
+	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL)  {}
+	virtual ~Oscillator();
 
 	void onNote() { if (mEnvelope != NULL) mEnvelope->noteOn(); noteOn(); }
 	void offNote() { if (mEnvelope != NULL) mEnvelope->noteOff(); noteOff(); }
@@ -49,7 +49,7 @@ protected:
 	virtual float inputValue();
 	
 private:
-	Oscillator& mInput;
+	Oscillator *mInput;
 	OscillatorInput *mFrequencyModifier;
 	Envelope *mEnvelope;
 };
