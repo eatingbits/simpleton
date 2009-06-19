@@ -23,7 +23,10 @@ void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstIn
 
 void Simpleton::noteOff(const VstInt32 note, const VstInt32 delta) {
   if (playing()) {
-		noteList.getOscillator(note)->offNote();
+		Oscillator *oscillator = noteList.getOscillator(note);
+		if (oscillator != NULL) {
+			oscillator->offNote();
+		}
   }
 }
 

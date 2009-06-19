@@ -14,7 +14,9 @@ class Oscillator;
 
 enum OscillatorType {
   kSineOscillator,
-  kSquareOscillator
+  kSquareOscillator,
+	kSawOscillator,
+	kReverseSawOscillator
 };
 
 class Prototype {

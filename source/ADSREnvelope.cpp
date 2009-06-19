@@ -68,7 +68,7 @@ void ADSREnvelope :: noteOn() {
 }
 
 void ADSREnvelope :: noteOff() {
-	if (mReleaseTime > 0) {
+	if (mReleaseTime > 0 && mCurrentAmplitude != 0.0) {
 		setState(kRelease);
 	} else {
 		setState(kQuiet);
