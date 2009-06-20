@@ -16,7 +16,8 @@ enum OscillatorType {
   kSineOscillator,
   kSquareOscillator,
 	kSawOscillator,
-	kReverseSawOscillator
+	kReverseSawOscillator,
+	kNoiseOscillator
 };
 
 class Prototype {

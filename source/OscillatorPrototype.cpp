@@ -13,6 +13,7 @@
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"
 #include "SawOscillator.h"
+#include "NoiseOscillator.h"
 #include "ADSREnvelope.h"
 #include <cstdlib>
 
@@ -26,6 +27,8 @@ Oscillator *Prototype :: create(Oscillator *parent, float samplesPerPeriod) {
 		oscillator = new SawOscillator(parent, samplesPerPeriod, false);
 	} else if (mType == kReverseSawOscillator) {
 		oscillator = new SawOscillator(parent, samplesPerPeriod, true);
+	} else if (mType == kNoiseOscillator) {
+		oscillator = new NoiseOscillator(parent);
 	}
 	
 	ADSREnvelope *envelope = new ADSREnvelope(mSampleRate);

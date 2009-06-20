@@ -26,6 +26,8 @@
 		FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */; };
 		FF213E530FEC033400F1E481 /* SimpletonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213E520FEC033400F1E481 /* SimpletonTest.cpp */; };
 		FF213F970FEC17B600F1E481 /* SawOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213F850FEC14D100F1E481 /* SawOscillator.cpp */; };
+		FF2140220FEC1D8E00F1E481 /* NoiseOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */; };
+		FF2140230FEC1D8E00F1E481 /* NoiseOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
 		FF726F550F90B5500098B1B2 /* aeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F520F90B5500098B1B2 /* aeffectx.h */; };
 		FF726F560F90B5500098B1B2 /* vstfxstore.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F530F90B5500098B1B2 /* vstfxstore.h */; };
@@ -73,6 +75,8 @@
 		FF213E520FEC033400F1E481 /* SimpletonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonTest.cpp; path = test/SimpletonTest.cpp; sourceTree = "<group>"; };
 		FF213F840FEC14D100F1E481 /* SawOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SawOscillator.h; path = source/SawOscillator.h; sourceTree = "<group>"; };
 		FF213F850FEC14D100F1E481 /* SawOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SawOscillator.cpp; path = source/SawOscillator.cpp; sourceTree = "<group>"; };
+		FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoiseOscillator.h; path = source/NoiseOscillator.h; sourceTree = "<group>"; };
+		FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoiseOscillator.cpp; path = source/NoiseOscillator.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
 		FF726F520F90B5500098B1B2 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffectx.h; path = pluginterfaces/vst2.x/aeffectx.h; sourceTree = "<group>"; };
 		FF726F530F90B5500098B1B2 /* vstfxstore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstfxstore.h; path = pluginterfaces/vst2.x/vstfxstore.h; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */,
 				FF213F840FEC14D100F1E481 /* SawOscillator.h */,
 				FF213F850FEC14D100F1E481 /* SawOscillator.cpp */,
+				FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */,
+				FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				FF213BCD0FEBA27000F1E481 /* Envelope.h in Headers */,
 				FF213BD10FEBA2FC00F1E481 /* ADSREnvelope.h in Headers */,
 				FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */,
+				FF2140220FEC1D8E00F1E481 /* NoiseOscillator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +385,7 @@
 				FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */,
 				FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */,
 				FF213F970FEC17B600F1E481 /* SawOscillator.cpp in Sources */,
+				FF2140230FEC1D8E00F1E481 /* NoiseOscillator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

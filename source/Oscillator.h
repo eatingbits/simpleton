@@ -21,8 +21,8 @@ public:
 	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL)  {}
 	virtual ~Oscillator();
 
-	void onNote() { if (mEnvelope != NULL) mEnvelope->noteOn(); noteOn(); }
-	void offNote() { if (mEnvelope != NULL) mEnvelope->noteOff(); noteOff(); }
+	void onNote() { if (mEnvelope != NULL) mEnvelope->noteOn(); noteOn(); if (mInput != NULL) mInput->onNote(); }
+	void offNote() { if (mEnvelope != NULL) mEnvelope->noteOff(); noteOff(); if (mInput != NULL) mInput->offNote(); }
 	
 	/* Sets a frequency modifier input */
 	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
