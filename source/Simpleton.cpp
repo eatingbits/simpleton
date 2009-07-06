@@ -34,9 +34,9 @@ Simpleton::Simpleton(audioMasterCallback audioMaster)
 //	mOscillatorPrototype->add(kSineOscillator, 44100, 1.6, 0, -1.6, 7, 4);
 //	mOscillatorPrototype->add(kSquareOscillator, 44100, 1.6, 0, -1.6, 7, 4);
 //	mOscillatorPrototype->add(kSawOscillator, 44100, 1.0, 0, 0.0, 0, 0);
-	mOscillatorPrototype->add(kNoiseOscillator, 44100, 0.5, 0, -0.5, 10, 0);
-	mOscillatorPrototype->add(kSquareOscillator, 44100, 1.0, 0, -1.0, 6, 0);
-	mOscillatorPrototype->add(kSawOscillator, 44100, 1.0, 3, -1.0, 20, 0);
+//	mOscillatorPrototype->add(kNoiseOscillator, 44100, 0.5, 0, -0.5, 10, 0);
+//	mOscillatorPrototype->add(kSquareOscillator, 44100, 1.0, 0, -1.0, 6, 0);
+	mOscillatorPrototype->add(kSawOscillator, 44100, 1.0, 3, 0.0, 0, 10);
 	initialize();
   suspend();
 }

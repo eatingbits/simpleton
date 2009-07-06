@@ -15,13 +15,8 @@
 class NoiseOscillator : public Oscillator {
 public:
 	NoiseOscillator(Oscillator *parent) : Oscillator(parent) {}
-	virtual void noteOn() { mPlaying++; }
-	virtual void noteOff() { if (mPlaying > 0) { --mPlaying; } }
-	
-	bool isPlaying() { return (mPlaying > 0 || isInputPlaying()); }
 	float nextSampleValue();
 private:
-	int mPlaying;	
 };
 
 #endif

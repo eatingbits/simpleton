@@ -9,22 +9,23 @@
 
 #include "SawOscillator.h"
 
-SawOscillator :: SawOscillator(Oscillator *parent, float samplesPerPeriod, bool reverse) : Oscillator(parent), mSamplesPerPeriod(samplesPerPeriod), mReverse(reverse) {
+SawOscillator :: SawOscillator(Oscillator *parent, float samplesPerPeriod, bool reverse) : Oscillator(parent), 
+mCurrentPeriod(0), mSamplesPerPeriod(samplesPerPeriod), mReverse(reverse), mHalfSamplesPerPeriod(samplesPerPeriod / 2), mDivider(1.0 / (float) mHalfSamplesPerPeriod) {
 }
 
 float SawOscillator :: nextSampleValue() {
 	float amplitudeModifier = getAmplitudeModifier();
-	int half = mSamplesPerPeriod / 2;
 	float value = 0.0;
-	if (mCurrentPeriod < half) {
-		value = -1 + ((float) mCurrentPeriod * (1.0 / (float) half));
+	if (mCurrentPeriod < mHalfSamplesPerPeriod) {
+		value = -1 + ((float) mCurrentPeriod * mDivider);
 	} else {
-		value = 0 + ((float) (mCurrentPeriod - half) * (1.0 / (float) half));
+		value = 0 + ((float) (mCurrentPeriod - mHalfSamplesPerPeriod) * mDivider);
 	}
 	mCurrentPeriod = (mCurrentPeriod + 1) % (int) mSamplesPerPeriod;
 	if (mReverse) {
 		value *= -1;
 	}
-	return (amplitudeModifier * value);
+	float ret = (amplitudeModifier * value);
+	return ret;
 }
 

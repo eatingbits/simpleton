@@ -14,23 +14,14 @@
 #include "Oscillator.h"
 #endif
 
-#include <iostream>
-
-class Buffer;
-
 class SineOscillator : public Oscillator {
 public:
   SineOscillator(Oscillator *previous, float samplesPerPeriod);
   ~SineOscillator();
-	virtual void noteOn() { std::cout << "s:on()" << std::endl; mCurrentPeriod = 0; mPlaying++; }
-	virtual void noteOff() { std::cout << "s:off() playing:" << mPlaying << std::endl; if (mPlaying > 0) { std::cout<<"--playing" << std::endl; --mPlaying; } }
-
-	bool isPlaying() { return (mPlaying > 0 || isInputPlaying()); }
 	float nextSampleValue();
 private:
 	int mCurrentPeriod;
 	float mSamplesPerPeriod;
-	int mPlaying;
 };
 
 #endif

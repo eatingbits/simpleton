@@ -21,24 +21,16 @@ public:
 	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL)  {}
 	virtual ~Oscillator();
 
-	void onNote() { if (mEnvelope != NULL) mEnvelope->noteOn(); noteOn(); if (mInput != NULL) mInput->onNote(); }
-	void offNote() { if (mEnvelope != NULL) mEnvelope->noteOff(); noteOff(); if (mInput != NULL) mInput->offNote(); }
+	void noteOn() { if (mEnvelope != NULL) mEnvelope->noteOn(); if (mInput != NULL) mInput->noteOn(); }
+	void noteOff() { if (mEnvelope != NULL) mEnvelope->noteOff(); if (mInput != NULL) mInput->noteOff(); }
 	
 	/* Sets a frequency modifier input */
 	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
 	void setEnvelope(Envelope *envelope) { mEnvelope = envelope; }
 	/* Returns the next sample value */
 	float sampleValue();
-	virtual bool isPlaying() { return false; }
+	virtual bool isPlaying() { return (mEnvelope != NULL && mEnvelope->isPlaying()); }
 protected:
-	virtual void noteOn() {};
-	virtual void noteOff() {};
-	bool isInputPlaying() { 
-		if (mEnvelope != NULL && mEnvelope->isPlaying()) 
-			return true; 
-	return false; 
-	}
-
 	/* Implemented by sub classes */
 	virtual float nextSampleValue() = 0;
 	/* Returns the current frequency modifier */

@@ -76,6 +76,5 @@ void ADSREnvelope :: noteOff() {
 }
 
 int ADSREnvelope :: msToSamples(int ms) {
-	return (ms * (44100 / 1000));
-//	return (ms / (mSampleRate * 1000));
+	return (ms * (mSampleRate / 1000));
 }

@@ -58,6 +58,9 @@ float NoteList :: sampleValue() {
 			value = mOscillators[i]->sampleValue();
 		}
 	}
+	if (value < -1.0 || value > 1.0) {
+		std::cout << "Value:" << value << std::endl;
+	}
 	return value;
 }
 

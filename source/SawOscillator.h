@@ -16,16 +16,13 @@ class SawOscillator : public Oscillator {
 public:
 	SawOscillator(Oscillator *parent, float samplesPerPeriod, bool reverse);
 	~SawOscillator() {}
-	virtual void noteOn() { mCurrentPeriod = 0; mPlaying++; }
-	virtual void noteOff() { if (mPlaying > 0) { --mPlaying; } }
-	
-	bool isPlaying() { return (mPlaying > 0 || isInputPlaying()); }
 	float nextSampleValue();
 private:
 	int mCurrentPeriod;
 	float mSamplesPerPeriod;
-	int mPlaying;	
 	bool mReverse;
+	int mHalfSamplesPerPeriod;
+	float mDivider;
 };
 
 #endif

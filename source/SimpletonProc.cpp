@@ -17,7 +17,7 @@
 void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstInt32 delta) {
 	mCurrentNoteFreq = mMidiNoteFrequencies[note];
 	Oscillator *oscillator = mOscillatorPrototype->create(44100 / mCurrentNoteFreq);
-	oscillator->onNote();
+	oscillator->noteOn();
   noteList.add(note, oscillator);
 }
 
@@ -25,7 +25,7 @@ void Simpleton::noteOff(const VstInt32 note, const VstInt32 delta) {
   if (playing()) {
 		Oscillator *oscillator = noteList.getOscillator(note);
 		if (oscillator != NULL) {
-			oscillator->offNote();
+			oscillator->noteOff();
 		}
   }
 }

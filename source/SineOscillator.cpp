@@ -14,7 +14,7 @@
 #include "Buffer.h"
 
 SineOscillator::SineOscillator(Oscillator *previous, float samplesPerPeriod) : 
-Oscillator(previous), mCurrentPeriod(0), mSamplesPerPeriod(samplesPerPeriod), mPlaying(0) {
+Oscillator(previous), mCurrentPeriod(0), mSamplesPerPeriod(samplesPerPeriod) {
 }
 
 SineOscillator::~SineOscillator() {

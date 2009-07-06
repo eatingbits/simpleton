@@ -11,7 +11,7 @@
 #include "Buffer.h"
 
 SquareOscillator::SquareOscillator(Oscillator *previous, float samplesPerPeriod) : Oscillator(previous), mCurrentPeriod(0), 
-	mSamplesPerPeriod(samplesPerPeriod), mPlaying(0) {
+	mSamplesPerPeriod(samplesPerPeriod) {
 }
 
 float SquareOscillator :: nextSampleValue() {

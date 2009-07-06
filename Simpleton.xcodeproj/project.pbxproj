@@ -19,7 +19,6 @@
 		FF1ED9970F9BBA7100851E29 /* SineOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF1ED9950F9BBA7100851E29 /* SineOscillator.h */; };
 		FF1ED9980F9BBA7100851E29 /* SineOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */; };
 		FF213BCD0FEBA27000F1E481 /* Envelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213BCB0FEBA27000F1E481 /* Envelope.h */; };
-		FF213BCE0FEBA27000F1E481 /* Envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213BCC0FEBA27000F1E481 /* Envelope.cpp */; };
 		FF213BD10FEBA2FC00F1E481 /* ADSREnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */; };
 		FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */; };
 		FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */; };
@@ -66,7 +65,6 @@
 		FF1ED9950F9BBA7100851E29 /* SineOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineOscillator.h; path = source/SineOscillator.h; sourceTree = "<group>"; };
 		FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineOscillator.cpp; path = source/SineOscillator.cpp; sourceTree = "<group>"; };
 		FF213BCB0FEBA27000F1E481 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Envelope.h; path = source/Envelope.h; sourceTree = "<group>"; };
-		FF213BCC0FEBA27000F1E481 /* Envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Envelope.cpp; path = source/Envelope.cpp; sourceTree = "<group>"; };
 		FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSREnvelope.h; path = source/ADSREnvelope.h; sourceTree = "<group>"; };
 		FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADSREnvelope.cpp; path = source/ADSREnvelope.cpp; sourceTree = "<group>"; };
 		FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorPrototype.h; path = source/OscillatorPrototype.h; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
 				FF9FC70D0FEAE79800389436 /* OscillatorInput.h */,
 				FF213BCB0FEBA27000F1E481 /* Envelope.h */,
-				FF213BCC0FEBA27000F1E481 /* Envelope.cpp */,
 				FF213BCF0FEBA2FC00F1E481 /* ADSREnvelope.h */,
 				FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */,
 				FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */,
@@ -381,7 +378,6 @@
 				FFFC5CC00FE417A5002E441D /* SquareOscillator.cpp in Sources */,
 				FFFC5D3E0FE429DB002E441D /* NoteList.cpp in Sources */,
 				FF9FC3B80FE969A600389436 /* Buffer.cpp in Sources */,
-				FF213BCE0FEBA27000F1E481 /* Envelope.cpp in Sources */,
 				FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */,
 				FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */,
 				FF213F970FEC17B600F1E481 /* SawOscillator.cpp in Sources */,

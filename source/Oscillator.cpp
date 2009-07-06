@@ -25,6 +25,9 @@ Oscillator :: ~Oscillator() {
 float Oscillator :: sampleValue() {
 	float previous = inputValue();
 	float nValue = previous + nextSampleValue();
+	if (nValue < -1.0 || nValue > 1.0) {
+		return nValue;
+	}
 	return nValue;
 }
 
