@@ -13,6 +13,13 @@
 		24294B6109914B7F0006810F /* audioeffectx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5B09914B7F0006810F /* audioeffectx.cpp */; };
 		24294B6209914B7F0006810F /* audioeffectx.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5C09914B7F0006810F /* audioeffectx.h */; };
 		24294B6309914B7F0006810F /* vstplugmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5D09914B7F0006810F /* vstplugmain.cpp */; };
+		2461D3CF1003CD1C00290BBA /* FloatValueParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */; };
+		2461D3D01003CD1C00290BBA /* FloatValueParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2461D3C91003CD1C00290BBA /* FloatValueParameter.h */; };
+		2461D3D11003CD1C00290BBA /* NamedValueParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */; };
+		2461D3D21003CD1C00290BBA /* NamedValueParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2461D3CB1003CD1C00290BBA /* NamedValueParameter.h */; };
+		2461D3D31003CD1C00290BBA /* Parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2461D3CC1003CD1C00290BBA /* Parameter.h */; };
+		2461D3D41003CD1C00290BBA /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2461D3CD1003CD1C00290BBA /* Parameters.cpp */; };
+		2461D3D51003CD1C00290BBA /* Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 2461D3CE1003CD1C00290BBA /* Parameters.h */; };
 		24A483930926E8F400DC794C /* PkgInfo in Resources */ = {isa = PBXBuildFile; fileRef = 24A483910926E8F400DC794C /* PkgInfo */; };
 		24D8290609A91ECA0093AEF8 /* xcode_vst_prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
@@ -59,6 +66,13 @@
 		24294B5B09914B7F0006810F /* audioeffectx.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = audioeffectx.cpp; path = public.sdk/source/vst2.x/audioeffectx.cpp; sourceTree = "<group>"; };
 		24294B5C09914B7F0006810F /* audioeffectx.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = audioeffectx.h; path = public.sdk/source/vst2.x/audioeffectx.h; sourceTree = "<group>"; };
 		24294B5D09914B7F0006810F /* vstplugmain.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = vstplugmain.cpp; path = public.sdk/source/vst2.x/vstplugmain.cpp; sourceTree = "<group>"; };
+		2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloatValueParameter.cpp; path = source/FloatValueParameter.cpp; sourceTree = "<group>"; };
+		2461D3C91003CD1C00290BBA /* FloatValueParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatValueParameter.h; path = source/FloatValueParameter.h; sourceTree = "<group>"; };
+		2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NamedValueParameter.cpp; path = source/NamedValueParameter.cpp; sourceTree = "<group>"; };
+		2461D3CB1003CD1C00290BBA /* NamedValueParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NamedValueParameter.h; path = source/NamedValueParameter.h; sourceTree = "<group>"; };
+		2461D3CC1003CD1C00290BBA /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameter.h; path = source/Parameter.h; sourceTree = "<group>"; };
+		2461D3CD1003CD1C00290BBA /* Parameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parameters.cpp; path = source/Parameters.cpp; sourceTree = "<group>"; };
+		2461D3CE1003CD1C00290BBA /* Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameters.h; path = source/Parameters.h; sourceTree = "<group>"; };
 		24A483900926E8F400DC794C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = mac/Info.plist; sourceTree = SOURCE_ROOT; };
 		24A483910926E8F400DC794C /* PkgInfo */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = PkgInfo; path = mac/PkgInfo; sourceTree = SOURCE_ROOT; };
 		24D8290509A91ECA0093AEF8 /* xcode_vst_prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = xcode_vst_prefix.h; path = mac/xcode_vst_prefix.h; sourceTree = SOURCE_ROOT; };
@@ -154,6 +168,7 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2461D3C71003CD0600290BBA /* Parameters */,
 				FF9FC7640FEB86AD00389436 /* LFO.h */,
 				FF9FC3B60FE969A600389436 /* Buffer.cpp */,
 				FF9FC3B50FE969A600389436 /* Buffer.h */,
@@ -192,6 +207,20 @@
 				FF9E2F700F9B5E680032801F /* SimpletonTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2461D3C71003CD0600290BBA /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */,
+				2461D3C91003CD1C00290BBA /* FloatValueParameter.h */,
+				2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */,
+				2461D3CB1003CD1C00290BBA /* NamedValueParameter.h */,
+				2461D3CC1003CD1C00290BBA /* Parameter.h */,
+				2461D3CD1003CD1C00290BBA /* Parameters.cpp */,
+				2461D3CE1003CD1C00290BBA /* Parameters.h */,
+			);
+			name = Parameters;
 			sourceTree = "<group>";
 		};
 		24CFB71B07E7A1BC0081BD57 /* vstsdk2.4 */ = {
@@ -247,6 +276,10 @@
 				FF213BD10FEBA2FC00F1E481 /* ADSREnvelope.h in Headers */,
 				FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */,
 				FF2140220FEC1D8E00F1E481 /* NoiseOscillator.h in Headers */,
+				2461D3D01003CD1C00290BBA /* FloatValueParameter.h in Headers */,
+				2461D3D21003CD1C00290BBA /* NamedValueParameter.h in Headers */,
+				2461D3D31003CD1C00290BBA /* Parameter.h in Headers */,
+				2461D3D51003CD1C00290BBA /* Parameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +415,9 @@
 				FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */,
 				FF213F970FEC17B600F1E481 /* SawOscillator.cpp in Sources */,
 				FF2140230FEC1D8E00F1E481 /* NoiseOscillator.cpp in Sources */,
+				2461D3CF1003CD1C00290BBA /* FloatValueParameter.cpp in Sources */,
+				2461D3D11003CD1C00290BBA /* NamedValueParameter.cpp in Sources */,
+				2461D3D41003CD1C00290BBA /* Parameters.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,18 +10,13 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "NoteList.h"
-#include "OscillatorPrototype.h"
-
 #ifndef __audioeffectx__
 #include "audioeffectx.h"
 #endif
 
-enum {
-  // kFirstParameter = 0,
-  kOscillatorType,
-  kNumParameters
-};
+#include "NoteList.h"
+#include "OscillatorPrototype.h"
+#include "Parameters.h"
 
 static const unsigned long kUniqueId = 'SIMP';
 static const int kNumPrograms = 0;
@@ -32,7 +27,7 @@ class Oscillator;
 
 class Simpleton : public AudioEffectX {
 public:
-  Simpleton(audioMasterCallback audioMaster);
+  Simpleton(audioMasterCallback audioMaster, Parameters *parameters);
   ~Simpleton();
   
   virtual VstInt32 canDo(char *text);
@@ -73,6 +68,8 @@ private:
   bool initialize();
   void noteOn(VstInt32 note, VstInt32 velocity, VstInt32 delta);
   void noteOff(VstInt32 note, VstInt32 delta);
+  
+  Parameters *mParameters;
   
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];

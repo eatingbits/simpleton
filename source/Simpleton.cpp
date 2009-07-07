@@ -8,19 +8,25 @@
 #include "Simpleton.h"
 #endif
 
-
 #include "SilenceOscillator.h"
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "LFO.h"
 #include "ADSREnvelope.h"
+#include "FloatValueParameter.h"
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
-	return new Simpleton(audioMaster);
+  Parameters *parameters = new Parameters();
+  parameters->add(new FloatValueParameter("test", "stuff", 0.0, 1.0));
+  parameters->add(new FloatValueParameter("test2", "db", 0.0, 2.0));
+  
+	return new Simpleton(audioMaster, parameters);
 }
 
-Simpleton::Simpleton(audioMasterCallback audioMaster)
-: AudioEffectX(audioMaster, kNumPrograms, kNumParameters) {
+Simpleton::Simpleton(audioMasterCallback audioMaster, Parameters *parameters)
+: AudioEffectX(audioMaster, kNumPrograms, parameters->size()),
+mParameters(parameters) 
+{
   mCurrentNoteFreq = 0;
   if(audioMaster != NULL) {
     setNumInputs(kNumInputs);
@@ -123,63 +129,19 @@ bool Simpleton::getOutputProperties(VstInt32 index, VstPinProperties *properties
 }
 
 float Simpleton::getParameter(VstInt32 index) {
-  switch(index) {
-    case kOscillatorType:
-      switch (mCurrentOscillator) {
-        case kSineOscillator:
-          return 0.0;
-        case kSquareOscillator:
-          return 1.0;
-      }
-      return 0.0;
-      break;
-    // TODO: Add other parameter cases here
-    default:
-      return 0.0;
-  }
+  return mParameters->getParameterValue(index);
 }
 
 void Simpleton::getParameterDisplay(VstInt32 index, char *text) {
-  switch(index) {
-    case kOscillatorType:
-      switch (mCurrentOscillator) {
-        case kSineOscillator:
-          strcpy(text, "Sine");
-          break;
-        case kSquareOscillator:
-          strcpy(text, "Square");
-          break;
-      };
-      break;
-    // TODO: Add other parameter cases here
-    default:
-      strcpy(text, "ERROR");
-      break;
-  }
+  mParameters->getParameterDisplay(index, text);
 }
 
 void Simpleton::getParameterLabel(VstInt32 index, char *text) {
-  switch(index) {
-    // TODO: Add other parameter cases here
-    case kOscillatorType:
-      strcpy(text, "");
-      break;
-    default:
-      strcpy(text, "ERROR");
-      break;
-  }
+  mParameters->getParameterUnit(index, text);
 }
 
 void Simpleton::getParameterName(VstInt32 index, char *text) {
-  switch(index) {
-    case kOscillatorType:
-      strcpy(text, "Oscillator");
-      break;
-    // TODO: Add other parameter cases here
-    default:
-      strcpy(text, "ERROR");
-      break;
-  }
+  mParameters->getParameterName(index, text);
 }
 
 VstPlugCategory Simpleton::getPlugCategory() { 
@@ -219,19 +181,7 @@ void Simpleton::setBlockSize(VstInt32 blockSize) {
 }
 
 void Simpleton::setParameter(VstInt32 index, float value) {
-  switch(index) {
-    case kOscillatorType:
-      if (value > 0.5) {
-        mCurrentOscillator = kSquareOscillator;
-		  
-      } else {
-        mCurrentOscillator = kSineOscillator;
-      }
-      break;
-    // TODO: Add other parameter cases here
-    default:
-      break;
-  }
+  mParameters->setParameter(index, value);
 }
 
 void Simpleton::setProgram(VstInt32 index) {
