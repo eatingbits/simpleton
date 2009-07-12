@@ -20,6 +20,8 @@ Parameters *ParameterFactory :: createParameters() {
 	parameters->add(decay);
 	FloatValueParameter *decayTime = new FloatValueParameter("Decay time", "ms", 0.0, 400.0);
 	parameters->add(decayTime);
+	FloatValueParameter *releaseTime = new FloatValueParameter("Release time", "ms", 0.0, 400.0);
+	parameters->add(releaseTime);
 	
 	return parameters;
 }

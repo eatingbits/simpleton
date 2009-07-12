@@ -13,6 +13,7 @@ class Parameters {
 public:
   void add(Parameter* parameter);
 	void addCallback(std::string name, ParameterCallback *callback);
+	void addUpdate(std::string name, std::vector<std::string>);
   const int size() const;
   
   float getParameterValue(int index);
@@ -23,9 +24,12 @@ public:
 private:
   Parameter* getParameter(int index);
 	ParameterCallback *getCallback(std::string name);
+	void update(const std::string& name);
+	void updateParameter(const std::string& name);
   
   std::vector<Parameter*> mParameters;
 	std::map<std::string, ParameterCallback *> mCallbacks;
+	std::map<std::string, std::vector<std::string> > mUpdates;
 };
 
 #endif

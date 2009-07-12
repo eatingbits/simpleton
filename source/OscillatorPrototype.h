@@ -21,6 +21,7 @@ public:
 	void setAttackTime(int attackTime) { mAttackTime = attackTime; }
 	void setDecay(float decayAmplitude) { mDecayAmplitude = decayAmplitude; }
 	void setDecayTime(int decayTime) { mDecayTime = decayTime; }
+	void setReleaseTime(int releaseTime) { mReleaseTime = releaseTime; }
 	
 	Oscillator *create(Oscillator *parent, float samplesPerPeriod);
 private:
@@ -44,6 +45,7 @@ public:
 	void setAttackTime(int attackTime);
 	void setDecay(float decayAmplitude);
 	void setDecayTime(int decayTime);
+	void setReleaseTime(int releaseTime);
 private:
 	Prototype *mPrototypes[4];
 	int mPrototypeSize;

@@ -9,6 +9,10 @@ void Parameters::addCallback(std::string name, ParameterCallback *callback) {
 	mCallbacks.insert(make_pair(name, callback));
 }
 
+void Parameters::addUpdate(std::string name, std::vector<std::string> names) {
+	mUpdates.insert(make_pair(name, names));	
+}
+
 const int Parameters::size() const {
   return mParameters.size();
 }
@@ -39,6 +43,7 @@ void Parameters::setParameter(int index, float newValue) {
 		std::string name = parameter->getName();		
 		ParameterCallback *callback = getCallback(name);
 		parameter->onChange(newValue, callback);
+		update(name);
 	}
 }
 
@@ -48,4 +53,26 @@ ParameterCallback *Parameters::getCallback(std::string name) {
 		return it->second;
 	}
 	return NULL;
+}
+
+void Parameters::update(const std::string& name) {
+	std::map<std::string, std::vector<std::string> >::iterator it = mUpdates.find(name);
+	if (it == mUpdates.end()) {
+		return;
+	}
+	
+	std::vector<std::string> namesToUpdate = it->second;
+	for (unsigned int i = 0; i < namesToUpdate.size(); i++) {
+		updateParameter(namesToUpdate.at(i));
+	}
+}
+
+void Parameters::updateParameter(const std::string& name) {
+	for (unsigned int i = 0; i < mParameters.size(); i++) {
+		Parameter *parameter = getParameter(i);
+		std::string parameterName = parameter->getName();
+		if (parameterName == name) {
+			parameter->update(getCallback(parameterName));
+		}
+	}
 }

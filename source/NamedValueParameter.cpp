@@ -48,3 +48,7 @@ void NamedValueParameter::onChange(const float newValue, ParameterCallback *call
 		callback->stringValueChanged(mValues.at(valueToIndex(mValue)));
 	}
 }
+
+void NamedValueParameter :: update(ParameterCallback *callback) {
+	onChange(mValue, callback);
+}

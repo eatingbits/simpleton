@@ -33,6 +33,7 @@ public:
 	void onAttackTimeChange(const float newAttackTime);
 	void onDecayChange(const float newDecay);
 	void onDecayTimeChange(const float newDecayTime);
+	void onReleaseTimeChange(const float newReleaseTime);
     
 private:
   bool playing();

@@ -11,16 +11,20 @@ mValue(0.0f)
 }
 
 void FloatValueParameter::getDisplay(char *outBuffer) const {
-  sprintf(outBuffer, "%3.2f", mValue);
+  sprintf(outBuffer, "%3.2f", getCurrentValue());
 }
 
 const float FloatValueParameter::getCurrentValue() const {
-  return mValue;
+  return mValue * (mHiValue - mLowValue) + mLowValue;
 }
 
 void FloatValueParameter::onChange(const float newValue, ParameterCallback *callback) {
-  mValue = newValue * (mHiValue - mLowValue) + mLowValue;
+  mValue = newValue;
 	if (callback != NULL) {
-		callback->floatValueChanged(mValue);
+		callback->floatValueChanged(getCurrentValue());
 	}
+}
+
+void FloatValueParameter::update(ParameterCallback *callback) {
+	onChange(mValue, callback);
 }

@@ -4,6 +4,8 @@
 #include "Simpleton.h"
 #include "ForwardParameterCallback.h"
 #include <cstdio>
+#include <vector>
+#include <string>
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	Simpleton *simpleton = new Simpleton(kNumOutputs);	
@@ -19,6 +21,16 @@ AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	parameters->addCallback("Decay", decayCallback);
 	ForwardParameterCallback<Simpleton> *decayTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayTimeChange, NULL);
 	parameters->addCallback("Decay time", decayTimeCallback);
+	ForwardParameterCallback<Simpleton> *releaseTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onReleaseTimeChange, NULL);
+	parameters->addCallback("Release time", releaseTimeCallback);
+	
+	std::vector<std::string> updates;
+	updates.push_back("Attack");
+	updates.push_back("Attack time");
+	updates.push_back("Decay");
+	updates.push_back("Decay time");
+	updates.push_back("Release time");
+	parameters->addUpdate("Oscillator", updates);
 	
 	return new SimpletonVST(audioMaster, simpleton, parameters);
 }

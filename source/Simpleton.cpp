@@ -97,6 +97,10 @@ void Simpleton::onDecayTimeChange(const float newDecayTime) {
 	mOscillatorPrototype->setDecayTime((int) newDecayTime);
 }
 
+void Simpleton::onReleaseTimeChange(const float newReleaseTime) {
+	mOscillatorPrototype->setReleaseTime((int) newReleaseTime);
+}
+
 bool Simpleton :: playing() {
 	return (noteList.isPlaying());
 }

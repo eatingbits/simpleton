@@ -52,6 +52,10 @@ void OscillatorPrototype :: setDecayTime(int decayTime) {
 	mPrototypes[mPrototypeSize-1]->setDecayTime(decayTime);
 }
 
+void OscillatorPrototype :: setReleaseTime(int releaseTime) {
+	mPrototypes[mPrototypeSize-1]->setReleaseTime(releaseTime);
+}
+
 void OscillatorPrototype :: clear() {
 	if (mPrototypeSize > 0) {
 		for (int i = mPrototypeSize - 1; i >= 0; i--) {
