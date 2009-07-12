@@ -1,4 +1,5 @@
 #include "NamedValueParameter.h"
+#include "ParameterCallback.h"
 
 NamedValueParameter::NamedValueParameter(const char *name, const char *unit) :
 Parameter(name, unit),
@@ -41,6 +42,9 @@ const float NamedValueParameter::getCurrentValue() const {
   return mValue;
 }
 
-void NamedValueParameter::onChange(const float newValue) {
+void NamedValueParameter::onChange(const float newValue, ParameterCallback *callback) {
   mValue = newValue;
+	if (callback != NULL) {
+		callback->stringValueChanged(mValues.at(valueToIndex(mValue)));
+	}
 }

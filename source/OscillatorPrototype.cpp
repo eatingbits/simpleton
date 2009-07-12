@@ -36,6 +36,33 @@ void OscillatorPrototype :: add(OscillatorType type, int sampleRate, float attac
 	mPrototypes[mPrototypeSize++] = prototype;
 }
 
+void OscillatorPrototype :: setAttack(float attackAmplitude) {
+	mPrototypes[mPrototypeSize-1]->setAttack(attackAmplitude);
+}
+
+void OscillatorPrototype :: setAttackTime(int attackTime) {
+	mPrototypes[mPrototypeSize-1]->setAttackTime(attackTime);
+}
+
+void OscillatorPrototype :: setDecay(float decayAmplitude) {
+	mPrototypes[mPrototypeSize-1]->setDecay(decayAmplitude);
+}
+
+void OscillatorPrototype :: setDecayTime(int decayTime) {
+	mPrototypes[mPrototypeSize-1]->setDecayTime(decayTime);
+}
+
+void OscillatorPrototype :: clear() {
+	if (mPrototypeSize > 0) {
+		for (int i = mPrototypeSize - 1; i >= 0; i--) {
+			Prototype *prototype = mPrototypes[i];
+			mPrototypes[i] = NULL;
+			delete prototype;
+		}
+	}
+	mPrototypeSize = 0;
+}
+
 Oscillator *OscillatorPrototype :: create(float samplesPerPeriod) {
 	SilenceOscillator *silence = new SilenceOscillator();
 	Oscillator *current = silence;

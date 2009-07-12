@@ -6,14 +6,20 @@
 
 Parameters *ParameterFactory :: createParameters() {
 	Parameters *parameters = new Parameters();
-  parameters->add(new FloatValueParameter("test", "stuff", 0.0, 1.0));
-  parameters->add(new FloatValueParameter("test2", "db", 0.0, 2.0));
   
-  NamedValueParameter *nv1 = new NamedValueParameter("named1", "aoeu");
-  nv1->add("one");
-  nv1->add("two");
-  nv1->add("three");
-  nv1->add("four");
+  NamedValueParameter *nv1 = new NamedValueParameter("Oscillator", "");
+  nv1->add("Sine");
+  nv1->add("Square");
+  nv1->add("Saw");
 	parameters->add(nv1);
+	FloatValueParameter *attack = new FloatValueParameter("Attack", "", 0.0, 2.0);
+	parameters->add(attack);
+	FloatValueParameter *attackTime = new FloatValueParameter("Attack time", "ms", 0.0, 400.0);
+	parameters->add(attackTime);
+	FloatValueParameter *decay = new FloatValueParameter("Decay", "", 0.0, 2.0);
+	parameters->add(decay);
+	FloatValueParameter *decayTime = new FloatValueParameter("Decay time", "ms", 0.0, 400.0);
+	parameters->add(decayTime);
+	
 	return parameters;
 }

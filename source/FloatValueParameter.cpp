@@ -1,4 +1,5 @@
 #include "FloatValueParameter.h"
+#include "ParameterCallback.h"
 
 FloatValueParameter::FloatValueParameter(const char *name, const char *unit,
                                          const float lowValue, const float hiValue) :
@@ -17,6 +18,9 @@ const float FloatValueParameter::getCurrentValue() const {
   return mValue;
 }
 
-void FloatValueParameter::onChange(const float newValue) {
+void FloatValueParameter::onChange(const float newValue, ParameterCallback *callback) {
   mValue = newValue * (mHiValue - mLowValue) + mLowValue;
+	if (callback != NULL) {
+		callback->floatValueChanged(mValue);
+	}
 }

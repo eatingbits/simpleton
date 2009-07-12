@@ -40,6 +40,10 @@
 		FF8A4C531009E57300190444 /* ParameterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4C511009E57300190444 /* ParameterFactory.cpp */; };
 		FF8A4E2F100A1D7100190444 /* SimpletonVST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4E2D100A1D7100190444 /* SimpletonVST.cpp */; };
 		FF8A4E30100A1D7100190444 /* SimpletonVST.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E2E100A1D7100190444 /* SimpletonVST.h */; };
+		FF8A4E41100A1F7400190444 /* ParameterCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E3F100A1F7400190444 /* ParameterCallback.h */; };
+		FF8A4E42100A1F7400190444 /* ParameterCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4E40100A1F7400190444 /* ParameterCallback.cpp */; };
+		FF8A4E54100A23E000190444 /* ForwardParameterCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */; };
+		FF8A4E55100A23E000190444 /* ForwardParameterCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4E53100A23E000190444 /* ForwardParameterCallback.cpp */; };
 		FF9E2E300F9B57870032801F /* Oscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E240F9B57870032801F /* Oscillator.h */; };
 		FF9E2E330F9B57870032801F /* Simpleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2E270F9B57870032801F /* Simpleton.cpp */; };
 		FF9E2E340F9B57870032801F /* Simpleton.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E280F9B57870032801F /* Simpleton.h */; };
@@ -93,6 +97,10 @@
 		FF8A4C511009E57300190444 /* ParameterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterFactory.cpp; path = source/ParameterFactory.cpp; sourceTree = "<group>"; };
 		FF8A4E2D100A1D7100190444 /* SimpletonVST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonVST.cpp; path = source/SimpletonVST.cpp; sourceTree = "<group>"; };
 		FF8A4E2E100A1D7100190444 /* SimpletonVST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpletonVST.h; path = source/SimpletonVST.h; sourceTree = "<group>"; };
+		FF8A4E3F100A1F7400190444 /* ParameterCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParameterCallback.h; path = source/ParameterCallback.h; sourceTree = "<group>"; };
+		FF8A4E40100A1F7400190444 /* ParameterCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterCallback.cpp; path = source/ParameterCallback.cpp; sourceTree = "<group>"; };
+		FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardParameterCallback.h; path = source/ForwardParameterCallback.h; sourceTree = "<group>"; };
+		FF8A4E53100A23E000190444 /* ForwardParameterCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForwardParameterCallback.cpp; path = source/ForwardParameterCallback.cpp; sourceTree = "<group>"; };
 		FF9E2E240F9B57870032801F /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = source/Oscillator.h; sourceTree = "<group>"; };
 		FF9E2E270F9B57870032801F /* Simpleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Simpleton.cpp; path = source/Simpleton.cpp; sourceTree = "<group>"; };
 		FF9E2E280F9B57870032801F /* Simpleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Simpleton.h; path = source/Simpleton.h; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 		2461D3C71003CD0600290BBA /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				FF8A4E51100A23B500190444 /* Implementations */,
 				2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */,
 				2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */,
 				2461D3CD1003CD1C00290BBA /* Parameters.cpp */,
@@ -200,6 +209,8 @@
 				2461D3CE1003CD1C00290BBA /* Parameters.h */,
 				FF8A4C501009E57300190444 /* ParameterFactory.h */,
 				FF8A4C511009E57300190444 /* ParameterFactory.cpp */,
+				FF8A4E3F100A1F7400190444 /* ParameterCallback.h */,
+				FF8A4E40100A1F7400190444 /* ParameterCallback.cpp */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -260,6 +271,15 @@
 			name = Implementations;
 			sourceTree = "<group>";
 		};
+		FF8A4E51100A23B500190444 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */,
+				FF8A4E53100A23E000190444 /* ForwardParameterCallback.cpp */,
+			);
+			name = Implementations;
+			sourceTree = "<group>";
+		};
 		FF9E2F930F9B5EDB0032801F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +320,8 @@
 				2461D3D51003CD1C00290BBA /* Parameters.h in Headers */,
 				FF8A4C521009E57300190444 /* ParameterFactory.h in Headers */,
 				FF8A4E30100A1D7100190444 /* SimpletonVST.h in Headers */,
+				FF8A4E41100A1F7400190444 /* ParameterCallback.h in Headers */,
+				FF8A4E54100A23E000190444 /* ForwardParameterCallback.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +459,8 @@
 				2461D3D41003CD1C00290BBA /* Parameters.cpp in Sources */,
 				FF8A4C531009E57300190444 /* ParameterFactory.cpp in Sources */,
 				FF8A4E2F100A1D7100190444 /* SimpletonVST.cpp in Sources */,
+				FF8A4E42100A1F7400190444 /* ParameterCallback.cpp in Sources */,
+				FF8A4E55100A23E000190444 /* ForwardParameterCallback.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

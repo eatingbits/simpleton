@@ -27,10 +27,18 @@ public:
 	void requestSamples(float **outputs, int32_t samples);
   void noteOn(int32_t note, int32_t velocity);
   void noteOff(int32_t note);	
+	
+	void onOscillatorChange(const std::string& newType);
+	void onAttackChange(const float newAttack);
+	void onAttackTimeChange(const float newAttackTime);
+	void onDecayChange(const float newDecay);
+	void onDecayTimeChange(const float newDecayTime);
     
 private:
   bool playing();
   bool initialize();
+	
+	OscillatorType fromString(const std::string& value);
   
 	const int32_t mNumOutputs;
   

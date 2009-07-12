@@ -1,7 +1,12 @@
 #include "Parameters.h"
+#include "ParameterCallback.h"
 
 void Parameters::add(Parameter* parameter) {
   mParameters.push_back(parameter);
+}
+
+void Parameters::addCallback(std::string name, ParameterCallback *callback) {
+	mCallbacks.insert(make_pair(name, callback));
 }
 
 const int Parameters::size() const {
@@ -29,5 +34,18 @@ void Parameters::getParameterUnit(int index, char *outBuffer) {
 }
 
 void Parameters::setParameter(int index, float newValue) {
-  getParameter(index)->onChange(newValue);
+  Parameter *parameter = getParameter(index);
+	if (parameter) {
+		std::string name = parameter->getName();		
+		ParameterCallback *callback = getCallback(name);
+		parameter->onChange(newValue, callback);
+	}
+}
+
+ParameterCallback *Parameters::getCallback(std::string name) {
+	std::map<std::string, ParameterCallback *>::iterator it = mCallbacks.find(name);
+	if (it != mCallbacks.end()) {
+		return it->second;
+	}
+	return NULL;
 }

@@ -2,12 +2,24 @@
 #include "Parameters.h"
 #include "ParameterFactory.h"
 #include "Simpleton.h"
+#include "ForwardParameterCallback.h"
 #include <cstdio>
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
+	Simpleton *simpleton = new Simpleton(kNumOutputs);	
 	ParameterFactory factory;
   Parameters *parameters = factory.createParameters();
-	Simpleton *simpleton = new Simpleton(kNumOutputs);
+	ForwardParameterCallback<Simpleton> *oscillatorCallback = new ForwardParameterCallback<Simpleton>(simpleton, NULL, &Simpleton::onOscillatorChange);
+	parameters->addCallback("Oscillator", oscillatorCallback);
+	ForwardParameterCallback<Simpleton> *attackCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackChange, NULL);
+	parameters->addCallback("Attack", attackCallback);
+	ForwardParameterCallback<Simpleton> *attackTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackTimeChange, NULL);
+	parameters->addCallback("Attack time", attackTimeCallback);
+	ForwardParameterCallback<Simpleton> *decayCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayChange, NULL);
+	parameters->addCallback("Decay", decayCallback);
+	ForwardParameterCallback<Simpleton> *decayTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayTimeChange, NULL);
+	parameters->addCallback("Decay time", decayTimeCallback);
+	
 	return new SimpletonVST(audioMaster, simpleton, parameters);
 }
 

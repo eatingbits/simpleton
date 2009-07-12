@@ -16,7 +16,7 @@ public:
   
   void getDisplay(char *outBuffer) const;
   const float getCurrentValue() const;
-  void onChange(const float newValue);
+  void onChange(const float newValue, ParameterCallback *callback);
   
 private:
   const int valueToIndex(const float value) const;
