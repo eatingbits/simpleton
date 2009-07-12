@@ -72,6 +72,8 @@ OscillatorType Simpleton :: fromString(const std::string& value) {
 		return kSquareOscillator;
 	} else if (value == "Saw") {
 		return kSawOscillator;
+	} else if (value == "Noise") {
+		return kNoiseOscillator;
 	}
 	return kSineOscillator;
 }

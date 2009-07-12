@@ -26,7 +26,7 @@ const int IntegerValueParameter :: getCurrentIntValue() const {
 void IntegerValueParameter::onChange(const float newValue, ParameterCallback *callback) {
   mValue = newValue;
 	if (callback != NULL) {
-		callback->integerValueChanged(getCurrentValue());
+		callback->integerValueChanged(getCurrentIntValue());
 	}
 }
 
