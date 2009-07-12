@@ -30,7 +30,7 @@ private:
 
 class OscillatorPrototype {
 public:
-	OscillatorPrototype() {}
+	OscillatorPrototype() : mPrototypeSize(0) {}
 	void add(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime);		
 	Oscillator *create(float samplesPerPeriod);
 private:
