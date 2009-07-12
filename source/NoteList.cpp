@@ -12,7 +12,7 @@ void NoteList :: add(int value, Oscillator *oscillator) {
 void NoteList :: remove(int value) { 
 	bool found = false;
 	for (int i = 0; i < mSize; ++i) {
-		if (mElements[i] == value) {
+		if (found == false && mElements[i] == value) {
 			found = true;
 			delete mOscillators[i];
 		}
@@ -28,7 +28,7 @@ void NoteList :: remove(int value) {
 
 Oscillator *NoteList :: getOscillator(int note) {
 	for (int i = 0; i < mSize; i++) {
-		if (mElements[i] == note) {
+		if (mElements[i] == note && mOscillators[i]->isNoteOn()) {
 			return mOscillators[i];
 		}
 	}

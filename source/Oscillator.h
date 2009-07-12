@@ -9,11 +9,11 @@ class Buffer;
 
 class Oscillator : public OscillatorInput {
 public:
-	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL)  {}
+	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL), mNoteOn(false)  {}
 	virtual ~Oscillator();
 
-	void noteOn() { if (mEnvelope != NULL) mEnvelope->noteOn(); if (mInput != NULL) mInput->noteOn(); }
-	void noteOff() { if (mEnvelope != NULL) mEnvelope->noteOff(); if (mInput != NULL) mInput->noteOff(); }
+	void noteOn() { mNoteOn = true; if (mEnvelope != NULL) mEnvelope->noteOn(); if (mInput != NULL) mInput->noteOn(); }
+	void noteOff() { mNoteOn = false; if (mEnvelope != NULL) mEnvelope->noteOff(); if (mInput != NULL) mInput->noteOff(); }
 	
 	/* Sets a frequency modifier input */
 	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
@@ -21,6 +21,7 @@ public:
 	/* Returns the next sample value */
 	float sampleValue();
 	virtual bool isPlaying() { return (mEnvelope != NULL && mEnvelope->isPlaying()); }
+	bool isNoteOn() { return mNoteOn; }
 protected:
 	/* Implemented by sub classes */
 	virtual float nextSampleValue() = 0;
@@ -35,6 +36,7 @@ private:
 	Oscillator *mInput;
 	OscillatorInput *mFrequencyModifier;
 	Envelope *mEnvelope;
+	bool mNoteOn;
 };
 
 #endif
