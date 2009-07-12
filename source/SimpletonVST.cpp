@@ -11,17 +11,17 @@ AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	Simpleton *simpleton = new Simpleton(kNumOutputs);	
 	ParameterFactory factory;
   Parameters *parameters = factory.createParameters();
-	ForwardParameterCallback<Simpleton> *oscillatorCallback = new ForwardParameterCallback<Simpleton>(simpleton, NULL, &Simpleton::onOscillatorChange);
+	ParameterCallback *oscillatorCallback = new StringForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onOscillatorChange);
 	parameters->addCallback("Oscillator", oscillatorCallback);
-	ForwardParameterCallback<Simpleton> *attackCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackChange, NULL);
+	ParameterCallback *attackCallback = new FloatForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackChange);
 	parameters->addCallback("Attack", attackCallback);
-	ForwardParameterCallback<Simpleton> *attackTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackTimeChange, NULL);
+	ParameterCallback *attackTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackTimeChange);
 	parameters->addCallback("Attack time", attackTimeCallback);
-	ForwardParameterCallback<Simpleton> *decayCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayChange, NULL);
+	ParameterCallback *decayCallback = new FloatForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayChange);
 	parameters->addCallback("Decay", decayCallback);
-	ForwardParameterCallback<Simpleton> *decayTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayTimeChange, NULL);
+	ParameterCallback *decayTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayTimeChange);
 	parameters->addCallback("Decay time", decayTimeCallback);
-	ForwardParameterCallback<Simpleton> *releaseTimeCallback = new ForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onReleaseTimeChange, NULL);
+	ParameterCallback *releaseTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onReleaseTimeChange);
 	parameters->addCallback("Release time", releaseTimeCallback);
 	
 	std::vector<std::string> updates;

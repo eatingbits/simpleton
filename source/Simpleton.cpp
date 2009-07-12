@@ -85,20 +85,20 @@ void Simpleton::onAttackChange(const float newAttack) {
 	mOscillatorPrototype->setAttack(newAttack);
 }
 
-void Simpleton::onAttackTimeChange(const float newAttackTime) {
-	mOscillatorPrototype->setAttackTime((int) newAttackTime);
+void Simpleton::onAttackTimeChange(const int newAttackTime) {
+	mOscillatorPrototype->setAttackTime(newAttackTime);
 }
 
 void Simpleton::onDecayChange(const float newDecay) {
 	mOscillatorPrototype->setDecay(-newDecay);
 }
 
-void Simpleton::onDecayTimeChange(const float newDecayTime) {
-	mOscillatorPrototype->setDecayTime((int) newDecayTime);
+void Simpleton::onDecayTimeChange(const int newDecayTime) {
+	mOscillatorPrototype->setDecayTime(newDecayTime);
 }
 
-void Simpleton::onReleaseTimeChange(const float newReleaseTime) {
-	mOscillatorPrototype->setReleaseTime((int) newReleaseTime);
+void Simpleton::onReleaseTimeChange(const int newReleaseTime) {
+	mOscillatorPrototype->setReleaseTime(newReleaseTime);
 }
 
 bool Simpleton :: playing() {

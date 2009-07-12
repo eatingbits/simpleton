@@ -12,11 +12,6 @@
 #include "OscillatorPrototype.h"
 #include "Parameters.h"
 
-/*static const unsigned long kUniqueId = 'SIMP';
-static const int kNumPrograms = 0;
-static const int kNumInputs = 0;
-static const int kNumOutputs = 2; */
-
 class Oscillator;
 
 class Simpleton {
@@ -30,10 +25,10 @@ public:
 	
 	void onOscillatorChange(const std::string& newType);
 	void onAttackChange(const float newAttack);
-	void onAttackTimeChange(const float newAttackTime);
+	void onAttackTimeChange(const int newAttackTime);
 	void onDecayChange(const float newDecay);
-	void onDecayTimeChange(const float newDecayTime);
-	void onReleaseTimeChange(const float newReleaseTime);
+	void onDecayTimeChange(const int newDecayTime);
+	void onReleaseTimeChange(const int newReleaseTime);
     
 private:
   bool playing();

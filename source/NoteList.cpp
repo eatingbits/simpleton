@@ -1,7 +1,6 @@
 #include "NoteList.h"
 #include "Oscillator.h"
 #include <cstdlib>
-#include <iostream>
 
 void NoteList :: add(int value, Oscillator *oscillator) {
 	mElements[mSize] = value;
