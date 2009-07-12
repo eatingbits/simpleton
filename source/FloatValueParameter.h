@@ -1,12 +1,3 @@
-/*
- *  FloatValueParameter.h
- *  Simpleton
- *
- *  Created by Nik Reiman on 2009-07-07.
- *  Copyright 2009 Singbox AB. All rights reserved.
- *
- */
-
 #ifndef __FloatValueParameter_h__
 #define __FloatValueParameter_h__
 

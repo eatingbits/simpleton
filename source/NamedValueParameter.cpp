@@ -1,12 +1,3 @@
-/*
- *  NamedValueParameter.cpp
- *  Simpleton
- *
- *  Created by Nik Reiman on 2009-07-07.
- *  Copyright 2009 Singbox AB. All rights reserved.
- *
- */
-
 #include "NamedValueParameter.h"
 
 NamedValueParameter::NamedValueParameter(const char *name, const char *unit) :

@@ -1,9 +1,3 @@
-/*
- *  Simpleton - SimpletonProc.cpp
- *  Created by Rickard Lindroth on 4/11/09
- *  Copyright (c) 2009 eatingbits, All rights reserved
- */
-
 #ifndef __Simpleton_H
 #include "Simpleton.h"
 #endif
@@ -12,7 +6,6 @@
 #include "SineOscillator.h"
 #include "SquareOscillator.h"
 #include "SilenceOscillator.h"
-#include "Buffer.h"
 
 void Simpleton::noteOn(const VstInt32 note, const VstInt32 velocity, const VstInt32 delta) {
 	mCurrentNoteFreq = mMidiNoteFrequencies[note];

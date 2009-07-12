@@ -1,14 +1,3 @@
-/*
- *  SimpletonInit.cpp
- *  Simpleton
- *
- *  Created by Rickard Lindroth on 4/29/09.
- *  Copyright 2009 eatingbits. All rights reserved.
- *
- *  This file contains initialization routines for this plugin
- *
- */
-
 #ifndef __Simpleton_H
 #include "Simpleton.h"
 #endif

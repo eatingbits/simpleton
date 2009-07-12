@@ -1,12 +1,3 @@
-/*
- *  FloatValueParameter.cpp
- *  Simpleton
- *
- *  Created by Nik Reiman on 2009-07-07.
- *  Copyright 2009 Singbox AB. All rights reserved.
- *
- */
-
 #include "FloatValueParameter.h"
 
 FloatValueParameter::FloatValueParameter(const char *name, const char *unit,

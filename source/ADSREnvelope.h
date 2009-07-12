@@ -1,12 +1,3 @@
-/*
- *  ADSREnvelope.h
- *  Simpleton
- *
- *  Created by Rickard Bäckman on 6/19/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
- *
- */
-
 #ifndef __ADSR_ENVELOPE_H__
 #define __ADSR_ENVELOPE_H__
 

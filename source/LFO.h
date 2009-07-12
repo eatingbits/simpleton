@@ -1,12 +1,3 @@
-/*
- *  LFO.h
- *  Simpleton
- *
- *  Created by Rickard Bäckman on 6/19/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
- *
- */
-
 #ifndef __LFO_H__
 #define __LFO_H__
 

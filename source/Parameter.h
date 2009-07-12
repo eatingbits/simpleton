@@ -1,19 +1,7 @@
-/*
- *  Parameter.h
- *  Simpleton
- *
- *  Created by Nik Reiman on 2009-07-07.
- *  Copyright 2009 Singbox AB. All rights reserved.
- *
- */
-
 #ifndef __Parameter_h__
 #define __Parameter_h__
 
 #include <cstring>
-
-const int kParameterNameLength = 64;
-const int kParameterUnitLength = 8;
 
 class Parameter {
 public:
@@ -31,6 +19,12 @@ public:
   virtual void onChange(const float newValue) = 0;
   
 private:
+	
+	enum kFieldLengths {
+		kParameterNameLength = 64,
+		kParameterUnitLength = 8
+	};
+	
   char mName[kParameterNameLength];
   char mUnit[kParameterUnitLength];
 };

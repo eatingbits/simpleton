@@ -1,9 +1,3 @@
-/*
- *  Simpleton - Simpleton.h
- *  Created by Rickard Lindroth on 4/11/09
- *  Copyright (c) 2009 eatingbits, All rights reserved
- */
-
 #ifndef __Simpleton_H
 #define __Simpleton_H
 

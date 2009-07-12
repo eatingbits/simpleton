@@ -1,12 +1,3 @@
-/*
- *  Parameters.cpp
- *  Simpleton
- *
- *  Created by Nik Reiman on 2009-07-07.
- *  Copyright 2009 Singbox AB. All rights reserved.
- *
- */
-
 #include "Parameters.h"
 
 void Parameters::add(Parameter* parameter) {

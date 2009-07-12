@@ -30,7 +30,6 @@
 		FF213BD20FEBA2FC00F1E481 /* ADSREnvelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */; };
 		FF213C950FEBCF8700F1E481 /* OscillatorPrototype.h in Headers */ = {isa = PBXBuildFile; fileRef = FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */; };
 		FF213C960FEBCF8700F1E481 /* OscillatorPrototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */; };
-		FF213E530FEC033400F1E481 /* SimpletonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213E520FEC033400F1E481 /* SimpletonTest.cpp */; };
 		FF213F970FEC17B600F1E481 /* SawOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF213F850FEC14D100F1E481 /* SawOscillator.cpp */; };
 		FF2140220FEC1D8E00F1E481 /* NoiseOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */; };
 		FF2140230FEC1D8E00F1E481 /* NoiseOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */; };
@@ -81,8 +80,6 @@
 		FF213BD00FEBA2FC00F1E481 /* ADSREnvelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADSREnvelope.cpp; path = source/ADSREnvelope.cpp; sourceTree = "<group>"; };
 		FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorPrototype.h; path = source/OscillatorPrototype.h; sourceTree = "<group>"; };
 		FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscillatorPrototype.cpp; path = source/OscillatorPrototype.cpp; sourceTree = "<group>"; };
-		FF213E510FEC033400F1E481 /* SimpletonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpletonTest.h; path = test/SimpletonTest.h; sourceTree = "<group>"; };
-		FF213E520FEC033400F1E481 /* SimpletonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonTest.cpp; path = test/SimpletonTest.cpp; sourceTree = "<group>"; };
 		FF213F840FEC14D100F1E481 /* SawOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SawOscillator.h; path = source/SawOscillator.h; sourceTree = "<group>"; };
 		FF213F850FEC14D100F1E481 /* SawOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SawOscillator.cpp; path = source/SawOscillator.cpp; sourceTree = "<group>"; };
 		FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoiseOscillator.h; path = source/NoiseOscillator.h; sourceTree = "<group>"; };
@@ -261,8 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */,
-				FF213E510FEC033400F1E481 /* SimpletonTest.h */,
-				FF213E520FEC033400F1E481 /* SimpletonTest.cpp */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -442,7 +437,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF9E2FAC0F9B601D0032801F /* WaveGenTest.cpp in Sources */,
-				FF213E530FEC033400F1E481 /* SimpletonTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
