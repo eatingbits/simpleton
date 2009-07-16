@@ -17,15 +17,21 @@ float ADSREnvelope :: getAttackAmplitudeModifier() {
 	mCurrentSample++;
 	float deltaPerSample = mAttackAmplitude / (mAttackTime > 1 ? mAttackTime : 1);
 	mCurrentAmplitude += deltaPerSample;
-	if (++mCurrentSample > mAttackTime) {
+	if (mCurrentSample > mAttackTime) {
 		mCurrentAmplitude = mAttackAmplitude;
 		setState(kDecay);
 	}
 	return mCurrentAmplitude;
 }
 
+/* In mDecayTime frames we are to move from mAttackAmplitude to mAttackAmplitude + mDecayAmplitude 
+ (mDecayAmplitude is supposed to be delta). 
+ The current amplitude is calculated as the percentage of the decay time passed 
+ multiplied by the mDecayAmplitude to get the current amount to decrease with
+ The final value is mAttackAmplitude - the amount to decrease with */
 float ADSREnvelope :: getDecayAmplitudeModifier() {
 	mCurrentSample++;
+	/* Make sure we never divide by zero */
 	float percent = (float) mCurrentSample / ((float) (mDecayTime > 1 ? mDecayTime : 1)) ;
 	mCurrentAmplitude = mAttackAmplitude + ((mDecayAmplitude) * percent);
 	
