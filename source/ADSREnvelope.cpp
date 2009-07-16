@@ -26,9 +26,10 @@ float ADSREnvelope :: getAttackAmplitudeModifier() {
 
 float ADSREnvelope :: getDecayAmplitudeModifier() {
 	mCurrentSample++;
-	float deltaPerSample = mDecayAmplitude / (mDecayTime > 1 ? mDecayTime : 1);
-	mCurrentAmplitude += deltaPerSample;
-	if (++mCurrentSample > mDecayTime) {
+	float percent = (float) mCurrentSample / ((float) (mDecayTime > 1 ? mDecayTime : 1)) ;
+	mCurrentAmplitude = mAttackAmplitude + ((mDecayAmplitude) * percent);
+	
+	if (mCurrentSample > mDecayTime) {
 		mCurrentAmplitude = mAttackAmplitude + mDecayAmplitude;
 		setState(kSustain);
 	}
