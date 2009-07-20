@@ -4,10 +4,9 @@
 #include <cstdlib>
 #include "OscillatorInput.h"
 #include "Envelope.h"
+#include "Source.h"
 
-class Buffer;
-
-class Oscillator : public OscillatorInput {
+class Oscillator : public OscillatorInput, public Source {
 public:
 	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL), mNoteOn(false)  {}
 	virtual ~Oscillator();
@@ -19,7 +18,7 @@ public:
 	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
 	void setEnvelope(Envelope *envelope) { mEnvelope = envelope; }
 	/* Returns the next sample value */
-	float sampleValue();
+	virtual float sampleValue();
 	virtual bool isPlaying() { return (mEnvelope != NULL && mEnvelope->isPlaying()); }
 	bool isNoteOn() { return mNoteOn; }
 protected:

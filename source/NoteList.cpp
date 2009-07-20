@@ -2,9 +2,9 @@
 #include "Oscillator.h"
 #include <cstdlib>
 
-void NoteList :: add(int value, Oscillator *oscillator) {
+void NoteList :: add(int value, Source *source) {
 	mElements[mSize] = value;
-	mOscillators[mSize++] = oscillator;
+	mOscillators[mSize++] = source;
 }
 
 /* Removes the first occurance of the tone we want to remove */
@@ -25,7 +25,7 @@ void NoteList :: remove(int value) {
 	}
 }
 
-Oscillator *NoteList :: getOscillator(int note) {
+Source *NoteList :: getSource(int note) {
 	for (int i = 0; i < mSize; i++) {
 		if (mElements[i] == note && mOscillators[i]->isNoteOn()) {
 			return mOscillators[i];

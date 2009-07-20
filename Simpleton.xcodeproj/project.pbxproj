@@ -51,6 +51,15 @@
 		FF9E2FAC0F9B601D0032801F /* WaveGenTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */; };
 		FF9FC70F0FEAE79800389436 /* OscillatorInput.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9FC70D0FEAE79800389436 /* OscillatorInput.h */; };
 		FF9FC7660FEB86AD00389436 /* LFO.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9FC7640FEB86AD00389436 /* LFO.h */; };
+		FFC06DDF101509F600B21BFE /* Chorus.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06DDD101509F600B21BFE /* Chorus.h */; };
+		FFC06DE0101509F600B21BFE /* Chorus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC06DDE101509F600B21BFE /* Chorus.cpp */; };
+		FFC06DE410150AE100B21BFE /* Joiner.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06DE210150AE100B21BFE /* Joiner.h */; };
+		FFC06DE510150AE100B21BFE /* Joiner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC06DE310150AE100B21BFE /* Joiner.cpp */; };
+		FFC06DE810150C1000B21BFE /* Source.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06DE610150C1000B21BFE /* Source.h */; };
+		FFC06E021015124000B21BFE /* Splitter.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06E001015124000B21BFE /* Splitter.h */; };
+		FFC06E031015124000B21BFE /* Splitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC06E011015124000B21BFE /* Splitter.cpp */; };
+		FFC06E091015148800B21BFE /* ChorusFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06E071015148800B21BFE /* ChorusFactory.h */; };
+		FFC06E0A1015148800B21BFE /* ChorusFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC06E081015148800B21BFE /* ChorusFactory.cpp */; };
 		FFFC5C6F0FE407B6002E441D /* SilenceOscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FFFC5C6D0FE407B6002E441D /* SilenceOscillator.h */; };
 		FFFC5C700FE407B6002E441D /* SilenceOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFFC5C6E0FE407B6002E441D /* SilenceOscillator.cpp */; };
 		FFFC5C720FE40860002E441D /* Oscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFFC5C710FE40860002E441D /* Oscillator.cpp */; };
@@ -109,6 +118,15 @@
 		FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WaveGenTest.cpp; path = test/WaveGenTest.cpp; sourceTree = "<group>"; };
 		FF9FC70D0FEAE79800389436 /* OscillatorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorInput.h; path = source/OscillatorInput.h; sourceTree = "<group>"; };
 		FF9FC7640FEB86AD00389436 /* LFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFO.h; path = source/LFO.h; sourceTree = "<group>"; };
+		FFC06DDD101509F600B21BFE /* Chorus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chorus.h; path = source/Chorus.h; sourceTree = "<group>"; };
+		FFC06DDE101509F600B21BFE /* Chorus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chorus.cpp; path = source/Chorus.cpp; sourceTree = "<group>"; };
+		FFC06DE210150AE100B21BFE /* Joiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joiner.h; path = source/Joiner.h; sourceTree = "<group>"; };
+		FFC06DE310150AE100B21BFE /* Joiner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joiner.cpp; path = source/Joiner.cpp; sourceTree = "<group>"; };
+		FFC06DE610150C1000B21BFE /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Source.h; path = source/Source.h; sourceTree = "<group>"; };
+		FFC06E001015124000B21BFE /* Splitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Splitter.h; path = source/Splitter.h; sourceTree = "<group>"; };
+		FFC06E011015124000B21BFE /* Splitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Splitter.cpp; path = source/Splitter.cpp; sourceTree = "<group>"; };
+		FFC06E071015148800B21BFE /* ChorusFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChorusFactory.h; path = source/ChorusFactory.h; sourceTree = "<group>"; };
+		FFC06E081015148800B21BFE /* ChorusFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChorusFactory.cpp; path = source/ChorusFactory.cpp; sourceTree = "<group>"; };
 		FFFC5C6D0FE407B6002E441D /* SilenceOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilenceOscillator.h; path = source/SilenceOscillator.h; sourceTree = "<group>"; };
 		FFFC5C6E0FE407B6002E441D /* SilenceOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SilenceOscillator.cpp; path = source/SilenceOscillator.cpp; sourceTree = "<group>"; };
 		FFFC5C710FE40860002E441D /* Oscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Oscillator.cpp; path = source/Oscillator.cpp; sourceTree = "<group>"; };
@@ -173,6 +191,7 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FFC06DDC101509DE00B21BFE /* Effects */,
 				FF8A4C411009DCBA00190444 /* Envelope */,
 				FF8A4C401009DC4800190444 /* Oscillators */,
 				2461D3C71003CD0600290BBA /* Parameters */,
@@ -241,6 +260,7 @@
 				FF9FC70D0FEAE79800389436 /* OscillatorInput.h */,
 				FF213C940FEBCF8700F1E481 /* OscillatorPrototype.cpp */,
 				FF213C930FEBCF8700F1E481 /* OscillatorPrototype.h */,
+				FFC06DE610150C1000B21BFE /* Source.h */,
 			);
 			name = Oscillators;
 			sourceTree = "<group>";
@@ -288,6 +308,29 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		FFC06DDC101509DE00B21BFE /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				FFC06DE110150ACD00B21BFE /* Utils */,
+				FFC06DDD101509F600B21BFE /* Chorus.h */,
+				FFC06DDE101509F600B21BFE /* Chorus.cpp */,
+				FFC06E071015148800B21BFE /* ChorusFactory.h */,
+				FFC06E081015148800B21BFE /* ChorusFactory.cpp */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		FFC06DE110150ACD00B21BFE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FFC06DE210150AE100B21BFE /* Joiner.h */,
+				FFC06DE310150AE100B21BFE /* Joiner.cpp */,
+				FFC06E001015124000B21BFE /* Splitter.h */,
+				FFC06E011015124000B21BFE /* Splitter.cpp */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -323,6 +366,11 @@
 				FF8A4E41100A1F7400190444 /* ParameterCallback.h in Headers */,
 				FF8A4E54100A23E000190444 /* ForwardParameterCallback.h in Headers */,
 				FF624E08100A5276004DBAF3 /* IntegerValueParameter.h in Headers */,
+				FFC06DDF101509F600B21BFE /* Chorus.h in Headers */,
+				FFC06DE410150AE100B21BFE /* Joiner.h in Headers */,
+				FFC06DE810150C1000B21BFE /* Source.h in Headers */,
+				FFC06E021015124000B21BFE /* Splitter.h in Headers */,
+				FFC06E091015148800B21BFE /* ChorusFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +509,10 @@
 				FF8A4C531009E57300190444 /* ParameterFactory.cpp in Sources */,
 				FF8A4E2F100A1D7100190444 /* SimpletonVST.cpp in Sources */,
 				FF624E09100A5276004DBAF3 /* IntegerValueParameter.cpp in Sources */,
+				FFC06DE0101509F600B21BFE /* Chorus.cpp in Sources */,
+				FFC06DE510150AE100B21BFE /* Joiner.cpp in Sources */,
+				FFC06E031015124000B21BFE /* Splitter.cpp in Sources */,
+				FFC06E0A1015148800B21BFE /* ChorusFactory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

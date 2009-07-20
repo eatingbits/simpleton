@@ -2,13 +2,9 @@
 #include "Simpleton.h"
 #endif
 
-#include "SilenceOscillator.h"
-#include "SineOscillator.h"
-#include "SquareOscillator.h"
-#include "LFO.h"
-#include "ADSREnvelope.h"
-#include "FloatValueParameter.h"
-#include "NamedValueParameter.h"
+#include "Oscillator.h"
+#include "Source.h"
+#include "ChorusFactory.h"
 
 Simpleton::Simpleton(const int32_t numOutputs) : mNumOutputs(numOutputs)
 {
@@ -52,15 +48,18 @@ bool Simpleton::initialize() {
 void Simpleton::noteOn(const int32_t note, const int32_t velocity) {
 	float currentNoteFreq = mMidiNoteFrequencies[note];
 	Oscillator *oscillator = mOscillatorPrototype->create(44100 / currentNoteFreq);
-	oscillator->noteOn();
-  noteList.add(note, oscillator);
+	Source *source = oscillator;
+//	ChorusFactory factory;
+//	source = factory.create(4, 2, *oscillator);
+	source->noteOn();
+  noteList.add(note, source);
 }
 
 void Simpleton::noteOff(const int32_t note) {
   if (playing()) {
-		Oscillator *oscillator = noteList.getOscillator(note);
-		if (oscillator != NULL) {
-			oscillator->noteOff();
+		Source *source = noteList.getSource(note);
+		if (source != NULL) {
+			source->noteOff();
 		}
   }
 }
