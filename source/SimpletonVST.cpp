@@ -2,7 +2,6 @@
 #include "Parameters.h"
 #include "ParameterFactory.h"
 #include "Simpleton.h"
-#include "ForwardParameterCallback.h"
 #include <cstdio>
 #include <vector>
 #include <string>
@@ -10,27 +9,7 @@
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	Simpleton *simpleton = new Simpleton(kNumOutputs);	
 	ParameterFactory factory;
-  Parameters *parameters = factory.createParameters();
-	ParameterCallback *oscillatorCallback = new StringForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onOscillatorChange);
-	parameters->addCallback("Oscillator", oscillatorCallback);
-	ParameterCallback *attackCallback = new FloatForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackChange);
-	parameters->addCallback("Attack", attackCallback);
-	ParameterCallback *attackTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onAttackTimeChange);
-	parameters->addCallback("Attack time", attackTimeCallback);
-	ParameterCallback *decayCallback = new FloatForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayChange);
-	parameters->addCallback("Decay", decayCallback);
-	ParameterCallback *decayTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onDecayTimeChange);
-	parameters->addCallback("Decay time", decayTimeCallback);
-	ParameterCallback *releaseTimeCallback = new IntForwardParameterCallback<Simpleton>(simpleton, &Simpleton::onReleaseTimeChange);
-	parameters->addCallback("Release time", releaseTimeCallback);
-	
-	std::vector<std::string> updates;
-	updates.push_back("Attack");
-	updates.push_back("Attack time");
-	updates.push_back("Decay");
-	updates.push_back("Decay time");
-	updates.push_back("Release time");
-	parameters->addUpdate("Oscillator", updates);
+  Parameters *parameters = factory.createParameters(simpleton);
 	
 	return new SimpletonVST(audioMaster, simpleton, parameters);
 }
@@ -46,6 +25,12 @@ mSimpleton(simpleton), mParameters(parameters)
     canProcessReplacing();
     isSynth();
   }
+	
+	for (int i = 0; i < parameters->size(); i++) {
+		beginEdit(i);
+		parameters->setParameter(i, parameters->getParameterValue(i));
+		endEdit(i);
+	}
   
   suspend();
 }

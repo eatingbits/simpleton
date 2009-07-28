@@ -1,5 +1,6 @@
 #include "NamedValueParameter.h"
-#include "ParameterCallback.h"
+
+using std::string;
 
 NamedValueParameter::NamedValueParameter(const char *name, const char *unit) :
 Parameter(name, unit),
@@ -38,17 +39,14 @@ void NamedValueParameter::getDisplay(char *outBuffer) const {
   strcpy(outBuffer, mValues.at(valueToIndex(mValue)).c_str());
 }
 
+string NamedValueParameter :: selectedValue() const {
+	return mValues.at(valueToIndex(mValue));
+}
+
 const float NamedValueParameter::getCurrentValue() const {
   return mValue;
 }
 
-void NamedValueParameter::onChange(const float newValue, ParameterCallback *callback) {
+void NamedValueParameter::onChange(float newValue) {
   mValue = newValue;
-	if (callback != NULL) {
-		callback->stringValueChanged(mValues.at(valueToIndex(mValue)));
-	}
-}
-
-void NamedValueParameter :: update(ParameterCallback *callback) {
-	onChange(mValue, callback);
 }

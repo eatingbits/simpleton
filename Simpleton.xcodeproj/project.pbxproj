@@ -42,8 +42,6 @@
 		FF8A4C531009E57300190444 /* ParameterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4C511009E57300190444 /* ParameterFactory.cpp */; };
 		FF8A4E2F100A1D7100190444 /* SimpletonVST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF8A4E2D100A1D7100190444 /* SimpletonVST.cpp */; };
 		FF8A4E30100A1D7100190444 /* SimpletonVST.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E2E100A1D7100190444 /* SimpletonVST.h */; };
-		FF8A4E41100A1F7400190444 /* ParameterCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E3F100A1F7400190444 /* ParameterCallback.h */; };
-		FF8A4E54100A23E000190444 /* ForwardParameterCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */; };
 		FF9E2E300F9B57870032801F /* Oscillator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E240F9B57870032801F /* Oscillator.h */; };
 		FF9E2E330F9B57870032801F /* Simpleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2E270F9B57870032801F /* Simpleton.cpp */; };
 		FF9E2E340F9B57870032801F /* Simpleton.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9E2E280F9B57870032801F /* Simpleton.h */; };
@@ -51,6 +49,10 @@
 		FF9E2FAC0F9B601D0032801F /* WaveGenTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */; };
 		FF9FC70F0FEAE79800389436 /* OscillatorInput.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9FC70D0FEAE79800389436 /* OscillatorInput.h */; };
 		FF9FC7660FEB86AD00389436 /* LFO.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9FC7640FEB86AD00389436 /* LFO.h */; };
+		FFAF1093101F5792008339B5 /* ParameterComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = FFAF1092101F5792008339B5 /* ParameterComponent.h */; };
+		FFAF1097101F590D008339B5 /* OscillatorParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = FFAF1095101F590D008339B5 /* OscillatorParameters.h */; };
+		FFAF1098101F590D008339B5 /* OscillatorParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFAF1096101F590D008339B5 /* OscillatorParameters.cpp */; };
+		FFAF1226101F6E0A008339B5 /* OscillatorChangeCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FFAF1225101F6E0A008339B5 /* OscillatorChangeCallback.h */; };
 		FFC06DDF101509F600B21BFE /* Chorus.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06DDD101509F600B21BFE /* Chorus.h */; };
 		FFC06DE0101509F600B21BFE /* Chorus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC06DDE101509F600B21BFE /* Chorus.cpp */; };
 		FFC06DE410150AE100B21BFE /* Joiner.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC06DE210150AE100B21BFE /* Joiner.h */; };
@@ -108,8 +110,6 @@
 		FF8A4C511009E57300190444 /* ParameterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterFactory.cpp; path = source/ParameterFactory.cpp; sourceTree = "<group>"; };
 		FF8A4E2D100A1D7100190444 /* SimpletonVST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpletonVST.cpp; path = source/SimpletonVST.cpp; sourceTree = "<group>"; };
 		FF8A4E2E100A1D7100190444 /* SimpletonVST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpletonVST.h; path = source/SimpletonVST.h; sourceTree = "<group>"; };
-		FF8A4E3F100A1F7400190444 /* ParameterCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParameterCallback.h; path = source/ParameterCallback.h; sourceTree = "<group>"; };
-		FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardParameterCallback.h; path = source/ForwardParameterCallback.h; sourceTree = "<group>"; };
 		FF9E2E240F9B57870032801F /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = source/Oscillator.h; sourceTree = "<group>"; };
 		FF9E2E270F9B57870032801F /* Simpleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Simpleton.cpp; path = source/Simpleton.cpp; sourceTree = "<group>"; };
 		FF9E2E280F9B57870032801F /* Simpleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Simpleton.h; path = source/Simpleton.h; sourceTree = "<group>"; };
@@ -118,6 +118,10 @@
 		FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WaveGenTest.cpp; path = test/WaveGenTest.cpp; sourceTree = "<group>"; };
 		FF9FC70D0FEAE79800389436 /* OscillatorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorInput.h; path = source/OscillatorInput.h; sourceTree = "<group>"; };
 		FF9FC7640FEB86AD00389436 /* LFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFO.h; path = source/LFO.h; sourceTree = "<group>"; };
+		FFAF1092101F5792008339B5 /* ParameterComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParameterComponent.h; path = source/ParameterComponent.h; sourceTree = "<group>"; };
+		FFAF1095101F590D008339B5 /* OscillatorParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorParameters.h; path = source/OscillatorParameters.h; sourceTree = "<group>"; };
+		FFAF1096101F590D008339B5 /* OscillatorParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscillatorParameters.cpp; path = source/OscillatorParameters.cpp; sourceTree = "<group>"; };
+		FFAF1225101F6E0A008339B5 /* OscillatorChangeCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorChangeCallback.h; path = source/OscillatorChangeCallback.h; sourceTree = "<group>"; };
 		FFC06DDD101509F600B21BFE /* Chorus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chorus.h; path = source/Chorus.h; sourceTree = "<group>"; };
 		FFC06DDE101509F600B21BFE /* Chorus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chorus.cpp; path = source/Chorus.cpp; sourceTree = "<group>"; };
 		FFC06DE210150AE100B21BFE /* Joiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joiner.h; path = source/Joiner.h; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		2461D3C71003CD0600290BBA /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				FFAF1094101F58F4008339B5 /* Components */,
 				FF8A4E51100A23B500190444 /* Implementations */,
 				2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */,
 				2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */,
@@ -229,8 +234,9 @@
 				2461D3CB1003CD1C00290BBA /* NamedValueParameter.h */,
 				2461D3CC1003CD1C00290BBA /* Parameter.h */,
 				2461D3CE1003CD1C00290BBA /* Parameters.h */,
-				FF8A4E3F100A1F7400190444 /* ParameterCallback.h */,
 				FF8A4C501009E57300190444 /* ParameterFactory.h */,
+				FFAF1092101F5792008339B5 /* ParameterComponent.h */,
+				FFAF1225101F6E0A008339B5 /* OscillatorChangeCallback.h */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -295,7 +301,6 @@
 		FF8A4E51100A23B500190444 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				FF8A4E52100A23E000190444 /* ForwardParameterCallback.h */,
 			);
 			name = Implementations;
 			sourceTree = "<group>";
@@ -306,6 +311,15 @@
 				FF9E2FAB0F9B601D0032801F /* WaveGenTest.cpp */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		FFAF1094101F58F4008339B5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FFAF1095101F590D008339B5 /* OscillatorParameters.h */,
+				FFAF1096101F590D008339B5 /* OscillatorParameters.cpp */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		FFC06DDC101509DE00B21BFE /* Effects */ = {
@@ -363,14 +377,15 @@
 				2461D3D51003CD1C00290BBA /* Parameters.h in Headers */,
 				FF8A4C521009E57300190444 /* ParameterFactory.h in Headers */,
 				FF8A4E30100A1D7100190444 /* SimpletonVST.h in Headers */,
-				FF8A4E41100A1F7400190444 /* ParameterCallback.h in Headers */,
-				FF8A4E54100A23E000190444 /* ForwardParameterCallback.h in Headers */,
 				FF624E08100A5276004DBAF3 /* IntegerValueParameter.h in Headers */,
 				FFC06DDF101509F600B21BFE /* Chorus.h in Headers */,
 				FFC06DE410150AE100B21BFE /* Joiner.h in Headers */,
 				FFC06DE810150C1000B21BFE /* Source.h in Headers */,
 				FFC06E021015124000B21BFE /* Splitter.h in Headers */,
 				FFC06E091015148800B21BFE /* ChorusFactory.h in Headers */,
+				FFAF1093101F5792008339B5 /* ParameterComponent.h in Headers */,
+				FFAF1097101F590D008339B5 /* OscillatorParameters.h in Headers */,
+				FFAF1226101F6E0A008339B5 /* OscillatorChangeCallback.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +528,7 @@
 				FFC06DE510150AE100B21BFE /* Joiner.cpp in Sources */,
 				FFC06E031015124000B21BFE /* Splitter.cpp in Sources */,
 				FFC06E0A1015148800B21BFE /* ChorusFactory.cpp in Sources */,
+				FFAF1098101F590D008339B5 /* OscillatorParameters.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

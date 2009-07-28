@@ -31,29 +31,42 @@ Oscillator *Prototype :: create(Oscillator *parent, float samplesPerPeriod) {
 	return oscillator;
 }
 
+OscillatorType Prototype :: typeFromString(const std::string& value) {
+	if (value == "Sine") {
+		return kSineOscillator;
+	} else if (value == "Square") {
+		return kSquareOscillator;
+	} else if (value == "Saw") {
+		return kSawOscillator;
+	} else if (value == "Noise") {
+		return kNoiseOscillator;
+	}
+	return kSineOscillator;
+}
+
+OscillatorPrototype :: OscillatorPrototype() : mPrototypeSize(0) {
+	for (int i = 0; i < 4; ++i) {
+		mPrototypes[i] = NULL;
+	}
+}
+
 void OscillatorPrototype :: add(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime) {
 	Prototype *prototype = new Prototype(type, sampleRate, attackAmplitude, attackTime, decayAmplitude, decayTime, releaseTime);
 	mPrototypes[mPrototypeSize++] = prototype;
 }
 
-void OscillatorPrototype :: setAttack(float attackAmplitude) {
-	mPrototypes[mPrototypeSize-1]->setAttack(attackAmplitude);
-}
-
-void OscillatorPrototype :: setAttackTime(int attackTime) {
-	mPrototypes[mPrototypeSize-1]->setAttackTime(attackTime);
-}
-
-void OscillatorPrototype :: setDecay(float decayAmplitude) {
-	mPrototypes[mPrototypeSize-1]->setDecay(decayAmplitude);
-}
-
-void OscillatorPrototype :: setDecayTime(int decayTime) {
-	mPrototypes[mPrototypeSize-1]->setDecayTime(decayTime);
-}
-
-void OscillatorPrototype :: setReleaseTime(int releaseTime) {
-	mPrototypes[mPrototypeSize-1]->setReleaseTime(releaseTime);
+void OscillatorPrototype :: replace(int index, Prototype *prototype) {
+	Prototype *old = mPrototypes[index];
+	mPrototypes[index] = prototype;
+	if (old != NULL) {
+		delete old;
+	}
+	for (int i = 0; i < 4; ++i) {
+		if (mPrototypes[i] == NULL) {
+			mPrototypeSize = i;
+			break;
+		}
+	}
 }
 
 void OscillatorPrototype :: clear() {

@@ -38,5 +38,9 @@ float Oscillator :: inputValue() {
 	return mInput->sampleValue();
 }
 
+bool Oscillator :: inputIsPlaying() {
+	return mInput->isPlaying();
+}
+
 
 

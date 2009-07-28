@@ -64,42 +64,8 @@ void Simpleton::noteOff(const int32_t note) {
   }
 }
 
-OscillatorType Simpleton :: fromString(const std::string& value) {
-	if (value == "Sine") {
-		return kSineOscillator;
-	} else if (value == "Square") {
-		return kSquareOscillator;
-	} else if (value == "Saw") {
-		return kSawOscillator;
-	} else if (value == "Noise") {
-		return kNoiseOscillator;
-	}
-	return kSineOscillator;
-}
-
-void Simpleton::onOscillatorChange(const std::string& newType) {
-	mOscillatorPrototype->clear();
-	mOscillatorPrototype->add(fromString(newType), 44100, 1.0, 0, 0.0, 0, 0);
-}
-
-void Simpleton::onAttackChange(const float newAttack) {
-	mOscillatorPrototype->setAttack(newAttack);
-}
-
-void Simpleton::onAttackTimeChange(const int newAttackTime) {
-	mOscillatorPrototype->setAttackTime(newAttackTime);
-}
-
-void Simpleton::onDecayChange(const float newDecay) {
-	mOscillatorPrototype->setDecay(-newDecay);
-}
-
-void Simpleton::onDecayTimeChange(const int newDecayTime) {
-	mOscillatorPrototype->setDecayTime(newDecayTime);
-}
-
-void Simpleton::onReleaseTimeChange(const int newReleaseTime) {
-	mOscillatorPrototype->setReleaseTime(newReleaseTime);
+void Simpleton :: oscillatorChanged(int index, Prototype *prototype) {
+	mOscillatorPrototype->replace(index, prototype);
 }
 
 bool Simpleton :: playing() {

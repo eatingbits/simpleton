@@ -1,49 +1,66 @@
 #include "Parameters.h"
-#include "ParameterCallback.h"
+#include "ParameterComponent.h"
 
-void Parameters::add(Parameter* parameter) {
-  mParameters.push_back(parameter);
+void Parameters::add(ParameterComponent *component) {
+	mComponents.push_back(component);
 }
 
 void Parameters::addCallback(std::string name, ParameterCallback *callback) {
 	mCallbacks.insert(make_pair(name, callback));
 }
 
-void Parameters::addUpdate(std::string name, std::vector<std::string> names) {
-	mUpdates.insert(make_pair(name, names));	
-}
-
 const int Parameters::size() const {
-  return mParameters.size();
+	int size = 0;
+	for (unsigned int i = 0; i < mComponents.size(); i++) {
+		size += mComponents[i]->numberOfParameters();
+	}
+	return size;
 }
 
-Parameter* Parameters::getParameter(int index) {
-  return mParameters.at(index);
+ParameterComponent* Parameters::getComponent(int index) {
+	int current = 0;
+	for (unsigned int i = 0; i < mComponents.size(); ++i) {
+		current += mComponents[i]->numberOfParameters();
+		if (index < current) {
+			return mComponents[i];
+		}
+	}
+  return NULL;
+}
+
+int Parameters :: componentsParameterOffset(int index) {
+	int current = 0;
+	for (unsigned int i = 0; i < mComponents.size(); ++i) {
+		int next = current + mComponents[i]->numberOfParameters();
+		if (index < next) {
+			return index - current;
+		}
+		current = next;
+	}
+	return 0;
 }
 
 float Parameters::getParameterValue(int index) {
-  return getParameter(index)->getCurrentValue();
+  return getComponent(index)->getCurrentValue(componentsParameterOffset(index));
 }
 
 void Parameters::getParameterDisplay(int index, char *outBuffer) {
-  return getParameter(index)->getDisplay(outBuffer);
+  return getComponent(index)->getDisplay(componentsParameterOffset(index), outBuffer);
 }
 
 void Parameters::getParameterName(int index, char *outBuffer) {
-  strcpy(outBuffer, getParameter(index)->getName());
+  strcpy(outBuffer, getComponent(index)->getName(componentsParameterOffset(index)));
 }
 
 void Parameters::getParameterUnit(int index, char *outBuffer) {
-  strcpy(outBuffer, getParameter(index)->getUnit());
+  strcpy(outBuffer, getComponent(index)->getUnit(componentsParameterOffset(index)));
 }
 
 void Parameters::setParameter(int index, float newValue) {
-  Parameter *parameter = getParameter(index);
-	if (parameter) {
-		std::string name = parameter->getName();		
-		ParameterCallback *callback = getCallback(name);
-		parameter->onChange(newValue, callback);
-		update(name);
+  ParameterComponent *component = getComponent(index);
+	if (component) {
+		std::string name = component->getName(componentsParameterOffset(index));		
+		component->onChange(componentsParameterOffset(index), newValue);
 	}
 }
 
@@ -53,26 +70,4 @@ ParameterCallback *Parameters::getCallback(std::string name) {
 		return it->second;
 	}
 	return NULL;
-}
-
-void Parameters::update(const std::string& name) {
-	std::map<std::string, std::vector<std::string> >::iterator it = mUpdates.find(name);
-	if (it == mUpdates.end()) {
-		return;
-	}
-	
-	std::vector<std::string> namesToUpdate = it->second;
-	for (unsigned int i = 0; i < namesToUpdate.size(); i++) {
-		updateParameter(namesToUpdate.at(i));
-	}
-}
-
-void Parameters::updateParameter(const std::string& name) {
-	for (unsigned int i = 0; i < mParameters.size(); i++) {
-		Parameter *parameter = getParameter(i);
-		std::string parameterName = parameter->getName();
-		if (parameterName == name) {
-			parameter->update(getCallback(parameterName));
-		}
-	}
 }

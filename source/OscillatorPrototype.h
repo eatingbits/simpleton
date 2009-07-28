@@ -1,6 +1,8 @@
 #ifndef __OSCILLATOR_PROTOTYPE_H__
 #define	__OSCILLATOR_PROTOTYPE_H__	
 
+#include <string>
+
 class Oscillator;
 
 enum OscillatorType {
@@ -24,6 +26,8 @@ public:
 	void setReleaseTime(int releaseTime) { mReleaseTime = releaseTime; }
 	
 	Oscillator *create(Oscillator *parent, float samplesPerPeriod);
+	
+	static OscillatorType typeFromString(const std::string& name);
 private:
 	OscillatorType mType;
 	int mSampleRate;
@@ -36,8 +40,9 @@ private:
 
 class OscillatorPrototype {
 public:
-	OscillatorPrototype() : mPrototypeSize(0) {}
+	OscillatorPrototype();
 	void add(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime);		
+	void replace(int index, Prototype *prototype);
 	void clear();
 	Oscillator *create(float samplesPerPeriod);
 	

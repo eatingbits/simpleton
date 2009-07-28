@@ -2,10 +2,11 @@
 #define __ParameterFactory_h__
 
 class Parameters;
+class OscillatorChangeCallback;
 
 class ParameterFactory {
 public:
-	Parameters *createParameters();
+	Parameters *createParameters(OscillatorChangeCallback *oscillatorCallback);
 };
 
 #endif

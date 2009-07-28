@@ -8,4 +8,5 @@ public:
 	/* Silence doesn't need a previous value, so just terminate the chain */
 	float inputValue() { return 0.0; }
 private:
+	bool inputIsPlaying() { return false; }
 };

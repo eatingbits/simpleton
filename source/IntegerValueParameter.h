@@ -9,9 +9,8 @@ public:
   
   void getDisplay(char *outBuffer) const;
   const float getCurrentValue() const;
-	const int getCurrentIntValue() const;
-  void onChange(const float newValue, ParameterCallback *callback);
-	void update(ParameterCallback *callback);	
+	int intValue() const;
+  void onChange(const float newValue);
   
 private:
   const float mLowValue;

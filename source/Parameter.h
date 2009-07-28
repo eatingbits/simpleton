@@ -18,8 +18,7 @@ public:
   
   virtual void getDisplay(char *outBuffer) const = 0;
   virtual const float getCurrentValue() const = 0;
-  virtual void onChange(const float newValue, ParameterCallback *callback) = 0;
-	virtual void update(ParameterCallback *callback) = 0;
+  virtual void onChange(const float newValue) = 0;
 private:
 	
 	enum kFieldLengths {

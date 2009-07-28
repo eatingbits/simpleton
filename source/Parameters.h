@@ -5,13 +5,12 @@
 #include <string>
 #include <vector>
 
-#include "Parameter.h"
-
 class ParameterCallback;
+class ParameterComponent;
 
 class Parameters {
 public:
-  void add(Parameter* parameter);
+  void add(ParameterComponent *component);
 	void addCallback(std::string name, ParameterCallback *callback);
 	void addUpdate(std::string name, std::vector<std::string>);
   const int size() const;
@@ -22,14 +21,12 @@ public:
   void getParameterUnit(int index, char *outBuffer);
   void setParameter(int index, float newValue);
 private:
-  Parameter* getParameter(int index);
+  ParameterComponent* getComponent(int index);
 	ParameterCallback *getCallback(std::string name);
-	void update(const std::string& name);
-	void updateParameter(const std::string& name);
+	int componentsParameterOffset(int index);
   
-  std::vector<Parameter*> mParameters;
+  std::vector<ParameterComponent *> mComponents;
 	std::map<std::string, ParameterCallback *> mCallbacks;
-	std::map<std::string, std::vector<std::string> > mUpdates;
 };
 
 #endif

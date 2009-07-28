@@ -11,10 +11,11 @@
 #include "NoteList.h"
 #include "OscillatorPrototype.h"
 #include "Parameters.h"
+#include "OscillatorChangeCallback.h"
 
 class Oscillator;
 
-class Simpleton {
+class Simpleton : public OscillatorChangeCallback {
 public:
   Simpleton(const int32_t numOutputs);
   ~Simpleton();
@@ -23,18 +24,12 @@ public:
   void noteOn(int32_t note, int32_t velocity);
   void noteOff(int32_t note);	
 	
-	void onOscillatorChange(const std::string& newType);
-	void onAttackChange(const float newAttack);
-	void onAttackTimeChange(const int newAttackTime);
-	void onDecayChange(const float newDecay);
-	void onDecayTimeChange(const int newDecayTime);
-	void onReleaseTimeChange(const int newReleaseTime);
+	void oscillatorChanged(int index, Prototype *prototype);	
     
 private:
   bool playing();
   bool initialize();
-	
-	OscillatorType fromString(const std::string& value);
+
   
 	const int32_t mNumOutputs;
   

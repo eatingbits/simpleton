@@ -19,9 +19,10 @@ public:
 	void setEnvelope(Envelope *envelope) { mEnvelope = envelope; }
 	/* Returns the next sample value */
 	virtual float sampleValue();
-	virtual bool isPlaying() { return (mEnvelope != NULL && mEnvelope->isPlaying()); }
+	virtual bool isPlaying() { return inputIsPlaying() || (mEnvelope != NULL && mEnvelope->isPlaying()); }
 	bool isNoteOn() { return mNoteOn; }
 protected:
+	virtual bool inputIsPlaying();
 	/* Implemented by sub classes */
 	virtual float nextSampleValue() = 0;
 	/* Returns the current frequency modifier */
