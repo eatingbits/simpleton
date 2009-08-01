@@ -33,7 +33,7 @@ private:
 	const int mIndex;
 	NamedValueParameter *mType;
 	FloatValueParameter *mAttack;
-	FloatValueParameter *mDecay;
+	FloatValueParameter *mSustain;
 	IntegerValueParameter *mAttackDelay;
 	IntegerValueParameter *mDecayDelay;
 	IntegerValueParameter *mReleaseDelay;

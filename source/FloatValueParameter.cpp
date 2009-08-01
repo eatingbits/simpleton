@@ -10,7 +10,7 @@ mValue(0.0f)
 }
 
 void FloatValueParameter::getDisplay(char *outBuffer) const {
-  sprintf(outBuffer, "%3.2f", getCurrentValue());
+  sprintf(outBuffer, "%3.2f", floatValue());
 }
 
 float FloatValueParameter::floatValue() const {
