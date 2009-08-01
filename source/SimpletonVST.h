@@ -50,6 +50,7 @@ public:
 private:
 	Simpleton *mSimpleton;
 	Parameters *mParameters;
+	bool mInitialized;
 };
 
 #endif

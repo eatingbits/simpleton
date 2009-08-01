@@ -8,7 +8,7 @@
 
 class Oscillator : public OscillatorInput, public Source {
 public:
-	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL), mNoteOn(false)  {}
+	Oscillator(Oscillator* oscillator)  : mInput(oscillator), mFrequencyModifier(NULL), mEnvelope(NULL), mNoteOn(false), mVolume(1.0)  {}
 	virtual ~Oscillator();
 
 	void noteOn() { mNoteOn = true; if (mEnvelope != NULL) mEnvelope->noteOn(); if (mInput != NULL) mInput->noteOn(); }
@@ -17,6 +17,7 @@ public:
 	/* Sets a frequency modifier input */
 	void setFrequencyModifier(OscillatorInput *freqMod) { mFrequencyModifier = freqMod; }	
 	void setEnvelope(Envelope *envelope) { mEnvelope = envelope; }
+	void setVolume(float volume) { mVolume = volume; }
 	/* Returns the next sample value */
 	virtual float sampleValue();
 	virtual bool isPlaying() { return inputIsPlaying() || (mEnvelope != NULL && mEnvelope->isPlaying()); }
@@ -37,6 +38,7 @@ private:
 	OscillatorInput *mFrequencyModifier;
 	Envelope *mEnvelope;
 	bool mNoteOn;
+	float mVolume;
 };
 
 #endif

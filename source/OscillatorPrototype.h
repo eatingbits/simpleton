@@ -15,9 +15,9 @@ enum OscillatorType {
 
 class Prototype {
 public:
-	Prototype(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime) :
+	Prototype(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime, float volume) :
 		mType(type), mSampleRate(sampleRate), mAttackAmplitude(attackAmplitude), mAttackTime(attackTime),
-	mDecayAmplitude(decayAmplitude), mDecayTime(decayTime), mReleaseTime(releaseTime) {}
+	mDecayAmplitude(decayAmplitude), mDecayTime(decayTime), mReleaseTime(releaseTime), mVolume(volume) {}
 	
 	void setAttack(float attackAmplitude) { mAttackAmplitude = attackAmplitude; }
 	void setAttackTime(int attackTime) { mAttackTime = attackTime; }
@@ -36,6 +36,7 @@ private:
 	float mDecayAmplitude;
 	int mDecayTime;
 	int mReleaseTime;
+	float mVolume;
 };
 
 class OscillatorPrototype {

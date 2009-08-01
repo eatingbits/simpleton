@@ -7,7 +7,7 @@
 
 class FloatValueParameter : public Parameter {
 public:
-  FloatValueParameter(const char *name, const char *unit, const float lowValue, const float hiValue);
+  FloatValueParameter(const char *name, const char *unit, const float lowValue, const float hiValue, const float defaultValue);
   
   void getDisplay(char *outBuffer) const;
   const float getCurrentValue() const;

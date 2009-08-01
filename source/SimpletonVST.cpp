@@ -9,14 +9,15 @@
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
 	Simpleton *simpleton = new Simpleton(kNumOutputs);	
 	ParameterFactory factory;
-  Parameters *parameters = factory.createParameters(simpleton);
+  Parameters *parameters = factory.createParameters(simpleton, simpleton);
 	
-	return new SimpletonVST(audioMaster, simpleton, parameters);
+	SimpletonVST *vst = new SimpletonVST(audioMaster, simpleton, parameters);
+	return vst;
 }
 
 SimpletonVST::SimpletonVST(audioMasterCallback audioMaster, Simpleton *simpleton, Parameters *parameters)
 : AudioEffectX(audioMaster, kNumPrograms, parameters->size()),
-mSimpleton(simpleton), mParameters(parameters) 
+mSimpleton(simpleton), mParameters(parameters), mInitialized(false) 
 {
   if(audioMaster != NULL) {
     setNumInputs(kNumInputs);
@@ -25,12 +26,6 @@ mSimpleton(simpleton), mParameters(parameters)
     canProcessReplacing();
     isSynth();
   }
-	
-	for (int i = 0; i < parameters->size(); i++) {
-		beginEdit(i);
-		parameters->setParameter(i, parameters->getParameterValue(i));
-		endEdit(i);
-	}
   
   suspend();
 }

@@ -14,7 +14,7 @@ class OscillatorChangeCallback;
 
 class OscillatorParameters : public ParameterComponent {
 public:
-	OscillatorParameters(int index, OscillatorChangeCallback *callback);
+	OscillatorParameters(int index, OscillatorChangeCallback *callback, float defaultAttack, float defaultSustain);
 	
   const char *getName(int index) const;
   const char *getUnit(int index) const;
@@ -37,6 +37,7 @@ private:
 	IntegerValueParameter *mAttackDelay;
 	IntegerValueParameter *mDecayDelay;
 	IntegerValueParameter *mReleaseDelay;
+	FloatValueParameter *mVolume;
 	std::vector<Parameter *> mParameters;
 	OscillatorChangeCallback *mCallback;
 	

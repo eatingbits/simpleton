@@ -28,6 +28,7 @@ Oscillator *Prototype :: create(Oscillator *parent, float samplesPerPeriod) {
 	envelope->setRelease(mReleaseTime);
 	
 	oscillator->setEnvelope(envelope);
+	oscillator->setVolume(mVolume);
 	return oscillator;
 }
 
@@ -51,7 +52,7 @@ OscillatorPrototype :: OscillatorPrototype() : mPrototypeSize(0) {
 }
 
 void OscillatorPrototype :: add(OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime) {
-	Prototype *prototype = new Prototype(type, sampleRate, attackAmplitude, attackTime, decayAmplitude, decayTime, releaseTime);
+	Prototype *prototype = new Prototype(type, sampleRate, attackAmplitude, attackTime, decayAmplitude, decayTime, releaseTime, 1.0);
 	mPrototypes[mPrototypeSize++] = prototype;
 }
 

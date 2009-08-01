@@ -1,11 +1,11 @@
 #include "FloatValueParameter.h"
 
 FloatValueParameter::FloatValueParameter(const char *name, const char *unit,
-                                         const float lowValue, const float hiValue) :
+                                         const float lowValue, const float hiValue, const float defaultValue) :
 Parameter(name, unit),
 mLowValue(lowValue),
 mHiValue(hiValue),
-mValue(0.0f)
+mValue(defaultValue)
 {
 }
 

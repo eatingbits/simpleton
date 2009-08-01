@@ -2,11 +2,11 @@
 #include <cstdio>
 
 IntegerValueParameter::IntegerValueParameter(const char *name, const char *unit,
-                                         const int lowValue, const int highValue) :
+                                         const int lowValue, const int highValue, const float defaultValue) :
 Parameter(name, unit),
 mLowValue(lowValue),
 mHighValue(highValue),
-mValue(0.0f)
+mValue(defaultValue)
 {
 }
 

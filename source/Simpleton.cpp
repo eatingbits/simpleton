@@ -68,6 +68,10 @@ void Simpleton :: oscillatorChanged(int index, Prototype *prototype) {
 	mOscillatorPrototype->replace(index, prototype);
 }
 
+void Simpleton :: onChange(bool polyphony) {
+	noteList.setPolyphony(polyphony);
+}
+
 bool Simpleton :: playing() {
 	return (noteList.isPlaying());
 }

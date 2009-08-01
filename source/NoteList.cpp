@@ -45,7 +45,11 @@ float NoteList :: sampleValue() {
 		}
 		
 		for (int i = 0; i < mSize; ++i) {
-			value = mOscillators[i]->sampleValue();
+			if (mPolyphony) {
+				value += mOscillators[i]->sampleValue();
+			} else {
+				value = mOscillators[i]->sampleValue();
+			}
 		}
 	}
 	return value;

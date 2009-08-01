@@ -5,7 +5,7 @@
 
 class IntegerValueParameter : public Parameter {
 public:
-  IntegerValueParameter(const char *name, const char *unit, const int lowValue, const int highValue);
+  IntegerValueParameter(const char *name, const char *unit, const int lowValue, const int highValue, const float defaultValue);
   
   void getDisplay(char *outBuffer) const;
   const float getCurrentValue() const;

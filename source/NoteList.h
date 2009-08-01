@@ -5,7 +5,7 @@ class Source;
 
 class NoteList {
 public:
-  NoteList() : mSize(0) {}
+  NoteList() : mSize(0), mPolyphony(false) {}
   void add(int value, Source *source);
 	void remove(int value);
   int current() { return mElements[mSize-1]; }
@@ -14,10 +14,12 @@ public:
 	Source *getSource(int note);
 	Source *getCurrentSource() { return mOscillators[mSize-1]; }
 	float sampleValue();
+	void setPolyphony(bool polyphony) { mPolyphony = polyphony; }
 private:
   int mElements[128];
 	Source *mOscillators[128];
   int mSize;
+	bool mPolyphony;
 };
 
 #endif

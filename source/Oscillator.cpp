@@ -15,7 +15,8 @@ Oscillator :: ~Oscillator() {
 
 float Oscillator :: sampleValue() {
 	float previous = inputValue();
-	float nValue = previous + nextSampleValue();
+	float nValue = previous + nextSampleValue()  * mVolume;
+	
 	return nValue;
 }
 

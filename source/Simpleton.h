@@ -12,10 +12,11 @@
 #include "OscillatorPrototype.h"
 #include "Parameters.h"
 #include "OscillatorChangeCallback.h"
+#include "GeneralChangedCallback.h"
 
 class Oscillator;
 
-class Simpleton : public OscillatorChangeCallback {
+class Simpleton : public OscillatorChangeCallback, public GeneralChangedCallback {
 public:
   Simpleton(const int32_t numOutputs);
   ~Simpleton();
@@ -24,7 +25,8 @@ public:
   void noteOn(int32_t note, int32_t velocity);
   void noteOff(int32_t note);	
 	
-	void oscillatorChanged(int index, Prototype *prototype);	
+	void oscillatorChanged(int index, Prototype *prototype);
+	void onChange(bool polyphony);
     
 private:
   bool playing();
