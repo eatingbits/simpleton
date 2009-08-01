@@ -25,6 +25,7 @@ public:
 	void setDecayTime(int decayTime) { mDecayTime = decayTime; }
 	void setReleaseTime(int releaseTime) { mReleaseTime = releaseTime; }
 	
+	bool isSilent() { return mVolume < 0.02; }
 	Oscillator *create(Oscillator *parent, float samplesPerPeriod);
 	
 	static OscillatorType typeFromString(const std::string& name);

@@ -87,7 +87,9 @@ Oscillator *OscillatorPrototype :: create(float samplesPerPeriod) {
 	
 	for (int oscillator = 0; oscillator < mPrototypeSize; ++oscillator) {
 		Prototype *prototype = mPrototypes[oscillator];
-		current = prototype->create(current, samplesPerPeriod);
+		if (!prototype->isSilent()) {
+			current = prototype->create(current, samplesPerPeriod);
+		}
 	}
 	return current;
 }
