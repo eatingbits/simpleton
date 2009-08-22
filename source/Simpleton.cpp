@@ -5,6 +5,7 @@
 #include "Oscillator.h"
 #include "Source.h"
 #include "ChorusFactory.h"
+#include "LowPass.h"
 
 Simpleton::Simpleton(const int32_t numOutputs) : mNumOutputs(numOutputs)
 {
@@ -51,6 +52,7 @@ void Simpleton::noteOn(const int32_t note, const int32_t velocity) {
 	Source *source = oscillator;
 //	ChorusFactory factory;
 //	source = factory.create(4, 2, *oscillator);
+//	source = new LowPass(*source);
 	source->noteOn();
   noteList.add(note, source);
 }

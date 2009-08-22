@@ -231,6 +231,14 @@ VstInt32 SimpletonVST::processEvents (VstEvents* ev) {
 	return 1;
 }
 
+void SimpletonVST::init() {
+	beginEdit(0);
+	endEdit(0);
+}
+
 void SimpletonVST::processReplacing(float **inputs, float **outputs, VstInt32 samples) {
+	if (!mInitialized) {
+		init();
+	}
 	mSimpleton->requestSamples(outputs, samples);
 }

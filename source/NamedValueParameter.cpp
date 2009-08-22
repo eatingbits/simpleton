@@ -43,6 +43,10 @@ string NamedValueParameter :: selectedValue() const {
 	return mValues.at(valueToIndex(mValue));
 }
 
+int NamedValueParameter :: currentIndex() const {
+	return valueToIndex(getCurrentValue());
+}
+
 const float NamedValueParameter::getCurrentValue() const {
   return mValue;
 }

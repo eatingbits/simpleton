@@ -48,6 +48,8 @@ public:
   virtual void setProgramName(char *name);  
   virtual void setBlockSize(VstInt32 blockSize);
 private:
+	void init();
+	
 	Simpleton *mSimpleton;
 	Parameters *mParameters;
 	bool mInitialized;
