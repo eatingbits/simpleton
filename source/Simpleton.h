@@ -15,10 +15,11 @@
 #include "GeneralChangedCallback.h"
 
 class Oscillator;
+class EffectFactory;
 
 class Simpleton : public OscillatorChangeCallback, public GeneralChangedCallback {
 public:
-  Simpleton(const int32_t numOutputs);
+  Simpleton(const int32_t numOutputs, EffectFactory *effectFactory);
   ~Simpleton();
 	
 	void requestSamples(float **outputs, int32_t samples);
@@ -34,6 +35,7 @@ private:
 
   
 	const int32_t mNumOutputs;
+	EffectFactory *mEffectFactory;
   
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];

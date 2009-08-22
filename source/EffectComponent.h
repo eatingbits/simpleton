@@ -8,10 +8,11 @@ class NamedValueParameter;
 class IntegerValueParameter;
 class EffectParameterComponent;
 class Parameter;
+class EffectChangedCallback;
 
 class EffectComponent : public ParameterComponent {
 public:
-	EffectComponent();
+	EffectComponent(int slot, EffectChangedCallback *effectChanged);
 	
   const char *getName(int index) const;
   const char *getUnit(int index) const;
@@ -25,6 +26,9 @@ public:
 	
 private:
 	NamedValueParameter *createEffectSlot(const char *name);
+	
+	int mSlot;
+	EffectChangedCallback *mEffectChanged;
 	
 	NamedValueParameter *mEffectSlot;
 	EffectParameterComponent *mCurrentComponent;

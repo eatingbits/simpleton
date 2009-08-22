@@ -1,5 +1,7 @@
 #include "ChorusComponent.h"
 #include "IntegerValueParameter.h"
+#include "EffectChangedCallback.h"
+#include "ChorusFactory.h"
 
 ChorusComponent :: ChorusComponent() {
 	mNrOfVoices = new IntegerValueParameter("Voices", "", 1, 4, 1);
@@ -13,6 +15,7 @@ void ChorusComponent :: reset() {
 	mDelay->onChange(0.0);
 }
 
-void ChorusComponent :: onChange(int index, float newValue) {
-	EffectParameterComponent::onChange(index, newValue);
+Source *ChorusComponent :: create(Source *source) {
+	ChorusFactory factory;
+	return factory.create(mNrOfVoices->intValue(), mDelay->intValue(), *source);
 }

@@ -6,8 +6,9 @@
 #include "Source.h"
 #include "ChorusFactory.h"
 #include "LowPass.h"
+#include "EffectFactory.h"
 
-Simpleton::Simpleton(const int32_t numOutputs) : mNumOutputs(numOutputs)
+Simpleton::Simpleton(const int32_t numOutputs, EffectFactory *effectFactory) : mNumOutputs(numOutputs), mEffectFactory(effectFactory)
 {
 	mOscillatorPrototype = new OscillatorPrototype();
 //	mOscillatorPrototype->add(kSineOscillator, 44100, 1.6, 0, -1.6, 7, 4);
@@ -50,6 +51,7 @@ void Simpleton::noteOn(const int32_t note, const int32_t velocity) {
 	float currentNoteFreq = mMidiNoteFrequencies[note];
 	Oscillator *oscillator = mOscillatorPrototype->create(44100 / currentNoteFreq);
 	Source *source = oscillator;
+	source = mEffectFactory->createEffectChain(source);
 //	ChorusFactory factory;
 //	source = factory.create(4, 2, *oscillator);
 //	source = new LowPass(*source);

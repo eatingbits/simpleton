@@ -11,6 +11,7 @@ public:
   virtual const float getCurrentValue(int index) const { return 0; }
   virtual void onChange(int index, float newValue) {}
 	virtual void reset() {}
+	virtual Source *create(Source *source) { return source; }
 	
 };
 

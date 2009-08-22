@@ -4,8 +4,9 @@
 #include "EffectParameterComponent.h"
 #include "ChorusComponent.h"
 #include "DisabledComponent.h"
+#include "EffectChangedCallback.h"
 
-EffectComponent :: EffectComponent() {
+EffectComponent :: EffectComponent(int slot, EffectChangedCallback *effectChanged) : mSlot(slot), mEffectChanged(effectChanged) {
 	mEffectSlot = new NamedValueParameter("Effect", "");
 	mCurrentComponent = new DisabledComponent();	
 	add("Disabled", mCurrentComponent);
@@ -64,6 +65,7 @@ void EffectComponent :: onChange(int index, float newValue) {
 	} else {
 		mCurrentComponent->onChange(index - 1, newValue);
 	}
+	mEffectChanged->effectChanged(mSlot, mCurrentComponent);
 	
 /*	if (mPolyphony->getCurrentValue() > 0.5) {
 		mCallback->onChange(true);

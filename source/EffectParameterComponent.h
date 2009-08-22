@@ -3,10 +3,12 @@
 
 #include <vector>
 #include "ParameterComponent.h"
+#include "EffectPrototype.h"
 
 class Parameter;
+class Source;
 
-class EffectParameterComponent : public ParameterComponent {
+class EffectParameterComponent : public ParameterComponent, public EffectPrototype {
 public:
 	EffectParameterComponent();
 	

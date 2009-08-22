@@ -4,15 +4,16 @@
 #include "GeneralComponent.h"
 #include "EffectComponent.h"
 #include "ChorusComponent.h"
+#include "EffectChangedCallback.h"
 
-Parameters *ParameterFactory :: createParameters(OscillatorChangeCallback *oscillatorCallback, GeneralChangedCallback *generalCallback) {
+Parameters *ParameterFactory :: createParameters(OscillatorChangeCallback *oscillatorCallback, GeneralChangedCallback *generalCallback, EffectChangedCallback *effectChanged) {
 	Parameters *parameters = new Parameters();
   
 	parameters->add(new GeneralComponent(generalCallback));
 	
-	EffectComponent *effect1  = new EffectComponent();
+	EffectComponent *effect1  = new EffectComponent(0, effectChanged);
 	effect1->add("Chorus", new ChorusComponent());
-	EffectComponent *effect2 = new EffectComponent();
+	EffectComponent *effect2 = new EffectComponent(1, effectChanged);
 	effect2->add("Chorus", new ChorusComponent());
 	
 	
