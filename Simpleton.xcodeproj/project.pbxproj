@@ -35,6 +35,7 @@
 		FF2140230FEC1D8E00F1E481 /* NoiseOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */; };
 		FF624E08100A5276004DBAF3 /* IntegerValueParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = FF624E06100A5276004DBAF3 /* IntegerValueParameter.h */; };
 		FF624E09100A5276004DBAF3 /* IntegerValueParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF624E07100A5276004DBAF3 /* IntegerValueParameter.cpp */; };
+		FF6788641040528700CC533E /* EffectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6788631040528700CC533E /* EffectFactory.h */; };
 		FF6F785F102471F200CE14BE /* Decibel.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6F785D102471F200CE14BE /* Decibel.h */; };
 		FF6F7860102471F200CE14BE /* Decibel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF6F785E102471F200CE14BE /* Decibel.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
@@ -117,6 +118,7 @@
 		FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoiseOscillator.cpp; path = source/NoiseOscillator.cpp; sourceTree = "<group>"; };
 		FF624E06100A5276004DBAF3 /* IntegerValueParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntegerValueParameter.h; path = source/IntegerValueParameter.h; sourceTree = "<group>"; };
 		FF624E07100A5276004DBAF3 /* IntegerValueParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IntegerValueParameter.cpp; path = source/IntegerValueParameter.cpp; sourceTree = "<group>"; };
+		FF6788631040528700CC533E /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EffectFactory.h; path = source/EffectFactory.h; sourceTree = "<group>"; };
 		FF6F785D102471F200CE14BE /* Decibel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Decibel.h; path = source/Decibel.h; sourceTree = "<group>"; };
 		FF6F785E102471F200CE14BE /* Decibel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Decibel.cpp; path = source/Decibel.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				FFC06E081015148800B21BFE /* ChorusFactory.cpp */,
 				FF7CC6401025E75A00840323 /* LowPass.h */,
 				FF7CC6411025E75A00840323 /* LowPass.cpp */,
+				FF6788631040528700CC533E /* EffectFactory.h */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				FF7BF9591031FE1800219941 /* EffectParameterComponent.h in Headers */,
 				FF7BF95D1031FF8600219941 /* ChorusComponent.h in Headers */,
 				FF7BF998103202BE00219941 /* DisabledComponent.h in Headers */,
+				FF6788641040528700CC533E /* EffectFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
