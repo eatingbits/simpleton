@@ -1,5 +1,6 @@
 #include "NoteList.h"
 #include "Oscillator.h"
+#include <algorithm>
 #include <cstdlib>
 
 void NoteList :: add(int value, Source *source) {
@@ -52,6 +53,7 @@ float NoteList :: sampleValue() {
 			}
 		}
 	}
-	return value;
+  
+  return std::max(-1.0f, std::min(1.0f, value));
 }
 
