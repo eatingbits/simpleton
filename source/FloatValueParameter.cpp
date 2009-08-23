@@ -1,11 +1,12 @@
 #include "FloatValueParameter.h"
 
 FloatValueParameter::FloatValueParameter(const char *name, const char *unit,
-                                         const float lowValue, const float hiValue, const float defaultValue) :
+                                         const float lowValue, const float hiValue, const float defaultValue, Scaler<float> *scaler) :
 Parameter(name, unit),
 mLowValue(lowValue),
 mHiValue(hiValue),
-mValue(defaultValue)
+mValue(defaultValue),
+mScaler(scaler)
 {
 }
 
@@ -14,7 +15,7 @@ void FloatValueParameter::getDisplay(char *outBuffer) const {
 }
 
 float FloatValueParameter::floatValue() const {
-  return mValue * (mHiValue - mLowValue) + mLowValue;
+  return mScaler->scale(mValue, mLowValue, mHiValue);
 }
 
 const float FloatValueParameter::getCurrentValue() const {

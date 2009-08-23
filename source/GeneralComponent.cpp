@@ -6,12 +6,10 @@
 
 #include <string>
 #include <iostream>
-#include <pthread.h>
+#include "LinearScale.h"
 
 using std::string;
 using std::vector;
-using std::cout;
-using std::endl;
 
 GeneralComponent :: GeneralComponent(GeneralChangedCallback *generalCallback) : mCallback(generalCallback) {
 	
@@ -19,7 +17,7 @@ GeneralComponent :: GeneralComponent(GeneralChangedCallback *generalCallback) : 
 	mPolyphony->add("Off");
 	mPolyphony->add("On");
 	
-	mParameters.push_back(new IntegerValueParameter("Live 8 bug fix", "", 0, 0, 0));
+	mParameters.push_back(new IntegerValueParameter("Live 8 bug fix", "", 0, 0, 0, new LinearScale<int>()));
 	mParameters.push_back(mPolyphony);
 }
 
@@ -39,8 +37,7 @@ void GeneralComponent :: getDisplay(int index, char *outBuffer) const {
 	getParameter(index)->getDisplay(outBuffer);
 }
 
-const float GeneralComponent :: getCurrentValue(int index) const {
-	cout << "GetCurrentValue" << endl;	
+const float GeneralComponent :: getCurrentValue(int index) const {	
 	return getParameter(index)->getCurrentValue();
 }
 
@@ -48,10 +45,6 @@ void GeneralComponent :: onChange(int index, float newValue) {
 	getParameter(index)->onChange(newValue);
 
 	int choice = mPolyphony->currentIndex();
-	char buf[256];
-	mPolyphony->getDisplay(buf);
-	pthread_t id = pthread_self();
-	cout << id << " P: " << newValue << " " << index << " " << mPolyphony->getCurrentValue() << " c: " << choice << " d: " << buf << endl;
 	if (choice == 0) {
 		mCallback->onChange(false);
 	} else {

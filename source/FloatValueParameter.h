@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <cstdlib>
 #include "Parameter.h"
+#include "Scaler.h"
 
 class FloatValueParameter : public Parameter {
 public:
-  FloatValueParameter(const char *name, const char *unit, const float lowValue, const float hiValue, const float defaultValue);
+  FloatValueParameter(const char *name, const char *unit, const float lowValue, const float hiValue, const float defaultValue, Scaler<float> *scaler);
   
   void getDisplay(char *outBuffer) const;
   const float getCurrentValue() const;
@@ -18,6 +19,7 @@ private:
   const float mLowValue;
   const float mHiValue;
   float mValue;
+	Scaler<float> *mScaler;
 };
 
 #endif

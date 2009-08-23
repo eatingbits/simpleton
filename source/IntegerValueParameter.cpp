@@ -2,11 +2,12 @@
 #include <cstdio>
 
 IntegerValueParameter::IntegerValueParameter(const char *name, const char *unit,
-                                         const int lowValue, const int highValue, const float defaultValue) :
+                                         const int lowValue, const int highValue, const float defaultValue, Scaler<int> *scaler) :
 Parameter(name, unit),
 mLowValue(lowValue),
 mHighValue(highValue),
-mValue(defaultValue)
+mValue(defaultValue),
+mScaler(scaler)
 {
 }
 
@@ -15,13 +16,13 @@ void IntegerValueParameter::getDisplay(char *outBuffer) const {
 }
 
 const float IntegerValueParameter::getCurrentValue() const {
-  return (float) mValue * (mHighValue - mLowValue) + mLowValue;
+  return mValue;
 }
 
 int IntegerValueParameter :: intValue() const {
-	return mValue * (mHighValue - mLowValue) + mLowValue;
+	return mScaler->scale(mValue, mLowValue, mHighValue);
 }
 
-void IntegerValueParameter::onChange(const float newValue) {
+void IntegerValueParameter :: onChange(const float newValue) {
   mValue = newValue;
 }
