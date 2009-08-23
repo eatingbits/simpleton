@@ -5,7 +5,7 @@
 #include "LogarithmicScale.h"
 
 HighPassComponent :: HighPassComponent() {
-  mFrequency = new FloatValueParameter("Frequency", "Hz", 60, 18000, 0, new LogaritmicScale<float>());
+  mFrequency = new FloatValueParameter("Frequency", "Hz", 60, 18000, 0, new LogarithmicScale<float>());
   mResonance = new FloatValueParameter("Resonance", "", 0.1, 1.414213562373095, 0, new LinearScale<float>());
 	mParameters.push_back(mFrequency);
 	mParameters.push_back(mResonance);

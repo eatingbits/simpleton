@@ -45,6 +45,9 @@
 		FF6788661040537700CC533E /* EffectPrototype.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6788651040537700CC533E /* EffectPrototype.h */; };
 		FF678869104053D800CC533E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF678868104053D800CC533E /* EffectFactory.cpp */; };
 		FF6788761040551500CC533E /* EffectChangedCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6788751040551500CC533E /* EffectChangedCallback.h */; };
+		FF6DD435104193E5009CC635 /* LinearScale.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6DD434104193E5009CC635 /* LinearScale.h */; };
+		FF6DD44C104197D1009CC635 /* Scaler.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6DD44B104197D1009CC635 /* Scaler.h */; };
+		FF6DD4681041997B009CC635 /* LogarithmicScale.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6DD4671041997B009CC635 /* LogarithmicScale.h */; };
 		FF6F785F102471F200CE14BE /* Decibel.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6F785D102471F200CE14BE /* Decibel.h */; };
 		FF6F7860102471F200CE14BE /* Decibel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF6F785E102471F200CE14BE /* Decibel.cpp */; };
 		FF726F540F90B5500098B1B2 /* aeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = FF726F510F90B5500098B1B2 /* aeffect.h */; };
@@ -137,6 +140,9 @@
 		FF6788651040537700CC533E /* EffectPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EffectPrototype.h; path = source/EffectPrototype.h; sourceTree = "<group>"; };
 		FF678868104053D800CC533E /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EffectFactory.cpp; path = source/EffectFactory.cpp; sourceTree = "<group>"; };
 		FF6788751040551500CC533E /* EffectChangedCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EffectChangedCallback.h; path = source/EffectChangedCallback.h; sourceTree = "<group>"; };
+		FF6DD434104193E5009CC635 /* LinearScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinearScale.h; path = source/LinearScale.h; sourceTree = "<group>"; };
+		FF6DD44B104197D1009CC635 /* Scaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scaler.h; path = source/Scaler.h; sourceTree = "<group>"; };
+		FF6DD4671041997B009CC635 /* LogarithmicScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogarithmicScale.h; path = source/LogarithmicScale.h; sourceTree = "<group>"; };
 		FF6F785D102471F200CE14BE /* Decibel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Decibel.h; path = source/Decibel.h; sourceTree = "<group>"; };
 		FF6F785E102471F200CE14BE /* Decibel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Decibel.cpp; path = source/Decibel.cpp; sourceTree = "<group>"; };
 		FF726F510F90B5500098B1B2 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aeffect.h; path = pluginterfaces/vst2.x/aeffect.h; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		2461D3C71003CD0600290BBA /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
+				FF6DD433104193D0009CC635 /* Scaling */,
 				FFAF1094101F58F4008339B5 /* Components */,
 				FF8A4E51100A23B500190444 /* Implementations */,
 				FF6F785E102471F200CE14BE /* Decibel.cpp */,
@@ -307,6 +314,16 @@
 				FF726F530F90B5500098B1B2 /* vstfxstore.h */,
 			);
 			path = vstsdk2.4;
+			sourceTree = "<group>";
+		};
+		FF6DD433104193D0009CC635 /* Scaling */ = {
+			isa = PBXGroup;
+			children = (
+				FF6DD434104193E5009CC635 /* LinearScale.h */,
+				FF6DD44B104197D1009CC635 /* Scaler.h */,
+				FF6DD4671041997B009CC635 /* LogarithmicScale.h */,
+			);
+			name = Scaling;
 			sourceTree = "<group>";
 		};
 		FF8A4C401009DC4800190444 /* Oscillators */ = {
@@ -472,6 +489,9 @@
 				2417CBC71041830200761495 /* LowPassComponent.h in Headers */,
 				2417CC1410418B7100761495 /* HighPass.h in Headers */,
 				2417CC1C10418C3300761495 /* HighPassComponent.h in Headers */,
+				FF6DD435104193E5009CC635 /* LinearScale.h in Headers */,
+				FF6DD44C104197D1009CC635 /* Scaler.h in Headers */,
+				FF6DD4681041997B009CC635 /* LogarithmicScale.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

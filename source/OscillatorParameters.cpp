@@ -6,6 +6,7 @@
 #include "OscillatorChangeCallback.h"
 #include "Decibel.h"
 #include "LinearScale.h"
+#include "LogarithmicScale.h"
 
 #include <string>
 #include <sstream>
@@ -24,9 +25,9 @@ OscillatorParameters :: OscillatorParameters(int index, OscillatorChangeCallback
 	mVolume = new FloatValueParameter(parameterName("volume").c_str(), "dB", -60.0, 0.0, 1.0, new LinearScale<float>());
 	mAttack = new FloatValueParameter(parameterName("attack").c_str(), "dB", -60.0, 0.0, defaultAttack, new LinearScale<float>());
 	mSustain = new FloatValueParameter(parameterName("sustain").c_str(), "dB", -60.0, 0.0, defaultSustain, new LinearScale<float>());
-	mAttackDelay = new IntegerValueParameter(parameterName("attack delay").c_str(), "ms", 1, 200, 0.0, new LinearScale<int>());
-	mDecayDelay = new IntegerValueParameter(parameterName("decay delay").c_str(), "ms", 1, 500, 0.0, new LinearScale<int>());
-	mReleaseDelay = new IntegerValueParameter(parameterName("release delay").c_str(), "ms", 1, 2000, 0.0, new LinearScale<int>());
+	mAttackDelay = new IntegerValueParameter(parameterName("attack delay").c_str(), "ms", 1, 200, 0.0, new LogarithmicScale<int>());
+	mDecayDelay = new IntegerValueParameter(parameterName("decay delay").c_str(), "ms", 1, 500, 0.0, new LogarithmicScale<int>());
+	mReleaseDelay = new IntegerValueParameter(parameterName("release delay").c_str(), "ms", 10, 2000, 0.0, new LogarithmicScale<int>());
 	
 	mParameters.push_back(mType);
 	mParameters.push_back(mVolume);

@@ -4,7 +4,7 @@
 #include <cmath>
 
 template <typename T>
-class LogaritmicScale : public Scaler<T> {
+class LogarithmicScale : public Scaler<T> {
 public:
 	virtual T scale(float value, T min, T max) {  /* 0.1 , 50, 20000 */
 		float lmin = log10((float) min); 
