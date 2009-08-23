@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2417CBC71041830200761495 /* LowPassComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2417CBC51041830200761495 /* LowPassComponent.h */; };
 		2417CBC81041830200761495 /* LowPassComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2417CBC61041830200761495 /* LowPassComponent.cpp */; };
+		2417CC1410418B7100761495 /* HighPass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2417CC1210418B7100761495 /* HighPass.h */; };
+		2417CC1510418B7100761495 /* HighPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2417CC1310418B7100761495 /* HighPass.cpp */; };
+		2417CC1C10418C3300761495 /* HighPassComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2417CC1A10418C3300761495 /* HighPassComponent.h */; };
+		2417CC1D10418C3300761495 /* HighPassComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2417CC1B10418C3300761495 /* HighPassComponent.cpp */; };
 		24294B5E09914B7F0006810F /* aeffeditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5809914B7F0006810F /* aeffeditor.h */; };
 		24294B5F09914B7F0006810F /* audioeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24294B5909914B7F0006810F /* audioeffect.cpp */; };
 		24294B6009914B7F0006810F /* audioeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 24294B5A09914B7F0006810F /* audioeffect.h */; };
@@ -96,6 +100,10 @@
 		2407DE920899296600EB68BF /* Simpleton.vst */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Simpleton.vst; sourceTree = BUILT_PRODUCTS_DIR; };
 		2417CBC51041830200761495 /* LowPassComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LowPassComponent.h; path = source/LowPassComponent.h; sourceTree = "<group>"; };
 		2417CBC61041830200761495 /* LowPassComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LowPassComponent.cpp; path = source/LowPassComponent.cpp; sourceTree = "<group>"; };
+		2417CC1210418B7100761495 /* HighPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighPass.h; path = source/HighPass.h; sourceTree = "<group>"; };
+		2417CC1310418B7100761495 /* HighPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HighPass.cpp; path = source/HighPass.cpp; sourceTree = "<group>"; };
+		2417CC1A10418C3300761495 /* HighPassComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighPassComponent.h; path = source/HighPassComponent.h; sourceTree = "<group>"; };
+		2417CC1B10418C3300761495 /* HighPassComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HighPassComponent.cpp; path = source/HighPassComponent.cpp; sourceTree = "<group>"; };
 		24294B5809914B7F0006810F /* aeffeditor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = aeffeditor.h; path = public.sdk/source/vst2.x/aeffeditor.h; sourceTree = "<group>"; };
 		24294B5909914B7F0006810F /* audioeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = audioeffect.cpp; path = public.sdk/source/vst2.x/audioeffect.cpp; sourceTree = "<group>"; };
 		24294B5A09914B7F0006810F /* audioeffect.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = audioeffect.h; path = public.sdk/source/vst2.x/audioeffect.h; sourceTree = "<group>"; };
@@ -264,23 +272,23 @@
 			children = (
 				FFAF1094101F58F4008339B5 /* Components */,
 				FF8A4E51100A23B500190444 /* Implementations */,
+				FF6F785E102471F200CE14BE /* Decibel.cpp */,
 				2461D3C81003CD1C00290BBA /* FloatValueParameter.cpp */,
-				2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */,
 				FF624E07100A5276004DBAF3 /* IntegerValueParameter.cpp */,
-				2461D3CD1003CD1C00290BBA /* Parameters.cpp */,
+				2461D3CA1003CD1C00290BBA /* NamedValueParameter.cpp */,
 				FF8A4C511009E57300190444 /* ParameterFactory.cpp */,
+				2461D3CD1003CD1C00290BBA /* Parameters.cpp */,
+				FF6F785D102471F200CE14BE /* Decibel.h */,
+				FF6788751040551500CC533E /* EffectChangedCallback.h */,
 				2461D3C91003CD1C00290BBA /* FloatValueParameter.h */,
+				FF8A1BD310249BA200FA8F5E /* GeneralChangedCallback.h */,
 				FF624E06100A5276004DBAF3 /* IntegerValueParameter.h */,
 				2461D3CB1003CD1C00290BBA /* NamedValueParameter.h */,
-				2461D3CC1003CD1C00290BBA /* Parameter.h */,
-				2461D3CE1003CD1C00290BBA /* Parameters.h */,
-				FF8A4C501009E57300190444 /* ParameterFactory.h */,
-				FFAF1092101F5792008339B5 /* ParameterComponent.h */,
 				FFAF1225101F6E0A008339B5 /* OscillatorChangeCallback.h */,
-				FF6F785D102471F200CE14BE /* Decibel.h */,
-				FF6F785E102471F200CE14BE /* Decibel.cpp */,
-				FF8A1BD310249BA200FA8F5E /* GeneralChangedCallback.h */,
-				FF6788751040551500CC533E /* EffectChangedCallback.h */,
+				2461D3CC1003CD1C00290BBA /* Parameter.h */,
+				FFAF1092101F5792008339B5 /* ParameterComponent.h */,
+				FF8A4C501009E57300190444 /* ParameterFactory.h */,
+				2461D3CE1003CD1C00290BBA /* Parameters.h */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -329,14 +337,14 @@
 			isa = PBXGroup;
 			children = (
 				FF2140210FEC1D8E00F1E481 /* NoiseOscillator.cpp */,
-				FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */,
 				FF213F850FEC14D100F1E481 /* SawOscillator.cpp */,
-				FF213F840FEC14D100F1E481 /* SawOscillator.h */,
 				FFFC5C6E0FE407B6002E441D /* SilenceOscillator.cpp */,
-				FFFC5C6D0FE407B6002E441D /* SilenceOscillator.h */,
 				FF1ED9960F9BBA7100851E29 /* SineOscillator.cpp */,
-				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
 				FFFC5CBE0FE417A5002E441D /* SquareOscillator.cpp */,
+				FF2140200FEC1D8E00F1E481 /* NoiseOscillator.h */,
+				FF213F840FEC14D100F1E481 /* SawOscillator.h */,
+				FFFC5C6D0FE407B6002E441D /* SilenceOscillator.h */,
+				FF1ED9950F9BBA7100851E29 /* SineOscillator.h */,
 				FFFC5CBD0FE417A5002E441D /* SquareOscillator.h */,
 			);
 			name = Implementations;
@@ -364,6 +372,7 @@
 				FF7BF8F31031F7B700219941 /* EffectComponent.cpp */,
 				FF7BF9581031FE1800219941 /* EffectParameterComponent.cpp */,
 				FF8A1B871024994300FA8F5E /* GeneralComponent.cpp */,
+				2417CC1B10418C3300761495 /* HighPassComponent.cpp */,
 				2417CBC61041830200761495 /* LowPassComponent.cpp */,
 				FFAF1096101F590D008339B5 /* OscillatorParameters.cpp */,
 				FF7BF95B1031FF8600219941 /* ChorusComponent.h */,
@@ -371,6 +380,7 @@
 				FF7BF8F21031F7B700219941 /* EffectComponent.h */,
 				FF7BF9571031FE1800219941 /* EffectParameterComponent.h */,
 				FF8A1B861024994300FA8F5E /* GeneralComponent.h */,
+				2417CC1A10418C3300761495 /* HighPassComponent.h */,
 				2417CBC51041830200761495 /* LowPassComponent.h */,
 				FFAF1095101F590D008339B5 /* OscillatorParameters.h */,
 			);
@@ -384,11 +394,13 @@
 				FFC06DDE101509F600B21BFE /* Chorus.cpp */,
 				FFC06E081015148800B21BFE /* ChorusFactory.cpp */,
 				FF678868104053D800CC533E /* EffectFactory.cpp */,
+				2417CC1310418B7100761495 /* HighPass.cpp */,
 				FF7CC6411025E75A00840323 /* LowPass.cpp */,
 				FFC06DDD101509F600B21BFE /* Chorus.h */,
 				FFC06E071015148800B21BFE /* ChorusFactory.h */,
 				FF6788631040528700CC533E /* EffectFactory.h */,
 				FF6788651040537700CC533E /* EffectPrototype.h */,
+				2417CC1210418B7100761495 /* HighPass.h */,
 				FF7CC6401025E75A00840323 /* LowPass.h */,
 			);
 			name = Effects;
@@ -458,6 +470,8 @@
 				FF6788661040537700CC533E /* EffectPrototype.h in Headers */,
 				FF6788761040551500CC533E /* EffectChangedCallback.h in Headers */,
 				2417CBC71041830200761495 /* LowPassComponent.h in Headers */,
+				2417CC1410418B7100761495 /* HighPass.h in Headers */,
+				2417CC1C10418C3300761495 /* HighPassComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +623,8 @@
 				FF7BF95E1031FF8600219941 /* ChorusComponent.cpp in Sources */,
 				FF678869104053D800CC533E /* EffectFactory.cpp in Sources */,
 				2417CBC81041830200761495 /* LowPassComponent.cpp in Sources */,
+				2417CC1510418B7100761495 /* HighPass.cpp in Sources */,
+				2417CC1D10418C3300761495 /* HighPassComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

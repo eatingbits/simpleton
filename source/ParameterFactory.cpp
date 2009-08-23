@@ -4,6 +4,7 @@
 #include "GeneralComponent.h"
 #include "EffectComponent.h"
 #include "ChorusComponent.h"
+#include "HighPassComponent.h"
 #include "LowPassComponent.h"
 #include "EffectChangedCallback.h"
 
@@ -15,10 +16,12 @@ Parameters *ParameterFactory :: createParameters(OscillatorChangeCallback *oscil
 	EffectComponent *effect1  = new EffectComponent(0, effectChanged);
 	effect1->add("Chorus", new ChorusComponent());
   effect1->add("Lowpass", new LowPassComponent());
+  effect1->add("Highpass", new HighPassComponent());
 	EffectComponent *effect2 = new EffectComponent(1, effectChanged);
 	effect2->add("Chorus", new ChorusComponent());
   effect2->add("Lowpass", new LowPassComponent());
-	
+  effect2->add("Highpass", new HighPassComponent());
+
 	
 /*	slotOn(slot);
 	slotOff(slot);
