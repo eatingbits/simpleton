@@ -2,10 +2,11 @@
 #define __LowPass_h__
 
 #include "Source.h"
+#include <vector>
 
 class LowPass : public Source {
 public:
-	LowPass(Source& source) : mLastValue(0.0), mB(0.04), mSource(source) {}
+	LowPass(Source& source, float frequency, float resonance, int sampleRate);
 	float sampleValue();
 	bool isPlaying();
 	bool isNoteOn();
@@ -13,8 +14,17 @@ public:
 	void noteOff();
 	
 private:
-	float mLastValue;
-	float mB;
+  enum Constants { kNumPreviousPoints = 2 };
+  
+  void calculateCoefficients(float frequency, float resonance, int sampleRate);
+  
+  std::vector<float> mInputPoints;
+  std::vector<float> mOutputPoints;
+  
+  float mInputCoeff1;
+  float mInputCoeff2;
+  float mOutputCoeff1;
+  float mOutputCoeff2;
 	Source& mSource;
 };
 

@@ -5,7 +5,7 @@
 
 ChorusComponent :: ChorusComponent() {
 	mNrOfVoices = new IntegerValueParameter("Voices", "", 1, 4, 1);
-	mDelay = new IntegerValueParameter("Delay", "ms", 1, 200, 1);
+	mDelay = new IntegerValueParameter("Delay", "ms", 1, 30, 1);
 	mParameters.push_back(mNrOfVoices);
 	mParameters.push_back(mDelay);
 }
