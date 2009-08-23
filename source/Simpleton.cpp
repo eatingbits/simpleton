@@ -11,11 +11,6 @@
 Simpleton::Simpleton(const int32_t numOutputs, EffectFactory *effectFactory) : mNumOutputs(numOutputs), mEffectFactory(effectFactory)
 {
 	mOscillatorPrototype = new OscillatorPrototype();
-//	mOscillatorPrototype->add(kSineOscillator, 44100, 1.6, 0, -1.6, 7, 4);
-//	mOscillatorPrototype->add(kSquareOscillator, 44100, 1.6, 0, -1.6, 7, 4);
-//	mOscillatorPrototype->add(kSawOscillator, 44100, 1.0, 0, 0.0, 0, 0);
-//	mOscillatorPrototype->add(kNoiseOscillator, 44100, 0.5, 0, -0.5, 10, 0);
-//	mOscillatorPrototype->add(kSquareOscillator, 44100, 1.0, 0, -1.0, 6, 0);
 	mOscillatorPrototype->add(kSineOscillator, 44100, 1.0, 0, 0.0, 0, 0);
 	initialize();
 }
@@ -52,9 +47,6 @@ void Simpleton::noteOn(const int32_t note, const int32_t velocity) {
 	Oscillator *oscillator = mOscillatorPrototype->create(44100 / currentNoteFreq);
 	Source *source = oscillator;
 	source = mEffectFactory->createEffectChain(source);
-//	ChorusFactory factory;
-//	source = factory.create(4, 2, *oscillator);
-//	source = new LowPass(*source);
 	source->noteOn();
   noteList.add(note, source);
 }
