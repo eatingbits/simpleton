@@ -8,7 +8,9 @@
 #include "LowPassComponent.h"
 #include "EffectChangedCallback.h"
 
-Parameters *ParameterFactory :: createParameters(OscillatorChangeCallback *oscillatorCallback, GeneralChangedCallback *generalCallback, EffectChangedCallback *effectChanged) {
+Parameters *ParameterFactory :: createParameters(OscillatorChangeCallback *oscillatorCallback, 
+																								 GeneralChangedCallback *generalCallback, 
+																								 EffectChangedCallback *effectChanged) {
 	Parameters *parameters = new Parameters();
   
 	parameters->add(new GeneralComponent(generalCallback));

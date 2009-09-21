@@ -2,16 +2,13 @@
 #include "Simpleton.h"
 #endif
 
-#include "Oscillator.h"
 #include "Source.h"
 #include "ChorusFactory.h"
 #include "LowPass.h"
-#include "EffectFactory.h"
+#include "OscillatorFactory.h"
 
-Simpleton::Simpleton(const int32_t numOutputs, EffectFactory *effectFactory) : mNumOutputs(numOutputs), mEffectFactory(effectFactory)
-{
-	mOscillatorPrototype = new OscillatorPrototype();
-	mOscillatorPrototype->add(kSineOscillator, 44100, 1.0, 0, 0.0, 0, 0);
+Simpleton::Simpleton(const int32_t numOutputs, OscillatorFactory *oscillatorFactory) 
+: mNumOutputs(numOutputs), mOscillatorFactory(oscillatorFactory) {
 	initialize();
 }
 
@@ -44,11 +41,10 @@ bool Simpleton::initialize() {
 
 void Simpleton::noteOn(const int32_t note, const int32_t velocity) {
 	float currentNoteFreq = mMidiNoteFrequencies[note];
-	Oscillator *oscillator = mOscillatorPrototype->create(44100 / currentNoteFreq);
-	Source *source = oscillator;
-	source = mEffectFactory->createEffectChain(source);
-	source->noteOn();
-  noteList.add(note, source);
+	Source *oscillator = mOscillatorFactory->createOscillator(44100 / currentNoteFreq);
+	Source *oscillatorWithEffects = mOscillatorFactory->createEffectChain(oscillator);
+	oscillatorWithEffects->noteOn();
+  noteList.add(note, oscillatorWithEffects);
 }
 
 void Simpleton::noteOff(const int32_t note) {
@@ -58,10 +54,6 @@ void Simpleton::noteOff(const int32_t note) {
 			source->noteOff();
 		}
   }
-}
-
-void Simpleton :: oscillatorChanged(int index, Prototype *prototype) {
-	mOscillatorPrototype->replace(index, prototype);
 }
 
 void Simpleton :: onChange(bool polyphony) {

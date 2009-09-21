@@ -18,7 +18,7 @@ public:
   const float getCurrentValue() const;
   void onChange(const float newValue);
 	
-	std::string NamedValueParameter :: selectedValue() const;
+	std::string selectedValue() const;
 	int currentIndex() const;
   
 private:

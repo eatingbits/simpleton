@@ -1,5 +1,5 @@
 #include "NoteList.h"
-#include "Oscillator.h"
+#include "Source.h"
 #include <algorithm>
 #include <cstdlib>
 

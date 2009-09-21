@@ -7,6 +7,12 @@
 #include "Decibel.h"
 #include "LinearScale.h"
 #include "LogarithmicScale.h"
+#include "SineWave.h"
+#include "SquareWave.h"
+#include "SawWave.h"
+#include "NoiseWave.h"
+#include "ADSREnvelope.h"
+#include "WaveFormOscillator.h"
 
 #include <string>
 #include <sstream>
@@ -16,11 +22,16 @@ using std::string;
 using std::stringstream;
 
 OscillatorParameters :: OscillatorParameters(int index, OscillatorChangeCallback *callback, float defaultAttack, float defaultSustain) : mIndex(index), mCallback(callback) {
+	
+	mWaveForms.push_back(new SineWave());
+	mWaveForms.push_back(new SquareWave());
+	mWaveForms.push_back(new SawWave());
+	mWaveForms.push_back(new NoiseWave());
+	
 	mType = new NamedValueParameter(parameterName("type").c_str(), "");
-  mType->add("Sine");
-  mType->add("Square");
-  mType->add("Saw");
-	mType->add("Noise");
+	for (std::vector<WaveForm *>::iterator it = mWaveForms.begin(); it != mWaveForms.end(); ++it) {
+		mType->add((*it)->name().c_str());
+	}
 	
 	mVolume = new FloatValueParameter(parameterName("volume").c_str(), "dB", -60.0, 0.0, 1.0, new LinearScale<float>());
 	mAttack = new FloatValueParameter(parameterName("attack").c_str(), "dB", -60.0, 0.0, defaultAttack, new LinearScale<float>());
@@ -66,23 +77,25 @@ void OscillatorParameters :: onChange(int index, float newValue) {
 
 void OscillatorParameters :: update() {
 	if (mCallback != NULL) {
-		Decibel attack(mAttack->floatValue());
-		Decibel sustain(mSustain->floatValue());
-		Decibel volume(mVolume->floatValue());
-		float linearAttack = attack.toLinear();
-		float linearSustain = sustain.toLinear();
-		float linearDecay = linearSustain - linearAttack;
-		float linearVolume = volume.toLinear();
-		//OscillatorType type, int sampleRate, float attackAmplitude, int attackTime, float decayAmplitude, int decayTime, int releaseTime
-		Prototype *prototype = new Prototype(getType(), 44100, linearAttack, mAttackDelay->intValue(), linearDecay, 
-																				 mDecayDelay->intValue(), mReleaseDelay->intValue(), linearVolume);
-		mCallback->oscillatorChanged(mIndex, prototype);
+		mCallback->oscillatorChanged(mIndex, this);
 	}
 }	
 
-OscillatorType OscillatorParameters :: getType() const {
-	string selected = mType->selectedValue();
-	return Prototype::typeFromString(selected);
+Source *OscillatorParameters :: create(int samplesPerPeriod) {
+	Decibel attack(mAttack->floatValue());
+	Decibel sustain(mSustain->floatValue());
+	Decibel volume(mVolume->floatValue());
+	float linearAttack = attack.toLinear();
+	float linearSustain = sustain.toLinear();
+	float linearDecay = linearSustain - linearAttack;
+	float linearVolume = volume.toLinear();
+	
+	ADSREnvelope *envelope = new ADSREnvelope(44100);
+	envelope->setDecay(linearDecay, mDecayDelay->intValue());
+	envelope->setAttack(linearAttack, mAttackDelay->intValue());
+	envelope->setRelease(mReleaseDelay->intValue());
+	
+	return new WaveFormOscillator(mWaveForms.at(mType->currentIndex()), envelope, samplesPerPeriod, linearVolume);
 }
 
 Parameter* OscillatorParameters :: getParameter(int index) const {

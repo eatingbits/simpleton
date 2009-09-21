@@ -3,6 +3,7 @@
 
 #include "OscillatorPrototype.h"
 #include "ParameterComponent.h"
+#include "WaveForm.h"
 #include <vector>
 #include <string>
 
@@ -11,8 +12,9 @@ class NamedValueParameter;
 class IntegerValueParameter;
 class FloatValueParameter;
 class OscillatorChangeCallback;
+class Oscillator;
 
-class OscillatorParameters : public ParameterComponent {
+class OscillatorParameters : public ParameterComponent, public OscillatorPrototype {
 public:
 	OscillatorParameters(int index, OscillatorChangeCallback *callback, float defaultAttack, float defaultSustain);
 	
@@ -23,12 +25,14 @@ public:
   virtual void getDisplay(int index, char *outBuffer) const;
   virtual const float getCurrentValue(int index) const;
   virtual void onChange(int index, float newValue);	
+	virtual Source *create(int samplesPerPeriod);
 
 private:
 	Parameter* getParameter(int index) const;
 	std::string parameterName(const std::string& name);
 	OscillatorType getType() const;
 	void update();
+	static OscillatorType typeFromString(const std::string& name);
 	
 	const int mIndex;
 	NamedValueParameter *mType;
@@ -39,6 +43,7 @@ private:
 	IntegerValueParameter *mReleaseDelay;
 	FloatValueParameter *mVolume;
 	std::vector<Parameter *> mParameters;
+	std::vector<WaveForm *> mWaveForms;
 	OscillatorChangeCallback *mCallback;
 	
 };

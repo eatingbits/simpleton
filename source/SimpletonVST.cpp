@@ -2,16 +2,16 @@
 #include "Parameters.h"
 #include "ParameterFactory.h"
 #include "Simpleton.h"
-#include "EffectFactory.h"
+#include "OscillatorFactory.h"
 #include <cstdio>
 #include <vector>
 #include <string>
 
 AudioEffect* createEffectInstance(audioMasterCallback audioMaster) {
-	EffectFactory *effectFactory = new EffectFactory();
-	Simpleton *simpleton = new Simpleton(kNumOutputs, effectFactory);	
+	OscillatorFactory *oscillatorFactory = new OscillatorFactory();
+	Simpleton *simpleton = new Simpleton(kNumOutputs, oscillatorFactory);	
 	ParameterFactory factory;
-  Parameters *parameters = factory.createParameters(simpleton, simpleton, effectFactory);
+  Parameters *parameters = factory.createParameters(oscillatorFactory, simpleton, oscillatorFactory);
 	
 	SimpletonVST *vst = new SimpletonVST(audioMaster, simpleton, parameters);
 	return vst;

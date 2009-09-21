@@ -9,24 +9,23 @@
 #endif
 
 #include "NoteList.h"
-#include "OscillatorPrototype.h"
 #include "Parameters.h"
+#include "OscillatorPrototype.h"
 #include "OscillatorChangeCallback.h"
 #include "GeneralChangedCallback.h"
 
 class Oscillator;
-class EffectFactory;
+class OscillatorFactory;
 
-class Simpleton : public OscillatorChangeCallback, public GeneralChangedCallback {
+class Simpleton : public GeneralChangedCallback {
 public:
-  Simpleton(const int32_t numOutputs, EffectFactory *effectFactory);
+  Simpleton(const int32_t numOutputs, OscillatorFactory *oscillatorFactory);
   ~Simpleton();
 	
 	void requestSamples(float **outputs, int32_t samples);
   void noteOn(int32_t note, int32_t velocity);
   void noteOff(int32_t note);	
 	
-	void oscillatorChanged(int index, Prototype *prototype);
 	void onChange(bool polyphony);
     
 private:
@@ -35,14 +34,11 @@ private:
 
   
 	const int32_t mNumOutputs;
-	EffectFactory *mEffectFactory;
+	OscillatorFactory *mOscillatorFactory;
   
   // Note frequencies for all MIDI notes.  Generated during initialization
   float mMidiNoteFrequencies[128];
   NoteList noteList;
-	
-  OscillatorType mCurrentOscillator;	
-	OscillatorPrototype *mOscillatorPrototype;
 };
 
 #endif
